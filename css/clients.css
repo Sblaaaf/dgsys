@@ -1,0 +1,53 @@
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.clients-section {
+    padding: 4rem 0;
+    background-color: #ffffff;
+}
+
+.clients-title {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #B0B0B0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.logos-slider {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.logos-track {
+    display: flex;
+    width: fit-content;
+    animation: scroll 30s linear infinite;
+}
+
+.logos-slider img {
+    height: 40px;
+    margin: 0 40px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.logos-slider img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .logos-slider img {
+        height: 30px;
+        margin: 0 25px;
+    }
+}

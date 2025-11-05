@@ -1,0 +1,338 @@
+/* === 3. Header Top Bar === */
+.header-top-bar {
+    background-color: #E8F7FD;
+    /* background: linear-gradient(110deg, #21366A 0%, #00AEE8 100%); */
+    color: #21366A;
+    padding: 0.4rem 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    
+    /* Animation douce à la disparition */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Classe JS pour masquer la top-bar au scroll */
+.header-top-bar.is-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.top-bar-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.top-bar-container span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.top-bar-container i {
+    color: #00AEE8;
+}
+
+
+/* === 4. Header & Navigation === */
+.site-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    padding: 0.8rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Nouvel état au scroll */
+.site-header.is-sticky {
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    width: auto;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+}
+
+.header-logo img {
+    height: 100px;
+    width: auto;
+    margin-top: -30px;
+    margin-bottom: -30px;
+    transition: height 0.3s ease, margin 0.3s ease;
+}
+
+.site-header.is-sticky .header-logo img {
+    height: 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.header-logo span {
+    font-family: 'Poppins', sans-serif;
+    color: #B0B0B0;
+    font-size: 1.5rem;
+    font-weight: 900;
+    width: auto;
+}
+
+.site-header.is-sticky .header-logo span {
+    font-size: 1rem;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Espace entre les liens */
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #21366A;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+/* Petite animation "soulignement" au survol */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #00AEE8; 
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #00AEE8;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Flèche sur le lien du megamenu */
+.nav-link .fa-chevron-down {
+    font-size: 0.7rem;
+    margin-left: 0.3rem;
+    transition: transform 0.3s ease;
+}
+/* Rotation de la flèche quand le menu est ouvert */
+.nav-link.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Bouton "Devis" mis en avant */
+.nav-item-cta {
+    margin-left: 1rem;
+}
+
+
+/* === 4. Megamenu === */
+.megamenu {
+    display: none;
+    position: absolute;
+    z-index: 999; /* En dessous du header, mais au-dessus du reste */
+    left: 0;
+    right: 0;
+    top: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1); /* Ombre uniquement en bas */
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border: 1px solid #e9ecef;
+    border-top: 0;
+    
+    /* Animation d'apparition */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Classe JS pour afficher le menu */
+.megamenu.is-open {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.megamenu-container {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.megamenu-column {
+    flex: 1; 
+}
+
+.megamenu-column.megamenu-promo {
+    flex-basis: 300px;
+    flex-grow: 0;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.megamenu-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #21366A;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #E8F7FD;
+    padding-bottom: 0.5rem;
+
+    /* min-height: 3.2rem; */
+}
+
+.megamenu-list li a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #344767;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.megamenu-list li a:hover {
+    background-color: #E8F7FD;
+    color: #00AEE8; 
+}
+
+.megamenu-list li a i {
+    color: #00AEE8;
+    font-size: 0.9rem;
+    width: 20px; 
+    text-align: center;
+}
+
+.megamenu-promo img {
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+}
+.megamenu-promo h4 {
+    color: #21366A;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+.megamenu-promo p {
+    font-size: 0.85rem;
+    color: #626262;
+    margin-bottom: 1rem;
+}
+
+
+/* === 5. Styles Mobile (Hamburger) === */
+.mobile-nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #21366A;
+    z-index: 1001;
+}
+
+.mobile-nav-toggle .icon-close {
+    display: none;
+}
+
+/* Quand le menu mobile est ouvert */
+.mobile-nav-toggle.is-open .icon-open {
+    display: none;
+}
+.mobile-nav-toggle.is-open .icon-close {
+    display: block;
+}
+
+
+/* === 6. Responsive (Point de rupture à 992px) === */
+@media (max-width: 992px) {
+    /* Cache la top-bar sur mobile */
+    .header-top-bar {
+        display: none;
+    }
+
+    /* Affiche le bouton hamburger */
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    /* Cache la nav principale */
+    .primary-navigation {
+        display: none;
+        position: fixed;
+        inset: 0; /* Prend tout l'écran */
+        background-color: rgba(255, 255, 255, 0.98);
+        padding-top: 6rem; /* Espace pour le header */
+    }
+
+    /* Classe JS pour afficher le menu mobile */
+    .primary-navigation.is-open {
+        display: block;
+    }
+
+    /* Centre la nav mobile */
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        font-size: 1.5rem; /* Liens plus gros sur mobile */
+        padding: 0.5rem 1rem;
+    }
+    
+    .nav-link:hover::after {
+        width: 0; /* Pas de soulignement sur mobile */
+    }
+
+    .nav-item-cta {
+        margin-left: 0;
+        margin-top: 1.5rem;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    /* Cache le megamenu (on gérera les sous-menus différemment sur mobile) */
+    .has-megamenu {
+        display: none; /* Simplifié pour l'instant */
+    }
+    
+    .megamenu-container {
+        flex-direction: column;
+    }
+    .megamenu-column.megamenu-promo {
+        display: none; /* On cache la promo sur mobile pour simplifier */
+    }
+}

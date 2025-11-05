@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Avantages – Bloc autonome</title>
+<style>
+  :root{
+    --bg:#f5fbff;
+    --ink:#26366c;
+    --muted:#5b6b81;
+    --brand:#1dafe9;
+    --ring:#e6edf5;
+    --white:#ffffff;
+    --radius-xl:28px;
+    --radius-lg:20px;
+    --shadow:0 16px 50px rgba(38,54,108,.12);
+    --shadow-sm:0 10px 30px rgba(38,54,108,.08);
+  }
+  *{box-sizing:border-box;transition:all .6s cubic-bezier(.4,0,.2,1)}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+
+  section.avantages{position:relative;padding:80px 20px}
+  .container{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
+  @media (min-width:1024px){.container{grid-template-columns:1.05fr .8fr;gap:64px}}
+
+  /* Cartes gauche */
+  .stack{display:flex;flex-direction:column;gap:26px}
+  .card{position:relative;background:var(--white);border:1px solid var(--ring);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:22px 22px 18px 22px;overflow:hidden;cursor:pointer;transition:all 1s cubic-bezier(.25,.8,.25,1); order:0;}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(29,175,233,.3)}
+  .thumb{position:absolute;top:12px;left:12px;width:46px;height:46px;border-radius:12px;object-fit:cover;box-shadow:0 6px 16px rgba(0,0,0,.08);border:2px solid var(--white);transition:transform .3s ease;z-index:2}
+  .card:hover .thumb{animation:shake 0.4s ease-in-out}
+
+  @keyframes shake {
+    0% { transform:translate(0, 0) rotate(0); }
+    25% { transform:translate(2px, -2px) rotate(-2deg); }
+    50% { transform:translate(-2px, 2px) rotate(2deg); }
+    75% { transform:translate(1px, -1px) rotate(-1deg); }
+    100% { transform:translate(0, 0) rotate(0); }
+  }
+
+  /* Shine diagonal lent */
+  .card::after{content:"";position:absolute;top:0;left:-150%;width:250%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.7) 50%,rgba(255,255,255,0) 100%);opacity:0;transition:opacity .8s ease,transform 2.2s ease}
+  .card:hover::after{opacity:1;transform:translateX(100%)}
+
+  .content{margin-left:72px;position:relative;z-index:3}
+  .title{margin:0 0 6px;font-size:20px;font-weight:800;color:var(--ink)}
+  .desc{margin:0 0 8px;color:var(--muted);line-height:1.6}
+  .cta{margin-top:2px;display:inline-flex;gap:8px;align-items:center;color:var(--brand);font-weight:700;text-decoration:none}
+  .cta:hover{text-decoration:underline}
+  .readmore{display:block;margin-top:6px;color:var(--brand);font-weight:600;font-size:14px;cursor:pointer;text-decoration:underline;}
+
+  /* États étendus/réduits */
+  .card.expanded{order:-1;padding:28px;border-color:var(--brand);box-shadow:0 22px 60px rgba(29,175,233,.28)}
+  .card.collapsed{order:99;opacity:.9}
+  .card.collapsed .desc,.card.collapsed .cta,.card.collapsed .full{display:none}
+  .card.expanded .full{display:block}
+  .full{display:none;margin-top:10px;color:#2b3c62}
+  .full p{margin:0 0 10px}
+  .full ul{margin:0 0 10px 18px}
+  .full h4{margin:14px 0 8px;font-size:16px}
+
+  /* Colonne droite */
+  .composite{position:relative}
+  .board{position:relative;border-radius:var(--radius-xl);padding:18px;background:rgba(255,255,255,.8);backdrop-filter:blur(6px);box-shadow:var(--shadow);border:1px solid var(--ring);border-bottom:6px solid var(--brand);max-height:500px;overflow:hidden}
+  .grid{display:grid;grid-template-columns:1fr;gap:12px;height:100%}
+  @media (min-width:520px){.grid{grid-template-columns:1fr 1fr}}
+  .tile{border-radius:16px;background:#fff;border:1px solid var(--ring);box-shadow:var(--shadow-sm);min-height:120px;overflow:hidden}
+  .tile.large{grid-column:1/-1;min-height:200px}
+  .tile img{width:100%;height:100%;object-fit:cover;display:block}
+
+  .note{position:absolute;right:-18px;bottom:-18px;width:min(340px,80vw);background:rgba(255,255,255,.96);border:1px solid var(--ring);border-radius:16px;box-shadow:var(--shadow);padding:16px}
+  .note h4{margin:0 0 8px;font-size:16px;font-weight:800}
+  .note ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.5}
+
+  .head{text-align:center;margin:-10px auto 34px}
+  .head h2{font-size:clamp(28px,4vw,40px);margin:0 0 8px;font-weight:900}
+  .head p{margin:0;color:var(--muted)}
+</style>
+</head>
+<body>
+  <section class="avantages" id="avantages">
+    <div class="head">
+      <h2>Des avantages concrets au quotidien</h2>
+      <p>Productivité, fidélisation et maîtrise des pertes — sans complexité.</p>
+    </div>
+
+    <div class="container">
+      <div class="stack" id="featureStack">
+        <article class="card" data-key="kds">
+          <img class="thumb" src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=200&q=60" alt="Cuisine" />
+          <div class="content">
+            <h3 class="title">Plus de productivité en cuisine et en salle</h3>
+            <p class="desc">Pilotez la préparation et le service depuis la <strong>caisse enregistreuse</strong> : bons de fabrication, envois cuisine, KDS et rappels tracés.</p>
+            <a class="cta" href="#">Écran KDS <span>→</span></a>
+            <span class="readmore">Lire plus</span>
+            <div class="full">
+              <h4>Écran KDS : la chaîne de préparation sans friction</h4>
+              <p>Affichage des commandes en temps réel, priorisation des tickets, minuteurs de délai, consolidation par poste (froid/chaud/pâtisserie) et rappel visuel en cas de retards.</p>
+              <ul>
+                <li>Routage automatique par catégories et mods.</li>
+                <li>Statuts cuisinier/servi synchronisés avec la caisse.</li>
+                <li>Mode rush avec agrégation d’items identiques.</li>
+              </ul>
+              <p>Compatible tablettes et moniteurs cuisine, en réseau local ou cloud.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-key="fidelite">
+          <img class="thumb" src="https://images.unsplash.com/photo-1556745753-b2904692b3cd?auto=format&fit=crop&w=200&q=60" alt="Fidélité" />
+          <div class="content">
+            <h3 class="title">Fidélisez vos meilleurs clients</h3>
+            <p class="desc">Points et comptes fidélité connectés, <strong>SMS / email</strong>, cumul par ticket et usage multi-site.</p>
+            <a class="cta" href="#">Fidélisation <span>→</span></a>
+            <span class="readmore">Lire plus</span>
+            <div class="full">
+              <h4>Fidélisation DGsys : plus de récurrence, simplement</h4>
+              <p>Créez des programmes à points, par paliers ou par montant. Identifiez les VIP, relancez les inactifs et mesurez le ROI directement dans la caisse.</p>
+              <ul>
+                <li>Cartes démat’ (QR) + import/export des comptes.</li>
+                <li>Campagnes SMS/Email segmentées (ZeroSix).</li>
+                <li>Multi-site : solde et avantages synchronisés.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-key="stocks">
+          <img class="thumb" src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=200&q=60" alt="Stocks" />
+          <div class="content">
+            <h3 class="title">Réduisez la perte de marchandises</h3>
+            <p class="desc">Suivi des <strong>stocks</strong>, seuils d’alerte et inventaires rapides pour une production toujours au plus juste.</p>
+            <a class="cta" href="#">Gestion des stocks <span>→</span></a>
+            <span class="readmore">Lire plus</span>
+            <div class="full">
+              <h4>Stocks & fiches techniques : produire juste, sans gaspiller</h4>
+              <p>Transformations, recettes et coefficients ; déduction automatique à la vente ; inventaires flash par scan.</p>
+              <ul>
+                <li>Alertes seuils, ruptures probables, écarts d’inventaire.</li>
+                <li>Exports comptables (Sage/EBP) et traçabilité TVA.</li>
+                <li>Lecture balances & monnayeurs compatibles.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="composite">
+        <div class="board">
+          <div class="grid">
+            <div class="tile large">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=70" alt="Cuisine professionnelle" />
+            </div>
+            <div class="tile">
+              <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=900&q=70" alt="Terminal tactile" />
+            </div>
+            <div class="tile">
+              <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=70" alt="Connectique et accessoires" />
+            </div>
+          </div>
+        </div>
+        <aside class="note">
+          <h4>Modules connectés</h4>
+          <ul>
+            <li>Click & Collect</li>
+            <li>Monnayeurs Glory</li>
+            <li>ZéroSix Fidélité</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      const section = document.getElementById('avantages');
+      const cards = Array.from(document.querySelectorAll('.stack .card'));
+
+      function activate(card){
+        cards.forEach(c => {
+          const isActive = c === card;
+          c.classList.toggle('expanded', isActive);
+          c.classList.toggle('collapsed', !isActive);
+        });
+        section.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+
+      cards.forEach(card => {
+        card.addEventListener('click', (e)=>{
+          if(e.target.closest('a.cta') || e.target.classList.contains('readmore')) e.preventDefault();
+          activate(card);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

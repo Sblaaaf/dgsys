@@ -1,0 +1,127 @@
+/* === Tarifs Section === */
+.tarifs-section {
+    padding: 6rem 0;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.tarifs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.tarif-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarif-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.tarif-card.is-highlighted {
+    border: 2px solid #00AEE8;
+    box-shadow: 0 8px 25px rgba(0, 174, 232, 0.2);
+}
+
+.tarif-card.is-highlighted .card-header {
+    background-color: #00AEE8;
+    color: #ffffff;
+}
+
+.tarif-card.is-highlighted .card-header h3 {
+    color: #ffffff;
+}
+
+.tarif-card.is-highlighted .card-header .price span {
+    color: #ffffff;
+}
+
+.tarif-card .card-header {
+    background-color: #f8f9fa;
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.tarif-card .card-header h3 {
+    font-size: 1.5rem;
+    color: #21366A;
+    margin-bottom: 0.5rem;
+}
+
+.tarif-card .card-header .price {
+    font-size: 1.1rem;
+    color: #626262;
+}
+
+.tarif-card .card-header .price span {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #00AEE8;
+}
+
+.tarif-card .card-body {
+    padding: 2rem 1.5rem;
+    flex-grow: 1; /* Permet au body de prendre l'espace restant */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tarif-card .card-body ul {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.tarif-card .card-body li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: #344767;
+}
+
+.tarif-card .card-body li i {
+    color: #00AEE8;
+    font-size: 1.1rem;
+}
+
+.tarif-card .card-body li.unavailable {
+    color: #b0b0b0;
+}
+
+.tarif-card .card-body li.unavailable i {
+    color: #b0b0b0;
+}
+
+.tarif-card .btn-primary {
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rental-tarifs-section {
+        padding: 4rem 0;
+    }
+    .tarifs-grid {
+        grid-template-columns: 1fr;
+    }
+    .tarif-card .card-header {
+        padding: 1.5rem 1rem;
+    }
+    .tarif-card .card-body {
+        padding: 1.5rem 1rem;
+    }
+}

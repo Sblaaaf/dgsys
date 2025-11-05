@@ -1,0 +1,187 @@
+/* === 1. Styles Globaux & Reset === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #1f2a44;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+/* Styles généraux pour les titres de section */
+.section-title {
+    font-family: 'open sans', sans-serif;
+    font-size: 2.5rem;
+    color: #21366A;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #626262;
+    max-width: 800px;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #21366A; 
+}
+
+/* Classe utilitaire pour les lecteurs d'écran */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+
+/* === 2. Boutons (Styles de base) === */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #00AEE8;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 174, 232, 0.2);
+}
+.btn-primary:hover {
+    background-color: #21366A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(9, 58, 75, 0.3);
+}
+
+.btn-secondary {
+    background-color: #E8F7FD; 
+    color: #00AEE8;
+    border: 1px solid #00AEE8;
+}
+.btn-secondary:hover {
+    background-color: #d6f0fc;
+    transform: translateY(-2px);
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    border: 1px solid #21366A;
+    color: #21366A;
+}
+.btn-outline-secondary:hover {
+    background-color: #21366A;
+    border-color: #21366A;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-ghost-white {
+    background-color: #ffffff;
+    color: #21366A; 
+    border: 1px solid transparent;
+    border-color: #ffffff;
+    box-shadow: none;
+}
+.btn-ghost-white:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    transform: translateY(-2px);
+}
+
+/* === 3. Typographie (Homogène) === */
+h1, h2, h3, h4, h5, h6 {
+    color: #21366A; 
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.5px;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 2.8rem); /* 32px à 45px */
+}
+
+h2 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem); /* 29px à 38px */
+}
+
+h3 {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h4 {
+    font-size: 1.1rem; /* 17.6px */
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.5;
+    color: #344767;
+}
+
+/* Classe utilitaire pour espacer des enfants */
+.stack-lg {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.stack-md {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+}
+.stack-sm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

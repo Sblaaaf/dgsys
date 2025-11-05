@@ -1,0 +1,135 @@
+/* === Secteur Section === */
+.secteur-section {
+    padding: 6rem 0;
+    background-color: #ffffff;
+}
+
+.secteur-split-view {
+    display: grid;
+    grid-template-columns: 1fr 400px; /* Colonne de gauche flexible, colonne de droite fixe */
+    gap: 3rem;
+    align-items: start; /* Aligne les éléments en haut */
+    max-width: 1200px; /* Limite la largeur du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 0 1rem; /* Padding horizontal */
+}
+
+/* --- Panneau de gauche (Prévisualisation) --- */
+.secteur-preview-pane {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    min-height: 500px; /* Hauteur minimale pour un bon affichage */
+}
+
+.secteur-preview-content {
+    position: absolute;
+    inset: 0; /* Prend toute la place du parent */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.secteur-preview-content.is-active {
+    opacity: 1;
+}
+
+.secteur-preview-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: #ffffff;
+}
+
+.preview-text h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.preview-text p {
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    max-width: 80%;
+}
+
+/* --- Panneau de droite (Liste des métiers) --- */
+.secteur-list-pane {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Espacement entre les éléments de la liste */
+}
+
+.secteur-trigger-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.secteur-trigger-item:hover {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+}
+
+.secteur-trigger-item.is-active {
+    background-color: #E8F7FD;
+    border-color: #00AEE8;
+    box-shadow: 0 4px 15px rgba(0, 174, 232, 0.1);
+}
+
+.secteur-trigger-item i {
+    font-size: 1.2rem;
+    color: #00AEE8;
+}
+
+.secteur-trigger-item span {
+    flex-grow: 1; /* Permet au texte de prendre l'espace disponible */
+    font-weight: 700;
+    color: #21366A;
+}
+
+.secteur-trigger-item .arrow {
+    font-size: 0.8rem;
+    color: #b0b0b0;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.secteur-trigger-item.is-active .arrow {
+    color: #00AEE8;
+    transform: translateX(3px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .secteur-split-view {
+        grid-template-columns: 1fr; /* Passe à une seule colonne sur les écrans plus petits */
+        gap: 2rem;
+    }
+    .secteur-preview-pane {
+        min-height: 350px; /* Ajuste la hauteur minimale sur mobile */
+    }
+    .preview-text {
+        padding: 1.5rem; /* Réduit le padding du texte de prévisualisation */
+    }
+    .preview-text h3 {
+        font-size: 1.5rem; /* Ajuste la taille du titre */
+    }
+    .preview-text p {
+        font-size: 1rem; /* Ajuste la taille du paragraphe */
+        max-width: 100%; /* Permet au paragraphe de prendre toute la largeur */
+    }
+}

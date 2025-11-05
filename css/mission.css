@@ -1,0 +1,80 @@
+/* === Our Mission Section === */
+.our-mission-section {
+    padding: 6rem 0;
+    background-color: #f8f9fa;
+    text-align: left;
+}
+
+.mission-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.mission-item {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mission-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.mission-icon-wrapper {
+    background-color: #E8F7FD;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.mission-item i {
+    font-size: 1.8rem;
+    color: #00AEE8;
+}
+
+.mission-item h3 {
+    font-size: 1.2rem;
+    color: #21366A;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.mission-item p {
+    font-size: 0.95rem;
+    color: #626262;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .our-mission-section {
+        padding: 4rem 0;
+    }
+    .mission-items {
+        grid-template-columns: 1fr; /* Une colonne sur mobile */
+    }
+    .mission-item {
+        padding: 1.5rem;
+    }
+    .mission-icon-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+    .mission-item h3 {
+        font-size: 1.1rem;
+    }
+}

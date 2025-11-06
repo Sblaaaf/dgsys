@@ -196,15 +196,15 @@ p {
 .stack-lg {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 .stack-md {
     display: flex;
     flex-direction: column;
-    gap: 1rem; 
+    gap: 1.5rem; 
 }
 .stack-sm {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
 }

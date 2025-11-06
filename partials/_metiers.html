@@ -1,29 +1,32 @@
 <section class="metiers-accordion-section" id="metiers-accordion">
-    <img src="images\file_00000000d2bc7243b71436882b285ae3.png" alt="" class="metiers-decor-top">
-    <div class="metiers-layout-flex">
-        <!-- Colonne de gauche : Texte d'introduction -->
-        <div class="metiers-header-container">
-            <div class="metiers-header">
-                <h2 class="section-title">Nos solutions par métier</h2>
-                <div class="metiers-intro-text">
-                    <p>Chaque activité a ses spécificités. Découvrez comment DGsys s'adapte à la vôtre avec une caisse enregistreuse pensée pour vous.</p>
-                    <p>Nous vous comprenons et adaptons nos solutions d'encaissements et accompagnons les boulangers, restaurateurs, commerçants, snacks, fleuristes, boucheries et tous les métiers nécessitant une caisse tactile performante.</p>
-                    <p><strong>Parcourez nos métiers pour plus de détails.</strong></p>
-                </div>
-            </div>
+    <!-- Nouvelle colonne de gauche : Texte d'introduction -->
+    <div class="metiers-intro-header">
+        <h2 class="section-title">Nos solutions par métier</h2>
+        <div class="metiers-intro-text">
+            <p>Chaque activité a ses spécificités. Découvrez comment DGsys s'adapte à la vôtre avec une caisse enregistreuse pensée pour vous.</p>
         </div>
+    </div>
+    <div class="metiers-layout-flex">
 
-        <!-- Colonne de droite : Cartes qui débordent -->
+        <!-- Colonne de droite : Contenu principal avec cartes -->
         <div class="metiers-main-content">
             <div class="metiers-controls">
-                <div class="metiers-nav-arrows">
-                    <button class="scroll-arrow prev" aria-label="Faire défiler vers la gauche"><i class="fas fa-chevron-left"></i></button>
-                    <button class="scroll-arrow next" aria-label="Faire défiler vers la droite"><i class="fas fa-chevron-right"></i></button>
-                </div>
+                <button class="scroll-arrow prev" aria-label="Faire défiler vers la gauche"><i class="fas fa-chevron-left"></i></button>
+                <button class="scroll-arrow next" aria-label="Faire défiler vers la droite"><i class="fas fa-chevron-right"></i></button>
             </div>
             <!-- Conteneur avec défilement -->
             <div class="metiers-scroll-container">
                 <div class="metiers-cards-wrapper" id="metiers-cards-wrapper">
+                    <!-- Nouvelle carte d'introduction -->
+                    <div class="metier-card is-intro-card" style="--bg-image: url('images/dgsys-office.jpg');">
+                        <div class="card-collapsed-content">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="card-expanded-content">
+                            <p><strong>Faites défiler pour explorer nos métiers.</strong></p>
+                            <i class="fas fa-arrow-right scroll-indicator"></i>
+                        </div>
+                    </div>
                     <div class="metier-card" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2025/10/AdobeStock_499890148-scaled.jpeg');">
                         <div class="card-collapsed-content">
                             <i class="fas fa-bread-slice"></i>
@@ -144,7 +147,7 @@
                         </div>
                     </div>
 
-                    <div class="metier-card" style="--bg-image: url('https://images.unsplash.com/photo-1593113646773-975f21938065?q=80&w=800&auto=format&fit=crop');">
+                    <div class="metier-card" style="--bg-image: url('https://images.unsplash.com/photo-1593113646773-bd66b664c8a4?q=80&w=800&auto=format&fit=crop');">
                         <div class="card-collapsed-content">
                             <i class="fas fa-hamburger"></i>
                             <h3 class="vertical-title">Snack</h3>

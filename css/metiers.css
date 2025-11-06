@@ -8,21 +8,40 @@
 .metiers-layout-flex {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 3rem; /* Espace entre le header et le carrousel sur mobile */
 }
 
 @media (min-width: 992px) {
     .metiers-layout-flex {
         flex-direction: row;
         align-items: flex-end;
-        /* On utilise le padding pour simuler la gouttière gauche du container */
-        padding-left: calc((100vw - 1200px) / 2);
+        padding-left: calc((100vw - 1200px) / 2); /* Aligne le contenu avec le reste du site */
     }
 }
 
-/* Conteneur pour le header, placé dans la grille */
-.metiers-header-container {
+/* Nouveau conteneur pour le titre et l'intro */
+.metiers-intro-header {
     padding: 0 1rem;
+}
+/* Correction: La media query était mal imbriquée */
+@media (min-width: 992px) {
+    .metiers-intro-header {
+        flex-basis: 450px; /* Largeur fixe pour le texte d'intro sur desktop */
+        flex-shrink: 0;
+        /* Ajustement pour aligner le texte avec le haut des cartes */
+        padding-bottom: 1rem; /* Correspond au padding-top du wrapper */
+        margin-bottom: 1rem; /* Correspond au margin-bottom des contrôles */
+        display: flex; flex-direction: column; justify-content: flex-end;
+    }
+}
+@media (min-width: 992px) {
+    .metiers-intro-header {
+        flex-basis: 450px; /* Largeur fixe pour le texte d'intro sur desktop */
+        flex-shrink: 0;
+        /* Ajustement pour aligner le texte avec le haut des cartes */
+        padding-bottom: 1rem; /* Correspond au padding-top du wrapper */
+        margin-bottom: 1rem; /* Correspond au margin-bottom des contrôles */
+        display: flex; flex-direction: column; justify-content: flex-end;
 }
 @media (min-width: 992px) {
     .metiers-header-container {
@@ -31,16 +50,17 @@
     }
 }
 
-/* --- En-tête et contrôles --- */
-.metiers-header {
+/* --- En-tête du nouveau conteneur --- */
+.metiers-intro-header .section-title {
     text-align: start; 
 }
 
+/* Texte d'introduction */
 .metiers-intro-text {
     color: #626262;
     line-height: 1.6;
 }
-.metiers-intro-text p { margin-bottom: 1rem; }
+.metiers-intro-text p { margin-bottom: 1rem; } /* Garde l'espacement entre les paragraphes */
 
 /* --- Contenu principal (image + cartes) --- */
 .metiers-main-content {
@@ -49,7 +69,7 @@
 @media (min-width: 992px) {
     .metiers-main-content {
         flex-grow: 1; 
-        min-width: 0;
+        min-width: 0; /* Permet au flex item de rétrécir */
     }
 }
 
@@ -63,7 +83,7 @@
     gap: 1rem; /* Un peu plus d'espace pour mieux voir l'effet */
     /* La hauteur doit être suffisante pour la carte agrandie + le débordement */
     height: 450px; 
-    padding: 1rem 2rem; /* Padding pour l'esthétique et le débordement */
+    padding: 1rem calc((100vw - 1200px) / 2); /* Centre le contenu */
     /* Comportement de défilement */
     overflow-x: auto;
     /* IMPORTANT: Permet aux cartes agrandies de déborder verticalement */
@@ -82,15 +102,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 0.5rem;
-    margin: 0 0 1rem 0;
-    padding: 0 2rem;
-}
-
-
-/* --- Flèches de navigation --- */
-.metiers-nav-arrows {
-    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Aligné avec le contenu */
+    margin: 0 auto 1rem auto;
     gap: 0.5rem;
 }
 
@@ -138,11 +152,12 @@
     background-size: cover;
     background-position: center;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    scroll-snap-align: start;
-    cursor: pointer;
+    scroll-snap-align: center; /* Centrer les cartes lors du snap */
+    cursor: pointer; /* Les cartes sont de nouveau cliquables */
 }
 
-.metier-card:hover {
+/* État ouvert/actif ou survolé */
+ .metier-card.is-active {
     width: 400px;
     height: 360px;
     transform: scale(1.05);
@@ -159,7 +174,7 @@
     border-radius: inherit;
     transition: all 0.5s ease;
 }
-.metier-card:hover::before {
+.metier-card.is-active::before {
     opacity: 0;
 }
 
@@ -199,7 +214,7 @@
     font-weight: 800; 
     text-transform: uppercase;
 }
-.metier-card:hover .card-collapsed-content { 
+.metier-card.is-active .card-collapsed-content { 
     opacity: 0; 
     transform: rotate(180deg) translateY(-20px);
 }
@@ -221,7 +236,58 @@
     border-radius: 1rem;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
-.metier-card:hover .card-expanded-content { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+
+.metier-card.is-active .card-expanded-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+/* Styles spécifiques pour la carte d'introduction */
+.metier-card.is-intro-card .card-collapsed-content {
+    writing-mode: horizontal-tb; /* Pour l'icône seule */
+    transform: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.metier-card.is-intro-card .card-collapsed-content i {
+    transform: none;
+    font-size: 3rem;
+    color: #00AEE8;
+}
+
+.metier-card.is-intro-card {
+    cursor: pointer; /* Elle est cliquable comme les autres */
+    background-color: #f4f8fa; /* Fond clair pour l'intro */
+    border: 1px solid #e6edf5;
+    width: 200px; /* Taille par défaut plus grande pour l'intro */
+    height: 320px;
+    transform: none; /* Pas de scale par défaut */
+    box-shadow: none; /* Pas d'ombre par défaut */
+}
+
+.is-intro-card.is-active .card-expanded-content {
+    background-color: transparent;
+    color: #21366A;
+    box-shadow: none;
+    bottom: auto;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+.is-intro-card .card-expanded-content .section-title {
+    font-size: 2rem;
+}
+
+.is-intro-card .card-expanded-content p {
+    font-size: 1.1rem;
+    text-align: center;
+}
+.is-intro-card .card-expanded-content .scroll-indicator {
+    font-size: 2rem;
+    color: #00AEE8;
+}
 
 .card-expanded-header {
     display: flex;

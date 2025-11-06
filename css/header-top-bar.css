@@ -1,7 +1,7 @@
 /* === Header Top Bar === */
 .header-top-bar {
-    position: relative; /* Crée un contexte d'empilement */
-    z-index: 3; /* Doit être supérieur au z-index du body::before (qui est 2) */
+    position: relative; 
+    z-index: 3;
     background-color: #E8F7FD;
     color: #21366A;
     padding: 0.4rem 0;

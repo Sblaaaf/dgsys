@@ -13,6 +13,23 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #1f2a44;
     line-height: 1.6;
+    background-color: transparent;
+}
+
+/* flou en haut pour header sticky */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 3rem;
+    z-index: 2; 
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+    /* masque */
+    mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%); 
 }
 
 .container {
@@ -121,6 +138,12 @@ a {
     border-color: #21366A;
     color: #ffffff;
     transform: translateY(-2px);
+}
+.btn-outline-secondary.is-active {
+    background-color: #21366A;
+    color: #ffffff;
+    border-color: #21366A;
+    /* box-shadow: 0 4px 15px rgba(33, 54, 106, 0.2); */
 }
 
 .btn-ghost-white {

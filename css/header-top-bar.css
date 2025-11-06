@@ -1,0 +1,38 @@
+/* === Header Top Bar === */
+.header-top-bar {
+    position: relative; /* Crée un contexte d'empilement */
+    z-index: 3; /* Doit être supérieur au z-index du body::before (qui est 2) */
+    background-color: #E8F7FD;
+    color: #21366A;
+    padding: 0.4rem 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    
+    /* Animation douce à la disparition */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Classe JS pour masquer la top-bar au scroll */
+.header-top-bar.is-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.top-bar-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.top-bar-container span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.top-bar-container i {
+    color: #00AEE8;
+}

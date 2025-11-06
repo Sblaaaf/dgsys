@@ -28,9 +28,9 @@
 .spider-circle {
     position: absolute;
     background-color: #ffffff;
-    margin: 10%;
-    width: 80%;
-    height: 80%;
+    margin: 12.5%;
+    width: 75%;
+    height: 75%;
     border: 2px solid #cdd3e0;
     border-radius: 50%;
 }
@@ -122,8 +122,8 @@
 
 /* Patte 1 (Haut) */
 .group-right .spider-leg:nth-child(1) { top: calc(50% - 180px); transition-delay: 0.1s; }
-.group-right .spider-leg:nth-child(1)::before { left: 10px; width: 150px; } /* Ligne H */
-.group-right .spider-leg:nth-child(1)::after  { left: 10px; top: 0; height: 180px; } /* Ligne V */
+.group-right .spider-leg:nth-child(1)::before { left: 10px; width: 150px; }
+.group-right .spider-leg:nth-child(1)::after  { left: 10px; top: 0; height: 180px; }
 .group-right .spider-leg:nth-child(1) .leg-label { left: 150px; }
 
 /* Patte 2 */
@@ -152,8 +152,8 @@
 
 /* Patte 6 */
 .group-right .spider-leg:nth-child(6) { top: calc(50% + 120px); transition-delay: 0.6s; }
-.group-right .spider-leg:nth-child(6)::before { left: 50px;width: 200px; }
-.group-right .spider-leg:nth-child(6)::after  { left: 50px; bottom: 0; height: 120px; }
+.group-right .spider-leg:nth-child(6)::before { left: 80px; width: 150px; }
+.group-right .spider-leg:nth-child(6)::after  { left: 50px; bottom: -8px; rotate: -30deg; height: 120px; }
 .group-right .spider-leg:nth-child(6) .leg-label { left: 200px; }
 
 /* Patte 7 (Bas) */
@@ -172,8 +172,8 @@
 
 /* Patte 2 */
 .group-left .spider-leg:nth-child(2) { top: calc(50% - 120px); transition-delay: 0.9s; }
-.group-left .spider-leg:nth-child(2)::before { left: 50px; width: 200px; }
-.group-left .spider-leg:nth-child(2)::after  { left: 50px; top: 0; height: 120px; }
+.group-left .spider-leg:nth-child(2)::before { left: 80px; width: 150px; }
+.group-left .spider-leg:nth-child(2)::after  { left: 50px; top: -8px; rotate: 30deg; height: 120px; }
 .group-left .spider-leg:nth-child(2) .leg-label { left: 200px; }
 
 /* Patte 3 */
@@ -196,8 +196,8 @@
 
 /* Patte 6 */
 .group-left .spider-leg:nth-child(6) { top: calc(50% + 120px); transition-delay: 1.3s; }
-.group-left .spider-leg:nth-child(6)::before { left: 50px; width: 200px; }
-.group-left .spider-leg:nth-child(6)::after  { left: 50px; bottom: 0; height: 120px; }
+.group-left .spider-leg:nth-child(6)::before { left: 80px; width: 150px; }
+.group-left .spider-leg:nth-child(6)::after  { left: 50px; bottom: -8px; rotate: -30deg; height: 120px; }
 .group-left .spider-leg:nth-child(6) .leg-label { left: 200px; }
 
 /* Patte 7 (Bas) */
@@ -237,12 +237,13 @@
 .spider-leg:hover::before,
 .spider-leg:hover::after {
     background-color: #21366A;
+    transition: all 0.4s ease;
 }
 
-.spider-leg:hover > .spider-circle {
+/* Au survol d'une patte, on cible le cercle central grâce à :has() */
+.spider-container:has(.spider-leg:hover) .spider-circle {
     color: #ffffff;
     border-color: #21366A;
-    box-shadow: inset 0 0 30px rgba(33, 54, 106, 0.4);
 }
 
 /* Animations */

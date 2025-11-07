@@ -7,6 +7,7 @@ import { initStickyHeader } from './sticky-header.js';
 import { initSecteurHover } from './secteurs-hover.js';
 import { initMetiers } from './metiers.js';
 import { initMetiersPremium } from './metiers2.js';
+import { initMetiersCarousel } from './metiers3.js'; 
 import { initActivitesAnimation } from './activites.js';
 import { initAvantagesSection } from './avantage.js';
 
@@ -26,5 +27,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     initMetiersPremium();
     initActivitesAnimation();
     initAvantagesSection();
+    initMetiersCarousel();
 
 });

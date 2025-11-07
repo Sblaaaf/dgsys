@@ -65,6 +65,22 @@
     .c14 { background: #52b69a; }
     .c15 { background: #f8f9fa; color: #0f1a38; }
 
+    .t1 {background-color: chartreuse;}
+    .t2 {background-color: gold;}
+    .t3 {background-color: orange;}
+    .t4 {background-color: tomato;}
+    .t5 {background-color: violet;}
+    .t6 {background-color: turquoise;}
+    .t7 {background-color: lightgreen;}
+    .t8 {background-color: coral;}
+    .t9 {background-color: plum;}
+    .t10{background-color: khaki;}
+    .t11{background-color: lightblue;}
+    .t12{background-color: peachpuff;}
+    .t13{background-color: lavender;}
+    .t14{background-color: lightgray;}
+    .t15{background-color: white;}
+
     /* Mosaïque */
     .mosaic {
     display: grid;
@@ -133,4 +149,110 @@
     .btn-all:hover {
     transform: translateX(-50%) scale(1.03);
     }
+
+    /* Radios/positions */
+    input[type=radio] {
+        position:absolute;
+        opacity:0;
+        pointer-events:none
+    }
+
+    #s1:checked ~ .stage .c1,
+    #s2:checked ~ .stage .c2,
+    #s3:checked ~ .stage .c3,
+    #s4:checked ~ .stage .c4,
+    #s5:checked ~ .stage .c5,
+    #s6:checked ~ .stage .c6,
+    #s7:checked ~ .stage .c7,
+    #s8:checked ~ .stage .c8,
+    #s9:checked ~ .stage .c9,
+    #s10:checked ~ .stage .c10,
+    #s11:checked ~ .stage .c11,
+    #s12:checked ~ .stage .c12,
+    #s13:checked ~ .stage .c13,
+    #s14:checked ~ .stage .c14,
+    #s15:checked ~ .stage .c15 {
+    transform:translateX(0) translateZ(0) rotateY(0) scale(1);
+    z-index:12;
+    }
+
+    /* gauche proche */
+    #s1:checked ~ .stage .c15,
+    #s2:checked ~ .stage .c1,
+    #s3:checked ~ .stage .c2,
+    #s4:checked ~ .stage .c3,
+    #s5:checked ~ .stage .c4,
+    #s6:checked ~ .stage .c5,
+    #s7:checked ~ .stage .c6,
+    #s8:checked ~ .stage .c7,
+    #s9:checked ~ .stage .c8,
+    #s10:checked ~ .stage .c9,
+    #s11:checked ~ .stage .c10,
+    #s12:checked ~ .stage .c11,
+    #s13:checked ~ .stage .c12,
+    #s14:checked ~ .stage .c13,
+    #s15:checked ~ .stage .c14{
+    transform:translateX(calc(-1*var(--gap))) translateZ(calc(-1*var(--depth))) rotateY(var(--tilt)) scale(var(--side));
+    filter:brightness(.96) contrast(1.02)
+    }
+
+    /* gauche loin */
+    #s1:checked ~ .stage .c15,
+    #s2:checked ~ .stage .c1,
+    #s3:checked ~ .stage .c2,
+    #s4:checked ~ .stage .c3,
+    #s5:checked ~ .stage .c4,
+    #s6:checked ~ .stage .c5,
+    #s7:checked ~ .stage .c6,
+    #s8:checked ~ .stage .c7,
+    #s9:checked ~ .stage .c8,
+    #s10:checked ~ .stage .c9,
+    #s11:checked ~ .stage .c10,
+    #s12:checked ~ .stage .c11,
+    #s13:checked ~ .stage .c12,
+    #s14:checked ~ .stage .c13,
+    #s15:checked ~ .stage .c14{
+    transform:translateX(calc(-2*var(--gap))) translateZ(calc(-2*var(--depth))) rotateY(var(--tilt)) scale(var(--far));opacity:.86
+    }
+
+    /* droite proche */
+    #s1:checked ~ .stage .c14,
+    #s2:checked ~ .stage .c4,
+    #s3:checked ~ .stage .c5,
+    #s4:checked ~ .stage .c6,
+    #s5:checked ~ .stage .c7,
+    #s6:checked ~ .stage .c8,
+    #s7:checked ~ .stage .c9,
+    #s8:checked ~ .stage .c10,
+    #s9:checked ~ .stage .c11,
+    #s10:checked ~ .stage .c12,
+    #s11:checked ~ .stage .c13,
+    #s12:checked ~ .stage .c14,
+    #s13:checked ~ .stage .c15,
+    #s14:checked ~ .stage .c1,
+    #s15:checked ~ .stage .c2{
+    transform:translateX(var(--gap)) translateZ(calc(-1*var(--depth))) rotateY(calc(-1*var(--tilt))) scale(var(--side));
+    filter:brightness(.96) contrast(1.02)
+    }
+
+    /* droite loin */
+    #s1:checked ~ .stage .c15,
+    #s2:checked ~ .stage .c1,
+    #s3:checked ~ .stage .c2,
+    #s4:checked ~ .stage .c3,
+    #s5:checked ~ .stage .c4,
+    #s6:checked ~ .stage .c5,
+    #s7:checked ~ .stage .c6,
+    #s8:checked ~ .stage .c7,
+    #s9:checked ~ .stage .c8,
+    #s10:checked ~ .stage .c9,
+    #s11:checked ~ .stage .c10,
+    #s12:checked ~ .stage .c11,
+    #s13:checked ~ .stage .c12,
+    #s14:checked ~ .stage .c13,
+    #s15:checked ~ .stage .c14 {
+    transform:translateX(calc( 2*var(--gap))) translateZ(calc(-2*var(--depth))) rotateY(calc(-1*var(--tilt))) scale(var(--far));opacity:.86
+    }
+
+
 }

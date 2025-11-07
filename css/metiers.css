@@ -1,94 +1,70 @@
 /* === Section Métiers === */
 .metiers-accordion-section {
-    padding: 5rem 0;
+    width: 100%;
+    min-width: 1500px;
+    margin: 8rem 0;
     overflow: visible;
 }
 
 /* Nouvelle grille pour la mise en page */
 .metiers-layout-flex {
     display: flex;
-    flex-direction: column;
-    gap: 3rem; /* Espace entre le header et le carrousel sur mobile */
-}
-
-@media (min-width: 992px) {
-    .metiers-layout-flex {
-        flex-direction: row;
-        align-items: flex-end;
-        padding-left: calc((100vw - 1200px) / 2); /* Aligne le contenu avec le reste du site */
-    }
+    flex-direction: row;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    gap:1rem;
 }
 
 /* Nouveau conteneur pour le titre et l'intro */
 .metiers-intro-header {
-    padding: 0 1rem;
-}
-/* Correction: La media query était mal imbriquée */
-@media (min-width: 992px) {
-    .metiers-intro-header {
-        flex-basis: 450px; /* Largeur fixe pour le texte d'intro sur desktop */
-        flex-shrink: 0;
-        /* Ajustement pour aligner le texte avec le haut des cartes */
-        padding-bottom: 1rem; /* Correspond au padding-top du wrapper */
-        margin-bottom: 1rem; /* Correspond au margin-bottom des contrôles */
-        display: flex; flex-direction: column; justify-content: flex-end;
-    }
-}
-@media (min-width: 992px) {
-    .metiers-intro-header {
-        flex-basis: 450px; /* Largeur fixe pour le texte d'intro sur desktop */
-        flex-shrink: 0;
-        /* Ajustement pour aligner le texte avec le haut des cartes */
-        padding-bottom: 1rem; /* Correspond au padding-top du wrapper */
-        margin-bottom: 1rem; /* Correspond au margin-bottom des contrôles */
-        display: flex; flex-direction: column; justify-content: flex-end;
-}
-@media (min-width: 992px) {
-    .metiers-header-container {
-        flex-basis: 450px;
-        flex-shrink: 0;
-    }
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* --- En-tête du nouveau conteneur --- */
 .metiers-intro-header .section-title {
     text-align: start; 
+    max-width: 500px;
 }
 
 /* Texte d'introduction */
 .metiers-intro-text {
     color: #626262;
     line-height: 1.6;
+    max-width: 500px;
 }
-.metiers-intro-text p { margin-bottom: 1rem; } /* Garde l'espacement entre les paragraphes */
+.metiers-intro-text p {
+    margin-bottom: 1rem;
+}
 
 /* --- Contenu principal (image + cartes) --- */
 .metiers-main-content {
-    position: relative; 
-}
-@media (min-width: 992px) {
-    .metiers-main-content {
-        flex-grow: 1; 
-        min-width: 0; /* Permet au flex item de rétrécir */
-    }
+    position: relative;
+    flex-grow: 1; /* Permet au conteneur du carrousel de prendre l'espace restant */
+    min-width: 0; /* Correction de bug flexbox pour empêcher le débordement */
 }
 
 /* --- Conteneur de défilement --- */
 .metiers-scroll-container {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: auto;
 }
 
 .metiers-cards-wrapper {
     display: flex;
-    gap: 1rem; /* Un peu plus d'espace pour mieux voir l'effet */
-    /* La hauteur doit être suffisante pour la carte agrandie + le débordement */
-    height: 450px; 
-    padding: 1rem calc((100vw - 1200px) / 2); /* Centre le contenu */
-    /* Comportement de défilement */
+    gap: 0.7rem;
+    height: auto;
+    /* min-height: 700px; */
+    padding: 1rem 0;
+
     overflow-x: auto;
-    /* IMPORTANT: Permet aux cartes agrandies de déborder verticalement */
-    overflow-y: visible;
-    scroll-snap-type: x mandatory;
+    overflow-y: hidden; /* Empêche le défilement vertical dans le carrousel */
+
     /* Cache la barre de défilement */
     scrollbar-width: none; 
     -ms-overflow-style: none; 
@@ -103,7 +79,7 @@
     justify-content: flex-end;
     align-items: center;
     width: 100%;
-    max-width: 1200px; /* Aligné avec le contenu */
+    max-width: 1200px;
     margin: 0 auto 1rem auto;
     gap: 0.5rem;
 }
@@ -143,25 +119,22 @@
 /* --- Cartes Métiers --- */
 .metier-card {
     position: relative;
-    width: 100px;
+    min-width: 60px; 
     flex-shrink: 0;
-    height: 320px;
-    box-shadow: 0 10px 30px rgba(33, 54, 106, 0.1);
+    height: 290px;
     background-image: var(--bg-image);
     border-radius: 1rem;
     background-size: cover;
     background-position: center;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    scroll-snap-align: center; /* Centrer les cartes lors du snap */
-    cursor: pointer; /* Les cartes sont de nouveau cliquables */
+    scroll-snap-align: center;
+    cursor: pointer;
 }
 
 /* État ouvert/actif ou survolé */
  .metier-card.is-active {
-    width: 400px;
-    height: 360px;
-    transform: scale(1.05);
-    margin: 0 0.5rem;
+    width: 580px;
+    height: auto;
     z-index: 10;
 }
 
@@ -169,11 +142,35 @@
 .metier-card::before {
     content: '';
     position: absolute;
-    inset: 0; /* Couvre toute la carte */
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 100%);
     border-radius: inherit;
     transition: all 0.5s ease;
 }
+
+/* Styles spécifiques pour la Master Card */
+.metier-card.is-master-card {
+    width: 400px;
+    min-width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #e6edf5;
+    box-shadow: 0 10px 30px rgba(33, 54, 106, 0.1);
+    cursor: default;
+    transform: none;
+}
+
+.metier-card.is-master-card::before {
+    display: none;
+}
+
+.metier-card.is-master-card .card-master-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #21366A;
+}
+
 .metier-card.is-active::before {
     opacity: 0;
 }
@@ -202,26 +199,29 @@
     text-align: center;
     opacity: 1;
     pointer-events: none;
-}
+} /* Le contenu collapsed n'est pas utilisé pour la master card */
+
 .card-collapsed-content i { 
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #00AEE8;
     transform: rotate(180deg);
 }
+
 .card-collapsed-content .vertical-title { 
     font-size: 1.5rem;
     color: #ffffff;
     font-weight: 800; 
     text-transform: uppercase;
 }
+
 .metier-card.is-active .card-collapsed-content { 
     opacity: 0; 
     transform: rotate(180deg) translateY(-20px);
 }
 
-/* Contenu carte ouverte */
+/* Contenu carte ouverte (pour les cartes métiers classiques) */
 .card-expanded-content {
-    bottom: -2rem;
+    bottom: -5rem;
     left: 0;
     right: 0;
     padding: 1rem 2rem;
@@ -234,7 +234,7 @@
     background-color: #ffffff;
     color: #21366A;
     border-radius: 1rem;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 0 20px rgba(24, 33, 82, 0.1);
 }
 
 .metier-card.is-active .card-expanded-content {
@@ -243,74 +243,45 @@
     transition-delay: 0.2s;
 }
 
-/* Styles spécifiques pour la carte d'introduction */
-.metier-card.is-intro-card .card-collapsed-content {
-    writing-mode: horizontal-tb; /* Pour l'icône seule */
-    transform: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.metier-card.is-intro-card .card-collapsed-content i {
-    transform: none;
-    font-size: 3rem;
-    color: #00AEE8;
-}
-
-.metier-card.is-intro-card {
-    cursor: pointer; /* Elle est cliquable comme les autres */
-    background-color: #f4f8fa; /* Fond clair pour l'intro */
-    border: 1px solid #e6edf5;
-    width: 200px; /* Taille par défaut plus grande pour l'intro */
-    height: 320px;
-    transform: none; /* Pas de scale par défaut */
-    box-shadow: none; /* Pas d'ombre par défaut */
-}
-
-.is-intro-card.is-active .card-expanded-content {
-    background-color: transparent;
-    color: #21366A;
-    box-shadow: none;
-    bottom: auto;
-    transform: translateY(-50%);
-    opacity: 1;
-}
-
-.is-intro-card .card-expanded-content .section-title {
-    font-size: 2rem;
-}
-
-.is-intro-card .card-expanded-content p {
-    font-size: 1.1rem;
-    text-align: center;
-}
-.is-intro-card .card-expanded-content .scroll-indicator {
-    font-size: 2rem;
-    color: #00AEE8;
-}
-
 .card-expanded-header {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
+
 .card-expanded-header i {
     font-size: 1.5rem;
     color: #00AEE8;
 }
-.card-expanded-header h4 { font-size: 1.2rem; font-weight: 800; color: #21366A; }
+
+.card-expanded-header h4 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #21366A;
+}
+
 .card-expanded-content p { 
     font-size: 0.9rem; 
     line-height: 1.5; 
     color: #21366A; 
     margin: 0.5rem 0 1rem 0;
 }
-.card-expanded-content .btn-sm { margin-top: auto; align-self: flex-end; }
 
-/* Responsive */
-@media (max-width: 992px) {
-    .metiers-controls {
-        margin-bottom: 1rem;
-        padding-right: 1rem;
-    }
+.card-expanded-content .btn-sm {
+    margin-top: auto;
+    align-self: flex-end;
+}
+
+/* Grille de boutons dans la master card */
+.grid-master-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem; /* Réduit l'espacement entre les boutons */
+    margin-top: 1rem;
+}
+.grid-master-buttons .btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }

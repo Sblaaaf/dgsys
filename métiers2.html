@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+:root{
+  --w:1180px; --h:560px; --gap:250px; --depth:180px; --tilt:14deg;
+  --side:.86; --far:.78; --radius:22px;
+  --ink:#0f1a38; --muted:#51607c;
+  --brandA:#22d3ee; --brandB:#60a5fa; --glass:rgba(255,255,255,.9);
+}
+*{box-sizing:border-box} html,body{height:100%}
+
+/* Scène */
+.wrapper{max-width:1400px;margin:0 auto;padding:0 16px 40px}
+.stage{width:min(96vw,var(--w));height:var(--h);margin:10px auto 0;position:relative;perspective:1400px}
+.cards{position:absolute;inset:0}
+
+/* Carte */
+.card{
+  position:absolute;inset:0;margin:auto;width:72%;height:80%;
+  border-radius:var(--radius);overflow:hidden;cursor:pointer;
+  background:#0e1836 center/cover no-repeat;
+  transform:translateX(0) translateZ(0) rotateY(0) scale(1);
+  transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .55s ease,filter .55s ease;
+}
+
+.card .tag{
+  position:absolute;left:14px;top:12px;padding:8px 12px;border-radius:12px;
+  background:var(--glass);backdrop-filter:saturate(1.1) blur(2px);
+  color:#0f1a38;font-weight:900;letter-spacing:.2px;box-shadow:0 10px 26px rgba(0,0,0,.12)
+}
+
+.card>label{position:absolute;inset:0;display:block}
+
+/* Images pour tes fichiers */
+.c1{background-image:url('mae-mu-m9pzwmxm2rk-unsplash.jpg')}         /* Boulangerie */
+.c2{background-image:url('jason-leung-poI7DelFiVA-unsplash.jpg')}     /* Restaurant  */
+.c3{background-image:
+  linear-gradient(135deg,#e8f1ff,#f9fbff),
+  url('oxana-melis-X_7Qb2Tg_6g-unsplash.jpg');background-blend-mode:overlay} /* Retail */
+.c4{background-image:url('rowan-k2X_fZ82e64-unsplash.jpg')}           /* Fleuriste   */
+.c5{background-image:url('aboodi-vesakaran-oaJAuch8B_c-unsplash.jpg')}/* Boucherie   */
+.c6{background-image:url('edgar-chaparro-Lwx-q6OdGAc-unsplash.jpg')}  /* Bar         */
+.c7{background-image:url('jonathan-borba-8l8Yl2ruUsg-unsplash.jpg')}  /* Snack       */
+.c8{background-image:url('inigo-de-la-maza-X3rpDEEFjmQ-unsplash.jpg')}/* Poissonnerie*/
+.c9{background-image:url('saile-ilyas-SiwrpBnxDww-unsplash.jpg')}     /* Pressing    */
+
+/* Radios/positions */
+input[type=radio]{position:absolute;opacity:0;pointer-events:none}
+
+#s1:checked ~ .stage .c1,
+#s2:checked ~ .stage .c2,
+#s3:checked ~ .stage .c3,
+#s4:checked ~ .stage .c4,
+#s5:checked ~ .stage .c5,
+#s6:checked ~ .stage .c6,
+#s7:checked ~ .stage .c7,
+#s8:checked ~ .stage .c8,
+#s9:checked ~ .stage .c9,
+#s10:checked ~ .stage .c10,
+#s11:checked ~ .stage .c11,
+#s12:checked ~ .stage .c12,
+#s13:checked ~ .stage .c13,
+#s14:checked ~ .stage .c14,
+#s15:checked ~ .stage .c15{
+  transform:translateX(0) translateZ(0) rotateY(0) scale(1);z-index:12}
+
+/* gauche proche */
+#s1:checked ~ .stage .c15,
+#s2:checked ~ .stage .c1,
+#s3:checked ~ .stage .c2,
+#s4:checked ~ .stage .c3,
+#s5:checked ~ .stage .c4,
+#s6:checked ~ .stage .c5,
+#s7:checked ~ .stage .c6,
+#s8:checked ~ .stage .c7,
+#s9:checked ~ .stage .c8,
+#s10:checked ~ .stage .c9,
+#s11:checked ~ .stage .c10,
+#s12:checked ~ .stage .c11,
+#s13:checked ~ .stage .c12,
+#s14:checked ~ .stage .c13,
+#s15:checked ~ .stage .c14{
+  transform:translateX(calc(-1*var(--gap))) translateZ(calc(-1*var(--depth))) rotateY(var(--tilt)) scale(var(--side));
+  filter:brightness(.96) contrast(1.02)
+}
+/* droite proche */
+#s1:checked ~ .stage .c14,
+#s2:checked ~ .stage .c4,
+#s3:checked ~ .stage .c5,
+#s4:checked ~ .stage .c6,
+#s5:checked ~ .stage .c7,
+#s6:checked ~ .stage .c8,
+#s7:checked ~ .stage .c9,
+#s8:checked ~ .stage .c10,
+#s9:checked ~ .stage .c11,
+#s10:checked ~ .stage .c12,
+#s11:checked ~ .stage .c13,
+#s12:checked ~ .stage .c14,
+#s13:checked ~ .stage .c15,
+#s14:checked ~ .stage .c1,
+#s15:checked ~ .stage .c2{
+  transform:translateX(var(--gap)) translateZ(calc(-1*var(--depth))) rotateY(calc(-1*var(--tilt))) scale(var(--side));
+  filter:brightness(.96) contrast(1.02)
+}
+
+/* gauche loin */
+#s1:checked ~ .stage .c15,
+#s2:checked ~ .stage .c1,
+#s3:checked ~ .stage .c2,
+#s4:checked ~ .stage .c3,
+#s5:checked ~ .stage .c4,
+#s6:checked ~ .stage .c5,
+#s7:checked ~ .stage .c6,
+#s8:checked ~ .stage .c7,
+#s9:checked ~ .stage .c8,
+#s10:checked ~ .stage .c9,
+#s11:checked ~ .stage .c10,
+#s12:checked ~ .stage .c11,
+#s13:checked ~ .stage .c12,
+#s14:checked ~ .stage .c13,
+#s15:checked ~ .stage .c14{
+  transform:translateX(calc(-2*var(--gap))) translateZ(calc(-2*var(--depth))) rotateY(var(--tilt)) scale(var(--far));opacity:.86
+}
+/* droite loin */
+#s1:checked ~ .stage .c15,
+#s2:checked ~ .stage .c1,
+#s3:checked ~ .stage .c2,
+#s4:checked ~ .stage .c3,
+#s5:checked ~ .stage .c4,
+#s6:checked ~ .stage .c5,
+#s7:checked ~ .stage .c6,
+#s8:checked ~ .stage .c7,
+#s9:checked ~ .stage .c8,
+#s10:checked ~ .stage .c9,
+#s11:checked ~ .stage .c10,
+#s12:checked ~ .stage .c11,
+#s13:checked ~ .stage .c12,
+#s14:checked ~ .stage .c13,
+#s15:checked ~ .stage .c14{
+  transform:translateX(calc( 2*var(--gap))) translateZ(calc(-2*var(--depth))) rotateY(calc(-1*var(--tilt))) scale(var(--far));opacity:.86
+}
+
+/* -------- Mosaïque centrale -------- */
+.mosaic{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:12px;padding:18px}
+.tile{
+  position:relative;border-radius:16px;overflow:hidden;background:#0b1430 center/cover no-repeat;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);cursor:pointer;transform:translateZ(0);
+  transition:transform .25s ease, box-shadow .25s ease
+}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.55))}
+.tile span{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;color:#fff;font-weight:900;letter-spacing:.2px;text-shadow:0 2px 14px rgba(0,0,0,.35);z-index:1}
+.tile:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(0,0,0,.18), inset 0 0 0 1px rgba(255,255,255,.08)}
+
+.t1 {background-color: chartreuse;}
+.t2 {background-color: gold;}
+.t3 {background-color: orange;}
+.t4 {background-color: tomato;}
+.t5 {background-color: violet;}
+.t6 {background-color: turquoise;}
+.t7 {background-color: lightgreen;}
+.t8 {background-color: coral;}
+.t9 {background-color: plum;}
+.t10{background-color: khaki;}
+.t11{background-color: lightblue;}
+.t12{background-color: peachpuff;}
+.t13{background-color: lavender;}
+.t14{background-color: lightgray;}
+
+.allbadge{position:absolute;left:18px;top:12px;background:#ffffff;padding:8px 12px;border-radius:12px;font-weight:900;color:black;z-index:2}
+
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:900;cursor:pointer;transition:transform .12s ease, box-shadow .2s ease, filter .2s ease}
+.primary{background-color: cyan;}
+.primary:hover{transform:translateY(-1px);filter:saturate(1.06)}
+.ghost{background:transparent;border:1px solid #cfe3ff;color:#10325a}
+.ghost:hover{transform:translateY(-1px)}
+
+/* Flèches */
+.nav{position:absolute;inset:0;pointer-events:none;display:flex;align-items:center;justify-content:space-between;padding:0 6px}
+.arrow{pointer-events:auto;width:46px;height:46px;border-radius:50%;background:#fff;border:1px solid rgba(0,0,0,.08);display:grid;place-items:center;cursor:pointer;user-select:none;box-shadow:0 10px 26px rgba(0,0,0,.12)}
+.arrow svg{width:22px;height:22px}
+
+/* Responsive */
+@media (max-width:980px){:root{--w:94vw;--h:520px;--gap:26vw}.card{width:78%}}
+@media (max-width:640px){:root{--h:500px;--gap:48vw}.mosaic{grid-template-columns:repeat(2,1fr)}.card{width:86%}}
+
+</style>
+</head>
+  <body>
+
+    <div class="wrapper">
+      <!-- Radios (s3 = Tous les métiers) -->
+      <input id="s1" type="radio" name="p" checked>
+      <input id="s2" type="radio" name="p">
+      <input id="s3" type="radio" name="p">
+      <input id="s4" type="radio" name="p">
+      <input id="s5" type="radio" name="p">
+      <input id="s6" type="radio" name="p">
+      <input id="s7" type="radio" name="p">
+      <input id="s8" type="radio" name="p">
+      <input id="s9" type="radio" name="p">
+      <input id="s10" type="radio" name="p">
+      <input id="s11" type="radio" name="p">
+      <input id="s12" type="radio" name="p">
+      <input id="s13" type="radio" name="p">
+      <input id="s14" type="radio" name="p">
+      <!-- /Radios -->
+
+      <!-- flèches -->
+      <div class="nav" aria-hidden="true">
+        <button class="arrow" data-dir="prev" title="Précédent">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="#0d1a38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="arrow" data-dir="next" title="Suivant">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="#0d1a38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+
+      <div class="stage">
+        <div class="cards">
+          <!-- Carte CENTRALE : mosaïque -->
+          <div class="card c1">
+
+            <span class="allbadge">Tous les métiers</span>
+
+            <div class="mosaic" aria-label="Mosaïque métiers">
+              <label class="tile t1"  for="s1"><span>Boulangerie</span></label>
+              <label class="tile t2"  for="s2"><span>Restaurant</span></label>
+              <label class="tile t3"  for="s3"><span>Commerce de détail</span></label>
+              <label class="tile t4"  for="s4"><span>Fleuriste</span></label>
+              <label class="tile t5"  for="s5"><span>Boucherie</span></label>
+              <label class="tile t6"  for="s6"><span>Bar</span></label>
+              <label class="tile t7"  for="s7"><span>Snack</span></label>
+              <label class="tile t8"  for="s8"><span>Poissonnerie</span></label>
+              <label class="tile t9"  for="s9"><span>Pressing</span></label>
+              <label class="tile t10" for="s10"><span>Camping</span></label>
+              <label class="tile t11" for="s11"><span>Restauration collective</span></label>
+              <label class="tile t12" for="s12"><span>Salon de thé</span></label>
+              <label class="tile t13" for="s13"><span>Discothèque</span></label>
+              <label class="tile t14" for="s14"><span>Discothèque</span></label>
+            </div>
+          </div>
+          <div class="card c2"><span class="tag">Boulangerie</span><label for="s1" aria-label="Boulangerie"></label></div>
+          <div class="card c3"><span class="tag">Restaurant</span><label for="s2" aria-label="Restaurant"></label></div>
+          <div class="card c4"><span class="tag">Fleuriste</span><label for="s4" aria-label="Fleuriste"></label></div>
+          <div class="card c5"><span class="tag">Boucherie</span><label for="s5" aria-label="Boucherie"></label></div>
+          <div class="card c6"><span class="tag">Bar</span><label for="s6" aria-label="Bar"></label></div>
+          <div class="card c7"><span class="tag">Snack</span><label for="s7" aria-label="Snack"></label></div>
+          <div class="card c8"><span class="tag">Poissonnerie</span><label for="s8" aria-label="Poissonnerie"></label></div>
+          <div class="card c9"><span class="tag">Pressing</span><label for="s9" aria-label="Pressing"></label></div>
+          <div class="card c10"><span class="tag">Camping</span><label for="s10" aria-label="Camping"></label></div>
+          <div class="card c11"><span class="tag">Restauration collective</span><label for="s11" aria-label="Restauration collective"></label></div>
+          <div class="card c12"><span class="tag">Salon de thé</span><label for="s12" aria-label="Salon de thé"></label></div>
+          <div class="card c13"><span class="tag">Discothèque</span><label for="s13" aria-label="Discothèque"></label></div>
+          <div class="card c14"><span class="tag">Discothèque</span><label for="s14" aria-label="Discothèque"></label></div>
+        </div>
+      </div>
+
+    <script>
+      /* Flèches + clavier (gauche/droite) */
+      (function(){
+        const radios=[...document.querySelectorAll('input[name="p"]')];
+        const idx=()=>radios.findIndex(r=>r.checked);
+        const go=i=>radios[(i+radios.length)%radios.length].checked=true;
+        document.querySelectorAll('.arrow').forEach(b=>b.addEventListener('click',()=>go(b.dataset.dir==='next'?idx()+1:idx()-1)));
+        window.addEventListener('keydown',e=>{ if(e.key==='ArrowRight')go(idx()+1); if(e.key==='ArrowLeft')go(idx()-1); });
+      })();
+    </script>
+
+
+  </body>
+</html>

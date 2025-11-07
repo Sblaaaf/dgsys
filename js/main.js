@@ -6,7 +6,9 @@ import { initHeroSlider } from './hero-slider.js';
 import { initStickyHeader } from './sticky-header.js';
 import { initSecteurHover } from './secteurs-hover.js';
 import { initMetiers } from './metiers.js';
+import { initMetiersPremium } from './metiers2.js';
 import { initActivitesAnimation } from './activites.js';
+import { initAvantagesSection } from './avantage.js';
 
 // Attend que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', async () => {
@@ -21,5 +23,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     initStickyHeader();
     initSecteurHover();
     initMetiers();
+    initMetiersPremium();
     initActivitesAnimation();
+    initAvantagesSection();
+
 });

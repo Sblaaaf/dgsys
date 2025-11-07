@@ -1,145 +1,186 @@
 export function initMetiers() {
     const section = document.querySelector('#metiers-accordion');
     if (!section) return;
-
-    const layoutFlex = section.querySelector('.metiers-layout-flex');
     const wrapper = section.querySelector('#metiers-cards-wrapper');
     const scrollContainer = section.querySelector('.metiers-scroll-container');
-    const cards = Array.from(section.querySelectorAll('.metier-card'));
+    const allCards = Array.from(section.querySelectorAll('.metier-card'));
+    const masterCard = allCards[0]; // La première carte est la master card
+    const carouselCards = allCards.slice(1); // Les autres cartes sont celles du carrousel
     const prevBtn = section.querySelector('.scroll-arrow.prev');
     const nextBtn = section.querySelector('.scroll-arrow.next');
 
-    let activeCardIndex = 0;
+    let activeCarouselCardIndex = 0; // Index de la carte active dans le tableau carouselCards
+
+    // --- Calcul dynamique de la largeur des cartes ---
+    function calculateAndSetCardWidths() {
+        if (!wrapper || carouselCards.length === 0) return;
+
+        const containerWidth = wrapper.clientWidth;
+        const openCardWidth = 580; // Largeur de la carte métier ouverte
+        const totalCards = allCards.length; // Master card + toutes les cartes métiers
+        const carouselCardsCount = carouselCards.length; // Nombre de cartes métiers (hors master)
+
+        // On récupère les valeurs de gap et margin depuis le CSS pour un calcul précis
+        const gapStyle = window.getComputedStyle(wrapper).getPropertyValue('gap');
+        const cardGap = parseFloat(gapStyle) || (0.7 * parseFloat(getComputedStyle(document.documentElement).fontSize)); // Fallback sur 0.7rem
+
+        // La carte active a une marge de 0.9rem de chaque côté, donc 1.8rem au total
+        const activeCardHorizontalMargin = (parseFloat(window.getComputedStyle(carouselCards[0]).marginLeft) || 0) * 2;
+
+        // Calcul de l'espace total occupé par les espacements
+        const totalGapSpace = (totalCards - 1) * cardGap;
+
+        // Calcul de l'espace restant pour les cartes fermées
+        // Espace total - largeur master - largeur carte ouverte - espace total des gaps - marge carte ouverte
+        const occupiedWidth = masterCardWidthFixed + openCardWidth + totalGapSpace + activeCardHorizontalMargin;
+        const availableWidthForClosedCards = containerWidth - occupiedWidth;
+
+        // Calcul de la largeur d'une seule carte fermée
+        const closedCarouselCardsCount = carouselCardsCount - 1; // Nombre de cartes métiers fermées
+        let closedCardWidth = 0;
+        if (closedCarouselCardsCount > 0) {
+            closedCardWidth = availableWidthForClosedCards / closedCarouselCardsCount;
+        }
+
+        // On s'assure que la carte ne soit pas trop petite (sécurité)
+        closedCardWidth = Math.max(closedCardWidth, 60); // 60px est le min-width défini en CSS
+
+        // On applique la nouvelle largeur à toutes les cartes
+        carouselCards.forEach((card) => {
+            if (!card.classList.contains('is-active')) { // Si ce n'est pas la carte active du carrousel
+                card.style.width = `${closedCardWidth}px`; // Applique la largeur calculée
+            } else {
+                card.style.width = ''; // Laisse le CSS gérer la largeur de la carte active
+            }
+        });
+    }
 
     // --- Flèches de navigation ---
     function updateArrowState() {
-        if (!wrapper) return;
+        if (!wrapper || carouselCards.length === 0) return;
         const hasScroll = wrapper.scrollWidth > wrapper.clientWidth + 5;
         if (!hasScroll) {
             prevBtn.classList.add('is-disabled');
             nextBtn.classList.add('is-disabled');
             return;
         }
-        prevBtn.classList.toggle('is-disabled', activeCardIndex === 0);
-        nextBtn.classList.toggle('is-disabled', activeCardIndex === cards.length - 1);
+        prevBtn.classList.toggle('is-disabled', activeCarouselCardIndex === 0);
+        nextBtn.classList.toggle('is-disabled', activeCarouselCardIndex === carouselCards.length - 1);
     }
 
     const scrollToCard = (index) => {
         // Empêche le scroll si l'index est invalide
-        if (index < 0 || index >= cards.length) return;
+        if (index < 0 || index >= carouselCards.length) return;
 
-        const card = cards[index];
+        const card = carouselCards[index];
         if (!card) return;
 
         // Calcul pour centrer la carte
-        const scrollLeft = card.offsetLeft - (wrapper.clientWidth / 2) + (card.offsetWidth / 2);
+        // On doit prendre en compte la masterCard pour le décalage initial
+        const masterCardOffset = masterCard.offsetWidth + parseFloat(window.getComputedStyle(wrapper).getPropertyValue('gap'));
+        const scrollLeft = card.offsetLeft - masterCardOffset - (wrapper.clientWidth / 2) + (card.offsetWidth / 2);
 
         wrapper.scrollTo({ left: scrollLeft, behavior: 'smooth' });
         setActiveCard(index);
-        updateArrowState();
-
-        // Le throttling est géré par l'appelant (wheel event ou click)
-        // pour permettre une gestion plus fine de la libération du scroll vertical.
     };
 
     if (prevBtn && nextBtn && wrapper) {
-        prevBtn.addEventListener('click', () => scrollToCard(Math.max(0, activeCardIndex - 1)));
-        nextBtn.addEventListener('click', () => scrollToCard(Math.min(cards.length - 1, activeCardIndex + 1)));
+        prevBtn.addEventListener('click', () => scrollToCard(Math.max(0, activeCarouselCardIndex - 1)));
+        nextBtn.addEventListener('click', () => scrollToCard(Math.min(carouselCards.length - 1, activeCarouselCardIndex + 1)));
         // Ajout des écouteurs de clic pour chaque carte
-        cards.forEach((card, index) => {
+        carouselCards.forEach((card, index) => {
             card.addEventListener('click', () => scrollToCard(index));
         });
     }
 
     // --- Cartes actives ---
     const setActiveCard = (index) => {
-        if (index === activeCardIndex && cards[index].classList.contains('is-active')) return;
-        cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
-        activeCardIndex = index;
+        if (index === activeCarouselCardIndex) return;
+
+        // On met à jour les classes
+        carouselCards.forEach((card, i) => {
+            card.classList.toggle('is-active', i === index);
+            // On retire le style en ligne pour que le CSS de la carte active prenne le dessus
+            card.style.width = '';
+        });
+        activeCarouselCardIndex = index;
+        calculateAndSetCardWidths(); // Recalcule les largeurs après le changement
+        updateArrowState();
     };
-    setActiveCard(0);
 
     // --- Scroll horizontal via molette ---
-    let isWheelThrottled = false; // Nouveau throttle spécifique à la molette
-    let isScrollHijacked = false;
-    let exitTimeout = null; // Pour gérer le délai de sortie
+    let isMouseOverContainer = false;
+    let isWheelThrottled = false;
+
+    if (scrollContainer) {
+        scrollContainer.addEventListener('mouseenter', () => {
+            isMouseOverContainer = true;
+            // Bloque le défilement vertical de la page tant que la souris est sur le conteneur
+            document.body.style.overflow = 'hidden';
+        });
+
+        scrollContainer.addEventListener('mouseleave', () => {
+            isMouseOverContainer = false;
+            // Restaure le défilement vertical de la page
+            document.body.style.overflow = '';
+        });
+    }
 
     window.addEventListener(
         'wheel',
         (e) => {
-            if (!scrollContainer) return;
-
-            const rect = scrollContainer.getBoundingClientRect();
-            const viewportCenter = window.innerHeight / 2;
-            const containerCenter = rect.top + rect.height / 2;
-
-            // La zone d'activation est lorsque le centre du conteneur est très proche du centre du viewport
-            const isCentered = Math.abs(containerCenter - viewportCenter) < 50; // Marge de 50px
-
-            if (isCentered) {
-                // Si on entre dans la zone, on annule toute tentative de sortie
-                if (exitTimeout) {
-                    clearTimeout(exitTimeout);
-                    exitTimeout = null;
-                }
-                if (!isScrollHijacked) {
-                    document.body.style.overflow = 'hidden';
-                    isScrollHijacked = true;
-                }
-            } else {
-                if (isScrollHijacked) {
-                    // Si on quitte la zone, on ne libère pas le scroll immédiatement.
-                    // On le fera au bout du carrousel.
-                    // Mais si l'utilisateur s'éloigne beaucoup, on libère.
-                    document.body.style.overflow = '';
-                    isScrollHijacked = false;
-                }
-                return; // Si on n'est pas centré, on ne fait rien de plus
-            }
-
-            // Si le scroll n'est pas "hijacked" ou si la molette est en pause, on sort
-            if (!isScrollHijacked || isWheelThrottled) {
+            // Si la souris n'est pas sur le conteneur ou si un scroll est déjà en cours, on ne fait rien.
+            if (!isMouseOverContainer || isWheelThrottled) {
                 return;
             }
 
-            // Libération du scroll si on est au bout et qu'on continue
-            if ((activeCardIndex === 0 && e.deltaY < 0) || (activeCardIndex === cards.length - 1 && e.deltaY > 0)) {
-                // On ajoute un délai avant de libérer le scroll vertical
-                if (!exitTimeout) {
-                    exitTimeout = setTimeout(() => {
-                        document.body.style.overflow = '';
-                        isScrollHijacked = false;
-                        exitTimeout = null;
-                    }, 600); // Délai de 600ms avant de quitter
-                }
+            // Si on est au bout et qu'on continue de scroller dans la même direction, on ne bloque pas l'événement
+            // (cela permettrait un scroll "chaîné" si on le souhaitait, mais ici on ne fait rien) (activeCardIndex est maintenant activeCarouselCardIndex)
+            const isAtStart = activeCarouselCardIndex === 0;
+            const isAtEnd = activeCarouselCardIndex === carouselCards.length - 1;
+            const isScrollingUpAtStart = isAtStart && e.deltaY < 0; // Correction: activeCardIndex -> activeCarouselCardIndex
+            const isScrollingDownAtEnd = isAtEnd && e.deltaY > 0;
+            
+            if (isScrollingUpAtStart || isScrollingDownAtEnd) {
                 return;
             }
 
+            // On ignore les scrolls horizontaux purs (trackpad)
             if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return; // Ignore scroll latéral pur
 
             e.preventDefault();
             isWheelThrottled = true; // Active le throttle
 
-            let nextIndex = activeCardIndex;
             const direction = e.deltaY > 0 ? 1 : -1;
-            nextIndex = Math.min(Math.max(activeCardIndex + direction, 0), cards.length - 1);
+            const nextIndex = Math.min(Math.max(activeCarouselCardIndex + direction, 0), carouselCards.length - 1);
 
             // Si la carte suivante est la même que la carte actuelle (on est au bout), on libère le scroll vertical
-            if (nextIndex === activeCardIndex) { // On est au bout du carrousel
-                document.body.style.overflow = ''; // Libère le scroll vertical
-                isScrollHijacked = false; // Désactive le hijacking
+            if (nextIndex === activeCarouselCardIndex) { // On est au bout du carrousel
                 isWheelThrottled = false; // Libère le throttle de la molette immédiatement
             } else {
                 scrollToCard(nextIndex);
                 // Libère le throttle de la molette après l'animation de scroll
                 setTimeout(() => {
                     isWheelThrottled = false;
-                }, 100); // Délai réduit pour un scroll plus réactif
+                }, 200); // Délai correspondant à l'animation de scroll
             }
         },
         { passive: false }
     );
 
-    updateArrowState();
-    window.addEventListener('resize', updateArrowState);
+    // --- Écouteurs pour les boutons de la master card ---
+    const masterCardButtons = masterCard.querySelectorAll('.grid-master-buttons .btn');
+    masterCardButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetIndex = parseInt(button.dataset.targetIndex, 10);
+            scrollToCard(targetIndex);
+        });
+    });
+
+    // Initialisation
+    setActiveCard(0); // Active la première carte du carrousel et lance le premier calcul
+    window.addEventListener('resize', () => {
+        calculateAndSetCardWidths();
+        updateArrowState();
+    });
 }

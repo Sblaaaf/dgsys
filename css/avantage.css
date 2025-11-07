@@ -1,0 +1,109 @@
+/* === Section Avantages === */
+section.avantages {
+    position: relative;
+    padding: 5rem 1rem;
+    background-color: #ffffff;
+}
+
+.container-avantages {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.head {
+    text-align: center;
+    margin: -1rem auto 2rem;
+}
+
+.head h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin: 0 0 0.5rem;
+    font-weight: 900;
+    color: #21366A;
+}
+
+.head p {
+    margin: 0;
+    color: #21366A;
+    font-size: 1.1rem;
+}
+
+/* Cartes */
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card-avantage {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #e6edf5;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(38, 54, 108, .08);
+    padding: 1.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(.25, .8, .25, 1);
+    order: 0;
+}
+
+.card-avantage:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 50px rgba(29, 175, 233, .2);
+}
+
+.thumb {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+    border: 2px solid #ffffff;
+    z-index: 2;
+}
+
+.content {
+    margin-left: 4rem;
+    position: relative;
+    z-index: 3;
+}
+
+.content .title {
+    margin: 0 0 6px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #21366A;
+}
+
+.content .desc { margin: 0 0 8px; color: #21366A; line-height: 1.6; }
+.content .cta { margin-top: 2px; display: inline-flex; gap: 8px; align-items: center; color: #00AEE8; font-weight: 700; text-decoration: none; }
+.content .cta:hover { text-decoration: underline; }
+.readmore { display: block; margin-top: 6px; color: #00AEE8; font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: underline; }
+
+/* États étendus/réduits */
+.card-avantage.expanded {
+    order: -1;
+    padding: 1.75rem;
+    border-color: #00AEE8;
+    box-shadow: 0 22px 60px rgba(29, 175, 233, .28);
+}
+
+.card-avantage.collapsed {
+    order: 99;
+    opacity: .9;
+}
+.card-avantage.collapsed .desc, .card-avantage.collapsed .cta, .card-avantage.collapsed .full { display: none; }
+.card-avantage.expanded .full { display: block; }
+
+.full { display: none; margin-top: 10px; color: #21366A; }
+.full p { margin: 0 0 10px; }
+.full ul { margin: 0 0 10px 18px; padding-left: 0; }
+.full h4 { margin: 14px 0 8px; font-size: 1rem; }

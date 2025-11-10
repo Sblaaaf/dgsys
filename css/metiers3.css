@@ -30,7 +30,7 @@
     height: auto;
     min-height: 320px;
     background-color: #ffffff;
-    border: 1px solid #e6edf5;
+    border: 1px solid #ffffff;
     border-radius: 1.5rem;
     box-shadow: 0 10px 30px rgba(33, 54, 106, 0.1);
     cursor: pointer;
@@ -68,10 +68,10 @@
     border-radius: inherit;
     transition: opacity 0.6s ease;
     opacity: 1; /* Par défaut, l'overlay est visible */
-    z-index: 1; /* Au-dessus du contenu de la carte */
+    z-index: 2; /* Au-dessus du contenu de la carte */
 }
 
-.card-content { z-index: 2; position: relative; } /* S'assure que le contenu est au-dessus des overlays */
+.card-content { z-index: 3; position: relative; } /* S'assure que le contenu est au-dessus des overlays */
 
 .card-content i {
     font-size: 2.5rem;
@@ -103,7 +103,8 @@
     z-index: 10;
     cursor: default;
     border-color: #00AEE8;
-    box-shadow: 0 15px 40px rgba(0, 174, 232, 0.2);
+    filter: blur(0);
+    /* box-shadow: 0 5px 20px rgba(0, 174, 232, 0.2); */
     min-width: 700px;
     min-height: 400px;
 }
@@ -112,9 +113,10 @@
     opacity: 0;
 }
 
+
 /* --- Styles spécifiques pour la Master Card --- */
 .carousel-card.master-card {
-    min-width: 600px; /* Largeur pour la master card active */
+    min-width: 700px; /* Largeur pour la master card active */
     min-height: 400px; /* Hauteur minimale pour la master card */
     padding: 1.5rem;
 }
@@ -182,49 +184,56 @@
 
 /* Cartes adjacentes (Niveau 1) */
 .carousel-card.prev-1 {
-    transform: translate(calc(-50% - 320px), -50%) scale(0.9);
+    transform: translate(calc(-50% - 300px), -50%) scale(1);
+    filter: blur(0px);
     z-index: 8;
 }
 .carousel-card.next-1 {
-    transform: translate(calc(-50% + 320px), -50%) scale(0.9);
+    transform: translate(calc(-50% + 300px), -50%) scale(1);
+    filter: blur(0px);
     z-index: 8;
 }
 .carousel-card.prev-1::after,
 .carousel-card.next-1::after {
-    opacity: 0.2; /* Overlay léger */
+    opacity: 0.4; /* Overlay léger */
 }
 
 /* Cartes éloignées (Niveau 2) */
 .carousel-card.prev-2 {
-    transform: translate(calc(-50% - 480px), -50%) scale(0.8);
+    transform: translate(calc(-50% - 420px), -50%) scale(0.9);
+    filter: blur(1px);
     z-index: 6;
 }
 .carousel-card.next-2 {
-    transform: translate(calc(-50% + 480px), -50%) scale(0.8);
+    transform: translate(calc(-50% + 420px), -50%) scale(0.9);
+    filter: blur(1px);
     z-index: 6;
 }
 .carousel-card.prev-2::after,
 .carousel-card.next-2::after {
-    opacity: 0.4; /* Overlay moyen */
+    opacity: 0.6; /* Overlay moyen */
 }
 
 /* Cartes très éloignées (Niveau 3) */
 .carousel-card.prev-3 {
-    transform: translate(calc(-50% - 620px), -50%) scale(0.7);
+    transform: translate(calc(-50% - 530px), -50%) scale(0.8);
+    filter: blur(2px);
     z-index: 4;
 }
 .carousel-card.next-3 {
-    transform: translate(calc(-50% + 620px), -50%) scale(0.7);
+    transform: translate(calc(-50% + 530px), -50%) scale(0.8);
+    filter: blur(2px);
     z-index: 4;
 }
 .carousel-card.prev-3::after,
 .carousel-card.next-3::after {
-    opacity: 0.6; /* Overlay plus sombre */
+    opacity: 0.8; /* Overlay plus sombre */
 }
 
 /* Cartes cachées */
 .carousel-card.hidden {
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-50%, -50%) scale(0.5);    
+    filter: blur(8px);
     opacity: 0;
     z-index: 0;
     pointer-events: none;
@@ -257,7 +266,7 @@
     cursor: pointer;
     font-size: 1.2rem;
     color: #21366A;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
 }
 .carousel-arrow:hover {

@@ -1,14 +1,16 @@
 /* === Section Métiers Carousel (V3) === */
 .metiers-carousel-section {
     width: 100%;
-    padding: 2rem 0;
+    padding: 1rem 0;
     background-color: #ffffff;
     overflow: hidden;
 }
 
 .carousel-wrapper {
     position: relative;
+    --active-card-height: 400px; /* Hauteur de la carte active pour desktop */
     width: 100%;
+    height: auto;
     min-height: 450px;
     transition: min-height 0.6s ease, height 0.6s ease;
     justify-content: center;
@@ -30,7 +32,7 @@
     height: auto;
     min-height: 320px;
     background-color: #ffffff;
-    border: 1px solid #ffffff;
+    border: 1px solid #00AEE8;
     border-radius: 1.5rem;
     box-shadow: 0 10px 30px rgba(33, 54, 106, 0.1);
     cursor: pointer;
@@ -58,6 +60,11 @@
     z-index: 1;
 }
 
+/* Supprimer l'overlay de la carte active pour rendre l'image de fond visible */
+.carousel-card.active:not(.master-card)::before {
+    opacity: 0;
+}
+
 
 /* Superposition sombre pour les cartes inactives */
 .carousel-card::after {
@@ -71,12 +78,20 @@
     z-index: 2; /* Au-dessus du contenu de la carte */
 }
 
-.card-content { z-index: 3; position: relative; } /* S'assure que le contenu est au-dessus des overlays */
+.card-content { 
+    z-index: 3; 
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
 .card-content i {
     font-size: 2.5rem;
     color: #00AEE8;
-    margin-bottom: 1rem;
     transition: transform 0.5s ease;
 }
 
@@ -84,7 +99,9 @@
     font-size: 1.5rem;
     font-weight: 800;
     color: #ffffff;
-    margin: 0 0 0.5rem 0;
+    margin: 0;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform-origin: center;
 }
 
 .card-content p {
@@ -92,6 +109,7 @@
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.5;
     margin: 0;
+    transition: opacity 0.4s ease;
 }
 
 /* --- Positionnement des cartes --- */
@@ -105,19 +123,30 @@
     border-color: #00AEE8;
     filter: blur(0);
     /* box-shadow: 0 5px 20px rgba(0, 174, 232, 0.2); */
+    min-height: var(--active-card-height);
     min-width: 700px;
-    min-height: 400px;
 }
 /* Cache l'overlay sur la carte active */
 .carousel-card.active::after {
     opacity: 0;
+}
+/* Rétablir les styles pour la carte active */
+.carousel-card.active .card-content {
+    flex-direction: column;
+}
+.carousel-card.active .card-content h3 {
+    transform: rotateX(0deg);
+}
+
+.carousel-card:not(.active) .card-content p {
+    display: none;
 }
 
 
 /* --- Styles spécifiques pour la Master Card --- */
 .carousel-card.master-card {
     min-width: 700px; /* Largeur pour la master card active */
-    min-height: 400px; /* Hauteur minimale pour la master card */
+    min-height: var(--active-card-height); /* Hauteur minimale pour la master card */
     padding: 1.5rem;
 }
 
@@ -216,12 +245,12 @@
 
 /* Cartes très éloignées (Niveau 3) */
 .carousel-card.prev-3 {
-    transform: translate(calc(-50% - 530px), -50%) scale(0.8);
+    transform: translate(calc(-50% - 520px), -50%) scale(0.8);
     filter: blur(2px);
     z-index: 4;
 }
 .carousel-card.next-3 {
-    transform: translate(calc(-50% + 530px), -50%) scale(0.8);
+    transform: translate(calc(-50% + 520px), -50%) scale(0.8);
     filter: blur(2px);
     z-index: 4;
 }
@@ -246,39 +275,60 @@
 
 /* --- Contrôles (flèches) --- */
 .carousel-controls {
-    left: 0;
-    right: 0;
+    position : absolute;
+    top: calc(50% - 2rem);
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: calc(700px + 3.5rem);
     display: flex;
-    justify-content: center;
-    padding: 0 1rem;
-    gap: 1rem;
-    pointer-events: none; /* Laisse passer les clics vers les cartes */
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
     z-index: 20;
 }
 
 .carousel-arrow {
-    pointer-events: auto; /* Réactive les clics sur les flèches */
-    background-color: #fff;
-    border: 1px solid #dee2e6;
+    pointer-events: auto;
+    background-color: #21366A;
+    border: 1px solid #00AEE8;
     border-radius: 50%;
     width: 3.5rem;
     height: 3.5rem;
     cursor: pointer;
     font-size: 1.2rem;
-    color: #21366A;
+    color: #ffffff;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
 }
 .carousel-arrow:hover {
-    background-color: #21366A;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #21366A;
     transform: scale(1.1);
 }
 
 /* Style pour le bouton "Choisir" */
 #show-master-card-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    /* font-weight: 800; */
+    color: #00AEE870;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    border: 1px solid #00AEE8;
+    border-radius: 2rem;    
+    top: calc(50% - ((var(--active-card-height) / 2) - 1.5rem)); /* Positionne au-dessus de la carte active */
+    left: 50%;
+    transform: translate(-50%, -100%); /* Aligne le bas du bouton avec le haut de la carte */
     pointer-events: auto;
     transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#show-master-card-btn:hover {
+    background-color: #21366A;
+    color: #ffffff;
 }
 
 /* Classe pour masquer/afficher le bouton */
@@ -292,19 +342,19 @@
 /* Tablettes (entre 768px et 1200px) - Affichage de 5 cartes */
 @media (max-width: 1200px) {
     .carousel-wrapper {
+        --active-card-height: 380px; /* Nouvelle hauteur pour tablette */
         min-height: 430px; /* Adjusted min-height for tablet */
     }
     .carousel-card.active {
         min-width: 550px; /* Carte active plus petite */
-        min-height: 380px;
     }
 
-    .carousel-card.prev-1 { transform: translate(calc(-50% - 240px), -50%) scale(0.85); }
-    .carousel-card.next-1 { transform: translate(calc(-50% + 240px), -50%) scale(0.85); }
+    .carousel-card.prev-1 { transform: translate(calc(-50% - 210px), -50%) scale(0.9); }
+    .carousel-card.next-1 { transform: translate(calc(-50% + 210px), -50%) scale(0.9); }
 
     /* Niveau 2 */
-    .carousel-card.prev-2 { transform: translate(calc(-50% - 400px), -50%) scale(0.75); }
-    .carousel-card.next-2 { transform: translate(calc(-50% + 400px), -50%) scale(0.75); }
+    .carousel-card.prev-2 { transform: translate(calc(-50% - 320px), -50%) scale(0.7); }
+    .carousel-card.next-2 { transform: translate(calc(-50% + 320px), -50%) scale(0.7); }
 
     /* On cache le niveau 3 */
     .carousel-card.prev-3,
@@ -316,19 +366,30 @@
     .carousel-card.next-3 {
         transform: translate(calc(-50% + 450px), -50%) scale(0.5);
     }
-
+    
     .carousel-controls {
         padding: 0; /* Rapproche les flèches sur tablette */
+        position : absolute;
+        top: calc(50% - 2rem);
+        left: 50%; 
+        transform: translateX(-50%); 
+        width: calc(550px + 3.5rem);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: none;
+        z-index: 20;
     }
 }
 
 /* Mobiles (moins de 768px) - Affichage de 3 cartes */
 @media (max-width: 767px) {
     .carousel-wrapper {
-        min-height: 390px; /* Adjusted min-height for mobile */
+        --active-card-height: 340px; /* Nouvelle hauteur pour mobile */
+        min-height: 390px;
     }
     .metiers-carousel-section {
-        padding: 4rem 0;
+        padding: 3rem 0;
     }
 
     .carousel-wrapper {
@@ -345,13 +406,11 @@
     .carousel-card.active {
         min-width: 85vw; /* La carte active prend presque toute la largeur */
         width: 85vw;
-        min-height: 340px;
     } /* Keep a minimum height for active card on mobile */
 
     .carousel-card.master-card {
-        min-width: 90vw;
-        min-height: 450px;
-        padding: 2rem 1rem;
+        min-width: 85vw;
+        padding: 2rem;
     }
 
     .card-content h3 {
@@ -365,11 +424,11 @@
 
     /* Niveau 1 */
     .carousel-card.prev-1 {
-        transform: translate(calc(-50% - 40vw), -50%) scale(0.8);
+        transform: translate(calc(-50% - 22vw), -50%) scale(0.8);
         z-index: 8;
     }
     .carousel-card.next-1 {
-        transform: translate(calc(-50% + 40vw), -50%) scale(0.8);
+        transform: translate(calc(-50% + 22vw), -50%) scale(0.8);
         z-index: 8;
     }
     .carousel-card.prev-1::after,
@@ -389,17 +448,28 @@
 
     /* --- Contrôles sur mobile --- */
     .carousel-controls {
-        top: auto;
-        bottom: -4rem; /* Place les flèches sous le carrousel */
-        transform: none;
+        top: 50%;
+        left: 50%;
+        min-width: calc(85vw + 2rem);
+        max-width: calc(85vw + 2rem);
+        transform: translate(-50%, -50%);
         gap: 1rem;
     }
 
     .carousel-arrow {
-        width: 3rem;
-        height: 3rem;
-        font-size: 1rem;
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.8rem;
     }
+
+    #show-master-card-btn {
+        left: 50%;
+        width: 70%; /* Rendre le bouton plus large */
+        transform: translate(-50%, -100%);
+        justify-content: center;
+        padding: 0.5rem 1rem;
+    }
+
 }
 
 /* Ajustements pour le titre et le texte d'intro dans la master card sur mobile */

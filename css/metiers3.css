@@ -1,16 +1,16 @@
 /* === Section Métiers Carousel (V3) === */
 .metiers-carousel-section {
     width: 100%;
-    padding: 6rem 0;
-    background-color: #f8f9fa;
-    overflow: hidden; /* Empêche tout débordement horizontal */
+    padding: 2rem 0;
+    background-color: #ffffff;
+    overflow: hidden;
 }
 
 .carousel-wrapper {
     position: relative;
     width: 100%;
-    min-height: 450px; /* Default min-height for desktop */
-    transition: min-height 0.6s ease, height 0.6s ease; /* Add transition for smooth height change */
+    min-height: 450px;
+    transition: min-height 0.6s ease, height 0.6s ease;
     justify-content: center;
     align-items: center;
 }
@@ -19,16 +19,16 @@
     position: relative;
     width: 100%;
     height: 100%;
-    perspective: 1500px; /* Ajoute de la profondeur */
+    perspective: 1500px;
 }
 
 .carousel-card {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 320px; /* Keep width fixed for scaling */
-    height: auto; /* Allow height to adapt to content */
-    min-height: 320px; /* Ajout pour la responsivité */
+    width: 320px;
+    height: auto;
+    min-height: 320px;
     background-color: #ffffff;
     border: 1px solid #e6edf5;
     border-radius: 1.5rem;
@@ -42,6 +42,22 @@
     padding: 2rem;
     text-align: center;
 }
+/* Appliquer l'image de fond et l'overlay aux cartes métiers */
+.carousel-card:not(.master-card) {
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-card:not(.master-card)::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: #21366ae0;
+    border-radius: inherit;
+    z-index: 1;
+}
+
 
 /* Superposition sombre pour les cartes inactives */
 .carousel-card::after {
@@ -55,7 +71,7 @@
     z-index: 1; /* Au-dessus du contenu de la carte */
 }
 
-.card-content { z-index: 2; position: relative; } /* S'assure que le contenu est sous l'overlay */
+.card-content { z-index: 2; position: relative; } /* S'assure que le contenu est au-dessus des overlays */
 
 .card-content i {
     font-size: 2.5rem;
@@ -67,13 +83,13 @@
 .card-content h3 {
     font-size: 1.5rem;
     font-weight: 800;
-    color: #21366A;
+    color: #ffffff;
     margin: 0 0 0.5rem 0;
 }
 
 .card-content p {
     font-size: 0.9rem;
-    color: #626262;
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.5;
     margin: 0;
 }
@@ -98,27 +114,35 @@
 
 /* --- Styles spécifiques pour la Master Card --- */
 .carousel-card.master-card {
-    min-width: 800px; /* Largeur pour la master card active */
-    min-height: 500px; /* Hauteur minimale pour la master card */
-    padding: 2rem;
+    min-width: 600px; /* Largeur pour la master card active */
+    min-height: 400px; /* Hauteur minimale pour la master card */
+    padding: 1.5rem;
 }
 
 .carousel-card.master-card .card-content {
     margin: 0 auto;
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
 }
-
+/* Rétablir les couleurs par défaut pour le contenu de la master-card */
+.carousel-card.master-card .card-content i {
+    color: #00AEE8;
+}
+.carousel-card.master-card .card-content h3,
 .carousel-card.master-card .section-title {
-    
+    color: #21366A;
+}
+.carousel-card.master-card .card-content p,
+.carousel-card.master-card .metiers-intro-text {
+    color: #626262;
 }
 
-.carousel-card.master-card .metiers-intro-text {
 
+.carousel-card.master-card .metiers-intro-text {
     text-align: center;
 }
 
@@ -128,8 +152,8 @@
 
 .master-card-links-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+    gap: 0.4rem;
     width: 100%;
 }
 
@@ -138,12 +162,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 0.6rem;
     border: 1px solid #e6edf5;
     border-radius: 0.75rem;
     text-decoration: none;
     color: #21366A;
+    font-size: 0.75rem;
     transition: all 0.3s ease;
+}
+.master-card-link i {
+    font-size: 1.5rem; /* Taille réduite pour les icônes */
+    margin-bottom: 0.3rem;
 }
 .master-card-link:hover {
     background-color: #f0f7ff;
@@ -201,16 +230,19 @@
     pointer-events: none;
 }
 
+/* Classe pour forcer le masquage de la master-card via JS */
+.carousel-card.is-hidden-by-user {
+    display: none !important; /* Retire complètement la carte du flux */
+}
+
 /* --- Contrôles (flèches) --- */
 .carousel-controls {
-    position: absolute;
-    top: 90%;
     left: 0;
     right: 0;
-    transform: translateY(-50%);
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 1rem;
+    gap: 1rem;
     pointer-events: none; /* Laisse passer les clics vers les cartes */
     z-index: 20;
 }
@@ -234,6 +266,18 @@
     transform: scale(1.1);
 }
 
+/* Style pour le bouton "Choisir" */
+#show-master-card-btn {
+    pointer-events: auto;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Classe pour masquer/afficher le bouton */
+.is-user-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9);
+}
 /* --- Responsive Design --- */
 
 /* Tablettes (entre 768px et 1200px) - Affichage de 5 cartes */
@@ -339,7 +383,6 @@
         top: auto;
         bottom: -4rem; /* Place les flèches sous le carrousel */
         transform: none;
-        justify-content: center;
         gap: 1rem;
     }
 

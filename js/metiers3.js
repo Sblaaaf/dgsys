@@ -7,24 +7,36 @@ export function initMetiersCarousel() {
     const cards = Array.from(section.querySelectorAll('.carousel-card'));
     const nextButton = section.querySelector('.carousel-arrow.next');
     const prevButton = section.querySelector('.carousel-arrow.prev');
+    const showMasterCardBtn = section.querySelector('#show-master-card-btn');
+    const masterCard = section.querySelector('.carousel-card.master-card');
 
     if (cards.length === 0) return;
 
-    let activeIndex = 0;
+    let activeIndex = 0; // Index dans le tableau des cartes *visibles*
     let isThrottled = false;
+    const masterCardIndex = cards.findIndex(card => card.classList.contains('master-card'));
 
-    // Function to update card positions and wrapper height
+    // Retourne les cartes actuellement visibles
+    function getVisibleCards() {
+        return cards.filter(card => !card.classList.contains('is-hidden-by-user'));
+    }
+
     function updateCarousel() {
-        const numCards = cards.length;
+        const visibleCards = getVisibleCards();
+        const numCards = visibleCards.length;
 
-        cards.forEach((card, i) => {
+        // Gère la visibilité du bouton "Choisir"
+        showMasterCardBtn.classList.toggle('is-user-hidden', !masterCard.classList.contains('is-hidden-by-user'));
+
+        // On itère sur les cartes visibles pour leur appliquer les classes
+        visibleCards.forEach((card, i) => {
             // Retirer toutes les classes de position précédentes
             card.classList.remove('active', 'prev-1', 'next-1', 'prev-2', 'next-2', 'prev-3', 'next-3', 'hidden');
 
             // Calculer la différence par rapport à l'index actif
             let diff = i - activeIndex;
 
-            // Gérer la boucle
+            // Gérer la boucle pour le carrousel circulaire
             if (Math.abs(diff) > numCards / 2) {
                 diff = diff > 0 ? diff - numCards : diff + numCards;
             }
@@ -58,17 +70,23 @@ export function initMetiersCarousel() {
             }
         });
 
-        // Dynamically adjust the carousel-wrapper height based on the active card
-        const activeCardElement = cards[activeIndex];
+        // Ajuste dynamiquement la hauteur du conteneur
+        const activeCardElement = visibleCards[activeIndex];
         if (activeCardElement && wrapper) {
-            // Add a buffer (e.g., 50px) for vertical centering and potential spacing
-            // The active card is centered, so its height needs to fit within the wrapper
-            wrapper.style.height = `${activeCardElement.offsetHeight + 50}px`;
+            wrapper.style.height = `${activeCardElement.scrollHeight}px`;
         }
     }
 
     function navigate(direction) {
-        const numCards = cards.length;
+        const visibleCards = getVisibleCards();
+        const numCards = visibleCards.length;
+        if (numCards === 0) return;
+
+        // Si on quitte la master-card, on la masque
+        if (cards[activeIndex].classList.contains('master-card')) {
+            masterCard.classList.add('is-hidden-by-user');
+        }
+
         activeIndex = (activeIndex + direction + numCards) % numCards;
         updateCarousel();
     }
@@ -84,41 +102,59 @@ export function initMetiersCarousel() {
     // Clic sur les cartes
     cards.forEach((card, index) => {
         card.addEventListener('click', () => {
-            // Si la carte cliquée est la master-card, on ne fait rien sur la carte elle-même,
-            // la navigation se fera via les liens internes.
-            if (card.classList.contains('master-card')) {
-                // Si la master-card est déjà active, ne rien faire.
-                if (index === activeIndex) return;
-                // Sinon, la rendre active si elle n'est pas déjà.
-                activeIndex = index;
-                updateCarousel();
-            } else {
-                // Pour les cartes métiers, si on clique sur la carte déjà active, on ne fait rien.
-                if (index === activeIndex) {
-                    return;
-                }
-                // Sinon, la rendre active.
-                activeIndex = index;
-                updateCarousel();
+            const visibleCards = getVisibleCards();
+            const visibleIndex = visibleCards.indexOf(card);
+
+            if (visibleIndex === -1 || visibleIndex === activeIndex) return;
+
+            // Calcule la différence pour naviguer
+            let diff = visibleIndex - activeIndex;
+            if (Math.abs(diff) > visibleCards.length / 2) {
+                diff = diff > 0 ? diff - visibleCards.length : diff + visibleCards.length;
             }
+            navigate(diff);
         });
     });
 
     // Écouteur pour les liens internes de la master-card
-    const masterCard = section.querySelector('.carousel-card.master-card');
     if (masterCard) {
         const masterLinks = masterCard.querySelectorAll('.master-card-link');
         masterLinks.forEach(link => {
             link.addEventListener('click', (e) => {
-                e.preventDefault(); // Empêche le comportement par défaut du lien
-                const targetIndex = parseInt(link.dataset.targetIndex, 10);
-                if (!isNaN(targetIndex) && targetIndex !== activeIndex) {
-                    activeIndex = targetIndex;
-                    updateCarousel();
+                e.preventDefault();
+
+                const targetDataIndex = parseInt(link.dataset.targetIndex, 10);
+                const targetCard = cards.find(card => parseInt(card.dataset.index, 10) === targetDataIndex);
+
+                if (!targetCard) return;
+
+                // Masquer la master-card
+                masterCard.classList.add('is-hidden-by-user');
+                
+                // Trouver le nouvel index de la carte cible dans la liste des cartes visibles
+                const visibleCards = getVisibleCards();
+                const newActiveIndex = visibleCards.indexOf(targetCard);
+
+                if (newActiveIndex !== -1) {
+                    activeIndex = newActiveIndex;
                 }
+                
+                updateCarousel();
             });
         });
     }
+
+    // --- Bouton "Choisir parmi tous les métiers" ---
+    showMasterCardBtn.addEventListener('click', () => {
+        masterCard.classList.remove('is-hidden-by-user');
+        
+        // Le nouvel index actif sera l'index de la master-card dans la liste maintenant complète
+        const visibleCards = getVisibleCards();
+        activeIndex = visibleCards.indexOf(masterCard);
+
+        updateCarousel();
+    });
+
 
     // Scroll avec la molette
     track.addEventListener('wheel', (e) => {

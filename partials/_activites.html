@@ -3,73 +3,177 @@
         <h2 class="section-title">Une caisse, des possibilités infinies</h2>
         <p class="section-subtitle">Notre système est le tronc commun qui s'adapte à toutes les branches de votre activité.</p>
 
-        <div class="activites-layout">
-            <!-- Colonne 1: Spider Container -->
-            <div class="spider-container">
-                <!-- Le corps de l'araignée : l'image de la caisse -->
-                <div class="spider-body">
-                    <div class="spider-circle"></div>
-                    <img src="https://www.clyosystems.com/wp-content/uploads/2023/04/materiel-joon-2023.png" alt="Caisse enregistreuse DGsys">
-                </div>
+        <!-- Le spider-container est maintenant le seul élément principal -->
+        <div class="spider-container">
+            <!-- Le corps de l'araignée : l'image de la caisse -->
+            <div class="spider-body">
+                <div class="spider-circle"></div>
+                <img src="https://www.clyosystems.com/wp-content/uploads/2023/04/materiel-joon-2023.png" alt="Caisse enregistreuse DGsys">
+            </div>
 
-                <!-- Les pattes de l'araignée : les fonctionnalités -->
-                <div class="spider-legs-group group-right">
-                    <a href="#" class="spider-leg" data-feature="plan-salle"><div class="leg-label"><i class="fas fa-map"></i><span>Plan de salle</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="stocks"><div class="leg-label"><i class="fas fa-boxes"></i><span>Gestion des stocks</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="stats"><div class="leg-label"><i class="fas fa-chart-bar"></i><span>Statistiques</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="paiement"><div class="leg-label"><i class="fas fa-credit-card"></i><span>Paiement TPE</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="kds"><div class="leg-label"><i class="fas fa-desktop"></i><span>Écran de cuisine (KDS)</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="reservations"><div class="leg-label"><i class="fas fa-calendar-check"></i><span>Réservations</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="click-collect"><div class="leg-label"><i class="fas fa-shopping-bag"></i><span>Click & Collect</span></div></a>
-                </div>
-
-                <div class="spider-legs-group group-left">
-                    <a href="#" class="spider-leg" data-feature="fidelite"><div class="leg-label"><i class="fas fa-star"></i><span>Fidélisation client</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="bornes"><div class="leg-label"><i class="fas fa-tablet-alt"></i><span>Bornes de commande</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="compta"><div class="leg-label"><i class="fas fa-file-invoice-dollar"></i><span>Exports comptables</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="balances"><div class="leg-label"><i class="fas fa-weight-scale"></i><span>Balances connectées</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="monnayeurs"><div class="leg-label"><i class="fas fa-coins"></i><span>Monnayeurs</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="marketing"><div class="leg-label"><i class="fas fa-bullhorn"></i><span>Marketing SMS</span></div></a>
-                    <a href="#" class="spider-leg" data-feature="multisite"><div class="leg-label"><i class="fas fa-sitemap"></i><span>Gestion multi-site</span></div></a>
+            <!-- Les pattes de l'araignée : les fonctionnalités -->
+            <div class="spider-legs-group group-right">
+                <a href="#" class="spider-leg" data-feature="plan-salle"><div class="leg-label"><i class="fas fa-map"></i><span>Plan de salle</span></div></a>
+                <a href="#" class="spider-leg" data-feature="stocks"><div class="leg-label"><i class="fas fa-boxes"></i><span>Gestion des stocks</span></div></a>
+                <a href="#" class="spider-leg" data-feature="stats"><div class="leg-label"><i class="fas fa-chart-bar"></i><span>Statistiques</span></div></a>
+                <a href="#" class="spider-leg" data-feature="paiement"><div class="leg-label"><i class="fas fa-credit-card"></i><span>Paiement TPE</span></div></a>
+                <a href="#" class="spider-leg" data-feature="kds"><div class="leg-label"><i class="fas fa-desktop"></i><span>Écran de cuisine (KDS)</span></div></a>
+                <a href="#" class="spider-leg" data-feature="reservations"><div class="leg-label"><i class="fas fa-calendar-check"></i><span>Réservations</span></div></a>
+                <a href="#" class="spider-leg" data-feature="click-collect"><div class="leg-label"><i class="fas fa-shopping-bag"></i><span>Click & Collect</span></div></a>
+            </div>
+            <div class="feature-panel feature-panel-right">
+                <button class="close-panel-btn"><i class="fas fa-times"></i></button>
+                <div class="panel-content-wrapper">
+                    <!-- Le contenu sera injecté ici par JS -->
                 </div>
             </div>
 
-            <!-- Colonne 2: Détail des fonctionnalités -->
-            <div class="feature-details-container">
-                <!-- Contenu par défaut / pour "Plan de salle" -->
-                <div class="feature-detail-content is-active" data-feature="plan-salle">
-                    <h3><i class="fas fa-map"></i> Plan de salle interactif</h3>
-                    <p>Organisez vos tables, suivez leur statut en temps réel et optimisez le placement de vos clients pour un service plus fluide.</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Statut des tables (libre, occupée, réservée).</li>
-                        <li><i class="fas fa-check-circle"></i> Prise de commande directe depuis le plan.</li>
-                        <li><i class="fas fa-check-circle"></i> Fusion et division de tables.</li>
-                    </ul>
-                </div>
-
-                <!-- Contenu pour "Gestion des stocks" (caché par défaut) -->
-                <div class="feature-detail-content" data-feature="stocks">
-                    <h3><i class="fas fa-boxes"></i> Gestion des stocks avancée</h3>
-                    <p>Maîtrisez vos coûts matières, évitez les ruptures et optimisez vos commandes fournisseurs grâce à un suivi précis de vos stocks.</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Décrémentation automatique à la vente.</li>
-                        <li><i class="fas fa-check-circle"></i> Alertes de stock bas et suggestions de commande.</li>
-                        <li><i class="fas fa-check-circle"></i> Inventaires rapides et gestion des fiches techniques.</li>
-                    </ul>
-                </div>
-
-                <!-- Contenu pour "Statistiques" (caché par défaut) -->
-                <div class="feature-detail-content" data-feature="stats">
-                    <h3><i class="fas fa-chart-bar"></i> Statistiques et rapports</h3>
-                    <p>Prenez des décisions éclairées grâce à des tableaux de bord clairs et des rapports détaillés sur votre activité.</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Suivi du chiffre d'affaires en temps réel.</li>
-                        <li><i class="fas fa-check-circle"></i> Analyse des produits les plus vendus.</li>
-                        <li><i class="fas fa-check-circle"></i> Rapports de TVA et exports comptables.</li>
-                    </ul>
-                </div>
-                <!-- Ajoutez ici les autres blocs pour chaque fonctionnalité... -->
+            <div class="spider-legs-group group-left">
+                <a href="#" class="spider-leg" data-feature="fidelite"><div class="leg-label"><i class="fas fa-star"></i><span>Fidélisation client</span></div></a>
+                <a href="#" class="spider-leg" data-feature="bornes"><div class="leg-label"><i class="fas fa-tablet-alt"></i><span>Bornes de commande</span></div></a>
+                <a href="#" class="spider-leg" data-feature="compta"><div class="leg-label"><i class="fas fa-file-invoice-dollar"></i><span>Exports comptables</span></div></a>
+                <a href="#" class="spider-leg" data-feature="balances"><div class="leg-label"><i class="fas fa-weight-scale"></i><span>Balances connectées</span></div></a>
+                <a href="#" class="spider-leg" data-feature="monnayeurs"><div class="leg-label"><i class="fas fa-coins"></i><span>Monnayeurs</span></div></a>
+                <a href="#" class="spider-leg" data-feature="marketing"><div class="leg-label"><i class="fas fa-bullhorn"></i><span>Marketing SMS</span></div></a>
+                <a href="#" class="spider-leg" data-feature="multisite"><div class="leg-label"><i class="fas fa-sitemap"></i><span>Gestion multi-site</span></div></a>
             </div>
+            <div class="feature-panel feature-panel-left">
+                <button class="close-panel-btn"><i class="fas fa-times"></i></button>
+                <div class="panel-content-wrapper">
+                    <!-- Le contenu sera injecté ici par JS -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Conteneur caché pour stocker les détails de chaque fonctionnalité -->
+    <div class="feature-details-storage" style="display: none;">
+        <div class="feature-detail-content" data-feature="plan-salle">
+            <h3><i class="fas fa-map"></i> Plan de salle interactif</h3>
+            <p>Organisez vos tables, suivez leur statut en temps réel et optimisez le placement de vos clients pour un service plus fluide.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Statut des tables (libre, occupée, réservée).</li>
+                <li><i class="fas fa-check-circle"></i> Prise de commande directe depuis le plan.</li>
+                <li><i class="fas fa-check-circle"></i> Fusion et division de tables.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="stocks">
+            <h3><i class="fas fa-boxes"></i> Gestion des stocks avancée</h3>
+            <p>Maîtrisez vos coûts matières, évitez les ruptures et optimisez vos commandes fournisseurs grâce à un suivi précis de vos stocks.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Décrémentation automatique à la vente.</li>
+                <li><i class="fas fa-check-circle"></i> Alertes de stock bas et suggestions de commande.</li>
+                <li><i class="fas fa-check-circle"></i> Inventaires rapides et gestion des fiches techniques.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="stats">
+            <h3><i class="fas fa-chart-bar"></i> Statistiques et rapports</h3>
+            <p>Prenez des décisions éclairées grâce à des tableaux de bord clairs et des rapports détaillés sur votre activité.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Suivi du chiffre d'affaires en temps réel.</li>
+                <li><i class="fas fa-check-circle"></i> Analyse des produits les plus vendus.</li>
+                <li><i class="fas fa-check-circle"></i> Rapports de TVA et exports comptables.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="paiement">
+            <h3><i class="fas fa-credit-card"></i> Paiement TPE intégré</h3>
+            <p>Acceptez les paiements par carte bancaire directement depuis votre caisse ou un terminal mobile, en toute sécurité.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Connexion avec les principaux TPE du marché.</li>
+                <li><i class="fas fa-check-circle"></i> Paiement sans contact, Apple Pay, Google Pay.</li>
+                <li><i class="fas fa-check-circle"></i> Partage de l'addition et pourboires simplifiés.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="kds">
+            <h3><i class="fas fa-desktop"></i> Écran de cuisine (KDS)</h3>
+            <p>Optimisez la communication entre la salle et la cuisine. Les commandes s'affichent en temps réel, réduisant les erreurs et le temps de préparation.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Affichage par plat ou par commande.</li>
+                <li><i class="fas fa-check-circle"></i> Statuts de préparation (en cours, prêt).</li>
+                <li><i class="fas fa-check-circle"></i> Moins de papier, plus d'efficacité.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="reservations">
+            <h3><i class="fas fa-calendar-check"></i> Gestion des réservations</h3>
+            <p>Gérez votre carnet de réservations en ligne et directement depuis la caisse. Optimisez votre taux de remplissage.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Module de réservation en ligne pour votre site.</li>
+                <li><i class="fas fa-check-circle"></i> Visualisation sur le plan de salle.</li>
+                <li><i class="fas fa-check-circle"></i> Envoi de confirmations par SMS/email.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="click-collect">
+            <h3><i class="fas fa-shopping-bag"></i> Click & Collect</h3>
+            <p>Proposez la commande en ligne à vos clients. Une nouvelle source de revenus simple à mettre en place et intégrée à votre caisse.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Catalogue produits synchronisé.</li>
+                <li><i class="fas fa-check-circle"></i> Paiement en ligne sécurisé.</li>
+                <li><i class="fas fa-check-circle"></i> Gestion des créneaux de retrait.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="fidelite">
+            <h3><i class="fas fa-star"></i> Fidélisation client</h3>
+            <p>Créez une relation durable avec vos clients grâce à des programmes de fidélité personnalisables et efficaces.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Cagnotage de points ou remises.</li>
+                <li><i class="fas fa-check-circle"></i> Base de données clients (CRM).</li>
+                <li><i class="fas fa-check-circle"></i> Offres spéciales et anniversaires.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="bornes">
+            <h3><i class="fas fa-tablet-alt"></i> Bornes de commande</h3>
+            <p>Réduisez les files d'attente et augmentez le panier moyen en laissant vos clients commander en toute autonomie.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Interface tactile intuitive et personnalisable.</li>
+                <li><i class="fas fa-check-circle"></i> Paiement par TPE intégré à la borne.</li>
+                <li><i class="fas fa-check-circle"></i> Synchronisation totale avec la caisse et la cuisine.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="compta">
+            <h3><i class="fas fa-file-invoice-dollar"></i> Exports comptables</h3>
+            <p>Simplifiez votre comptabilité. Générez des exports clairs et complets, compatibles avec la plupart des logiciels comptables.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Génération du Z de caisse et rapports de TVA.</li>
+                <li><i class="fas fa-check-circle"></i> Formats d'export personnalisables.</li>
+                <li><i class="fas fa-check-circle"></i> Accès sécurisé pour votre expert-comptable.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="balances">
+            <h3><i class="fas fa-weight-scale"></i> Balances connectées</h3>
+            <p>Pesez et encaissez en un seul geste. Nos balances connectées communiquent directement avec la caisse pour éviter les erreurs de saisie.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Idéal pour les épiceries, boucheries, primeurs...</li>
+                <li><i class="fas fa-check-circle"></i> Calcul automatique du prix.</li>
+                <li><i class="fas fa-check-circle"></i> Fiabilité et gain de temps garantis.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="monnayeurs">
+            <h3><i class="fas fa-coins"></i> Monnayeurs automatiques</h3>
+            <p>Sécurisez vos transactions en espèces, éliminez les erreurs de rendu de monnaie et améliorez l'hygiène au point de vente.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Rendu de monnaie exact et rapide.</li>
+                <li><i class="fas fa-check-circle"></i> Système sécurisé contre les vols.</li>
+                <li><i class="fas fa-check-circle"></i> Réduction du temps de comptage de caisse.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="marketing">
+            <h3><i class="fas fa-bullhorn"></i> Marketing SMS</h3>
+            <p>Communiquez directement avec vos clients sur leur mobile. Envoyez des promotions, des nouveautés ou des vœux.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Envoi de campagnes ciblées depuis votre base clients.</li>
+                <li><i class="fas fa-check-circle"></i> Taux d'ouverture proche de 98%.</li>
+                <li><i class="fas fa-check-circle"></i> Personnalisation des messages.</li>
+            </ul>
+        </div>
+        <div class="feature-detail-content" data-feature="multisite">
+            <h3><i class="fas fa-sitemap"></i> Gestion multi-site</h3>
+            <p>Pilotez l'ensemble de votre réseau de points de vente depuis une seule interface centralisée sur le cloud.</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Statistiques consolidées ou par établissement.</li>
+                <li><i class="fas fa-check-circle"></i> Gestion centralisée des articles et des prix.</li>
+                <li><i class="fas fa-check-circle"></i> Transferts de stock entre magasins.</li>
+            </ul>
         </div>
     </div>
 </section>

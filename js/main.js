@@ -8,7 +8,7 @@ import { initSecteurHover } from './secteurs-hover.js';
 import { initMetiers } from './metiers.js';
 import { initMetiersPremium } from './metiers2.js';
 import { initMetiersCarousel } from './metiers3.js'; 
-import { initActivitesAnimation } from './activites.js'; 
+import { initActivitesAnimation, initActivitesSpider } from './activites.js'; 
 import { initProduits2 } from './produits2.js';
 import { initAvantagesSection } from './avantage.js';
 import { initFaqAccordion } from './faq.js';
@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initMetiers();
     initMetiersPremium();
     initActivitesAnimation();
+    initActivitesSpider(); // Ajout de l'initialisation pour les panneaux
     initAvantagesSection(); 
     initProduits2();
     initMetiersCarousel();

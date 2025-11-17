@@ -1,3 +1,82 @@
+/* === Section Activités (Spider + Bento) === */
+
+.activites-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+/* --- Colonne de droite : Détails des fonctionnalités --- */
+.feature-details-container {
+    position: relative;
+    background-color: #f8f9fa;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    min-height: 350px;
+}
+
+.feature-detail-content {
+    padding: 2rem;
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.feature-detail-content.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.feature-detail-content h3 {
+    font-size: 1.5rem;
+    color: var(--blue-dark, #21366A);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.feature-detail-content h3 i {
+    color: var(--blue-primary, #00AEE8);
+}
+
+.feature-detail-content p {
+    color: var(--grey, #626262);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.feature-detail-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-detail-content li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--grey, #626262);
+}
+
+.feature-detail-content li i {
+    color: var(--blue-primary, #00AEE8);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    .activites-layout {
+        grid-template-columns: 1fr;
+    }
+    .feature-details-container {
+        margin-top: 3rem;
+    }
+}
+
 /* === Section Activités (Diagramme) === */
 .activites-spider-section {
     padding: 6rem 0;
@@ -7,6 +86,7 @@
 }
 
 .spider-container {
+    grid-column: 1 / 2; /* S'assure que le spider reste dans la première colonne */
     position: relative;
     width: 100%;
     max-width: 1100px;
@@ -98,9 +178,8 @@
 /* Le label au bout de la patte */
 .leg-label {
     position: absolute;
-    min-width: 150px;
-    width: auto; 
-    justify-content: center;
+    min-width: 200px; /* Largeur fixe pour tous les labels */
+    justify-content: flex-start; /* Alignement à gauche pour la cohérence */
     top: 0;
     transform: translateY(-50%);
     display: flex;

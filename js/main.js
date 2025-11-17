@@ -8,8 +8,11 @@ import { initSecteurHover } from './secteurs-hover.js';
 import { initMetiers } from './metiers.js';
 import { initMetiersPremium } from './metiers2.js';
 import { initMetiersCarousel } from './metiers3.js'; 
-import { initActivitesAnimation } from './activites.js';
+import { initActivitesAnimation } from './activites.js'; 
+import { initProduits2 } from './produits2.js';
 import { initAvantagesSection } from './avantage.js';
+import { initFaqAccordion } from './faq.js';
+
 
 // Attend que le DOM soit chargé
 document.addEventListener('DOMContentLoaded', async () => {
@@ -26,7 +29,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     initMetiers();
     initMetiersPremium();
     initActivitesAnimation();
-    initAvantagesSection();
+    initAvantagesSection(); 
+    initProduits2();
     initMetiersCarousel();
+    initFaqAccordion();
 
 });

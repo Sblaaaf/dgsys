@@ -157,11 +157,11 @@ export function initMetiersCarousel() {
 
 
     // Scroll avec la molette
-    track.addEventListener('wheel', (e) => {
+    /* track.addEventListener('wheel', (e) => {
         if (isThrottled) return;
         isThrottled = true;
 
-        // On ignore les scrolls horizontaux purs (trackpad)
+        
         if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) {
             isThrottled = false;
             return;
@@ -174,8 +174,8 @@ export function initMetiersCarousel() {
 
         setTimeout(() => {
             isThrottled = false;
-        }, 300); // Délai pour éviter un défilement trop rapide
-    }, { passive: false });
+        }, 300);
+    }, { passive: false }); */
 
     // Touches clavier (gauche/droite)
     document.addEventListener('keydown', (e) => {

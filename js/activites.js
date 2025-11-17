@@ -17,25 +17,35 @@ export function initActivitesAnimation() {
 }
 
 export function initActivitesSpider() {
-    const spiderContainer = document.querySelector('.spider-container');
-    if (!spiderContainer) return;
+    const section = document.querySelector('#activites');
+    if (!section) return;
 
-    const spiderBody = spiderContainer.querySelector('.spider-body');
-    const legLabels = spiderContainer.querySelectorAll('.leg-label');
+    const spiderLegs = section.querySelectorAll('.spider-leg');
+    const featureContents = section.querySelectorAll('.feature-detail-content');
+    const spiderContainer = section.querySelector('.spider-container');
 
-    if (!spiderBody || legLabels.length === 0) return;
+    if (!spiderLegs.length || !featureContents.length || !spiderContainer) return;
 
-    legLabels.forEach(label => {
-        // On écoute l'événement sur le parent 'spider-leg' pour une meilleure détection
-        const leg = label.closest('.spider-leg');
-        if (leg) {
-            leg.addEventListener('mouseenter', () => {
-                spiderBody.classList.add('is-leg-hovered');
-            });
-    
-            leg.addEventListener('mouseleave', () => {
-                spiderBody.classList.remove('is-leg-hovered');
-            });
-        }
+    const highlightFeature = (featureName) => {
+        featureContents.forEach(content => {
+            if (content.dataset.feature === featureName) {
+                content.classList.add('is-active');
+            } else {
+                content.classList.remove('is-active');
+            }
+        });
+    };
+
+    spiderLegs.forEach(leg => {
+        leg.addEventListener('mouseenter', () => {
+            highlightFeature(leg.dataset.feature);
+        });
+    });
+
+    spiderContainer.addEventListener('mouseleave', () => {
+        // Optionnel: revenir au premier élément quand on quitte la zone
+        featureContents.forEach((content, index) => {
+            content.classList.toggle('is-active', index === 0);
+        });
     });
 }

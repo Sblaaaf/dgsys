@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=open-sans:300,400,600,700,800" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <style>
+<!--   <style>
     :root{ --brand:#1dafe9; --brand-ink:#26366c; --gray:#626262; }
     .btn{ @apply inline-flex items-center gap-2 rounded-2xl px-5 py-3 font-semibold shadow-sm transition hover:-translate-y-0.5; letter-spacing:.01em; }
     .btn-primary{ @apply text-white; background:var(--brand); }
@@ -420,8 +420,198 @@ a.tile-link:hover, a.metier-link:hover, a.f-link:hover, .metiers-compact .desc-s
   .hero-headline{ font-size:clamp(1.5rem, 6vw, 2rem) !important; }
 }
 
+/* ======= DGsys premium 2025 + couleurs ======= */
+.dgsys-product-showcase-light {
+  --blue-dark: #26366c;
+  --blue-light: #1dafe9;
+  --grey: #626262;
 
-</style>
+  font-family: "Open Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 60px 24px;
+  background: #f5f7fb;
+  color: #1b2437;
+}
+
+.dgsys-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.dgsys-header {
+  max-width: 780px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.dgsys-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.dgsys-logo {
+  height: 32px;
+  width: auto;
+}
+.dgsys-tagline {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  background: rgba(29,175,233,0.08);
+  border: 1px solid rgba(29,175,233,0.3);
+  color: var(--blue-dark);
+}
+.dgsys-header h2 {
+  font-size: 2.1rem;
+  color: var(--blue-dark);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.dgsys-header p {
+  font-size: 1rem;
+  color: var(--grey);
+}
+
+/* LAYOUT */
+.dgsys-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 32px;
+}
+
+/* HERO (produit actif à gauche) */
+.dgsys-hero {
+  background: #ffffff;
+  border-radius: 26px;
+  border: 1px solid rgba(148,163,184,0.35);
+  box-shadow: 0 18px 45px rgba(15,23,42,0.10);
+  padding: 28px 26px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hero-badge {
+  position: absolute;
+  top: 16px;
+  right: 22px;
+  background: var(--blue-dark);
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px rgba(15,23,42,0.45);
+}
+
+.hero-content h3 {
+  color: var(--blue-dark);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.hero-text {
+  color: var(--grey);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+/* TAGS */
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hero-tags span {
+  background: #f0f7ff;
+  border: 1px solid rgba(29,175,233,0.4);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--blue-dark);
+}
+
+/* VIDEO HERO – cadre full largeur */
+.hero-media {
+  width: 100%;
+  padding: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(148,163,184,0.4);
+  box-shadow: 0 14px 32px rgba(15,23,42,0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* FEATURES (texte pur) */
+.hero-features {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 16px;
+}
+.hero-feature {
+  background: #ffffff;
+  border: 1px solid rgba(148,163,184,0.5);
+  border-radius: 16px;
+  padding: 12px 14px 12px 16px;
+  box-shadow: 0 10px 26px rgba(15,23,42,0.06);
+  transition: 0.22s ease;
+  position: relative;
+}
+.hero-feature::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #1dafe9, #26366c);
+}
+.hero-feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(15,23,42,0.12);
+}
+.hero-feature h4 {
+  font-size: 0.9rem;
+  margin: 0 0 4px;
+  color: var(--blue-dark);
+  font-weight: 700;
+}
+.hero-feature p {
+  font-size: 0.78rem;
+  color: var(--grey);
+  margin: 0;
+}
+
+/* CTA */
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+
+</style> -->
     
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased" style="font-family:'Open Sans', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">

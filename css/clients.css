@@ -32,22 +32,22 @@
     animation: scroll 30s linear infinite;
 }
 
-.logos-slider img {
-    height: 40px;
-    margin: 0 40px;
+.logos-slider i {
+    font-size: 3rem;
+    margin: 0 3rem;
     filter: grayscale(100%);
-    opacity: 0.6;
+    opacity: 0.2;
     transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
-.logos-slider img:hover {
+.logos-slider i:hover {
     filter: grayscale(0%);
     opacity: 1;
 }
 
 @media (max-width: 768px) {
-    .logos-slider img {
-        height: 30px;
-        margin: 0 25px;
+    .logos-slider i {
+        font-size: 2rem;
+        margin: 0 2rem;
     }
 }

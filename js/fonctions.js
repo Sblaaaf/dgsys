@@ -1,5 +1,5 @@
-export function initActivitesAnimation() {
-    const section = document.querySelector('#activites');
+export function initFonctionsAnimation() {
+    const section = document.querySelector('#fonctions');
     if (!section) return;
 
     const spiderContainer = section.querySelector('.spider-container');
@@ -16,8 +16,8 @@ export function initActivitesAnimation() {
     observer.observe(section);
 }
 
-export function initActivitesSpider() {
-    const section = document.querySelector('#activites');
+export function initFonctionsSpider() {
+    const section = document.querySelector('#fonctions');
     if (!section) return;
 
     const spiderLegs = section.querySelectorAll('.spider-leg');
@@ -87,38 +87,29 @@ export function initActivitesSpider() {
 
     // --- LOGIQUE DE NAVIGATION PAR FLÈCHES ---
 
-    // 1. Définir l'ordre de navigation : toutes les pattes de droite, puis toutes celles de gauche.
     const rightLegs = Array.from(section.querySelectorAll('.group-right .spider-leg'));
     const leftLegs = Array.from(section.querySelectorAll('.group-left .spider-leg'));
     const orderedNavigableLegs = [...rightLegs, ...leftLegs];
 
-    // 2. Sélectionner tous les boutons de navigation
     const prevButtons = section.querySelectorAll('.prev-btn');
     const nextButtons = section.querySelectorAll('.next-btn');
 
-    // 3. Créer la fonction de navigation
     const navigateTo = (direction) => {
-        // Trouver l'index de la patte actuellement active
         const currentIndex = orderedNavigableLegs.findIndex(leg => leg.classList.contains('is-panel-source'));
-
-        // Sécurité : si aucune patte n'est active, on ne fait rien
         if (currentIndex === -1) return;
 
-        // Calculer le nouvel index en "bouclant" à la fin ou au début du tableau
         const totalLegs = orderedNavigableLegs.length;
         let newIndex;
 
         if (direction === 'next') {
             newIndex = (currentIndex + 1) % totalLegs;
-        } else { // direction === 'prev'
+        } else {
             newIndex = (currentIndex - 1 + totalLegs) % totalLegs;
         }
 
-        // Simuler un clic sur la nouvelle patte pour déclencher l'ouverture du panneau
         orderedNavigableLegs[newIndex].click();
     };
 
-    // 4. Attacher les écouteurs d'événements aux boutons
     nextButtons.forEach(btn => btn.addEventListener('click', () => navigateTo('next')));
     prevButtons.forEach(btn => btn.addEventListener('click', () => navigateTo('prev')));
 }

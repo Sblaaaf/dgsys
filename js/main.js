@@ -12,6 +12,7 @@ import { initActivitesAnimation, initActivitesSpider } from './activites.js';
 import { initProduits2 } from './produits2.js';
 import { initAvantagesSection } from './avantage.js';
 import { initFaqAccordion } from './faq.js';
+import { initFonctionsSpider } from './fonctions.js';
 
 
 // Attend que le DOM soit chargé
@@ -29,10 +30,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     initMetiers();
     initMetiersPremium();
     initActivitesAnimation();
-    initActivitesSpider(); // Ajout de l'initialisation pour les panneaux
+    initActivitesSpider();
     initAvantagesSection(); 
     initProduits2();
     initMetiersCarousel();
     initFaqAccordion();
+    initFonctionsSpider();
 
 });

@@ -1,4 +1,4 @@
-/* === Section Activités (Spider + Panneaux latéraux) === */
+/* === Section Fonctions (Spider + Panneaux latéraux) === */
 
 .feature-panel {
     position: absolute;
@@ -114,10 +114,11 @@
 }
 
 /* --- Contrôles de navigation dans le panneau --- */
-.panel-nav-controls {
+.feature-panel-right .panel-nav-controls {
     position: absolute;
     height: auto;
     bottom: -10%;
+    left: 80%;
     transform: translateX(-50%) ;
     display: none; /* Caché par défaut */
     gap: 0.5rem;
@@ -127,12 +128,6 @@
     border-radius: 1rem;
     box-shadow: 0 -5px 15px rgba(33, 54, 106, 0.1);
     z-index: 20;
-}
-.feature-panel-right .panel-nav-controls {
-    left: 80%;
-}
-.feature-panel-left .panel-nav-controls {
-    left: 20%;
 }
 
 /* Afficher les contrôles uniquement quand le panneau est ouvert */
@@ -157,15 +152,8 @@
     transform: scale(1.1);
 }
 
-/* === Section Activités (Diagramme) === */
-.activites-spider-section {
-    padding: 6rem 0;
-    background-color: #ffffff;
-    text-align: center;
-    overflow: hidden;
-}
-
-.spider-container {
+/* === Section Fonctions (Diagramme) === */
+.fonctions-section .spider-container {
     position: relative;
     width: 100%;
     max-width: 1100px;
@@ -177,33 +165,33 @@
 }
 
 /* Cacher les pattes du côté opposé lorsque le panneau est actif */
-.spider-container.left-panel-active .group-left,
-.spider-container.right-panel-active .group-right {
+.fonctions-section .spider-container.left-panel-active .group-left,
+.fonctions-section .spider-container.right-panel-active .group-right {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.2s ease;
 }
 
 /* Garder la patte active visible */
-.spider-leg.is-panel-source {
+.fonctions-section .spider-leg.is-panel-source {
     opacity: 1 !important;
 }
 
 /* Maintient le style actif sur la ligne de la patte source */
-.spider-leg.is-panel-source::before,
-.spider-leg.is-panel-source::after {
+.fonctions-section .spider-leg.is-panel-source::before,
+.fonctions-section .spider-leg.is-panel-source::after {
     background-color: #21366A;
 }
 
 /* Le corps : l'image centrale */
-.spider-body {
+.fonctions-section .spider-body {
     position: relative;
     z-index: 10;
     width: 300px;
     height: 300px;
 }
 
-.spider-circle {
+.fonctions-section .spider-circle {
     position: absolute;
     background-color: #ffffff;
     margin: 12.5%;
@@ -213,7 +201,7 @@
     border-radius: 50%;
 }
 
-.spider-body img {
+.fonctions-section .spider-body img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -222,23 +210,23 @@
 }
 
 /* Conteneurs pour les groupes de pattes (gauche/droite) */
-.spider-legs-group {
+.fonctions-section .spider-legs-group {
     position: absolute;
     top: 50%;
     width: 50%;
     height: 100%;
 }
-.group-left {
+.fonctions-section .group-left {
     left: 0;
     transform: translateY(-50%) scaleX(-1); /* Inverse horizontalement pour la symétrie */
 }
-.group-right {
+.fonctions-section .group-right {
     right: 0;
     transform: translateY(-50%);
 }
 
 /* Style d'une patte individuelle */
-.spider-leg {
+.fonctions-section .spider-leg {
     position: absolute;
     left: 0;
     height: 2px;
@@ -253,20 +241,20 @@
 }
 
 /* Classe ajoutée par JS pour déclencher l'animation */
-.spider-container.is-visible .spider-leg {
+.fonctions-section .spider-container.is-visible .spider-leg {
     opacity: 1;
     transform: scale(1);
 }
 
 /* Lignes de connexion */
-.spider-leg::before {
+.fonctions-section .spider-leg::before {
     content: '';
     position: absolute;
     top: 0;
     height: 2px;
     background-color: #cdd3e0;
 }
-.spider-leg::after {
+.fonctions-section .spider-leg::after {
     content: '';
     position: absolute;
     width: 2px;
@@ -274,7 +262,7 @@
 }
 
 /* Le label au bout de la patte */
-.leg-label {
+.fonctions-section .leg-label {
     position: absolute;
     min-width: 200px;
     justify-content: flex-start;
@@ -301,105 +289,105 @@
 /* --- Positionnement INDIVIDUEL - GROUPE DE DROITE --- */
 
 /* Patte 1 (Haut) */
-.group-right .spider-leg:nth-child(1) { top: calc(50% - 180px); transition-delay: 0.1s; }
-.group-right .spider-leg:nth-child(1)::before { left: 10px; width: 150px; }
-.group-right .spider-leg:nth-child(1)::after  { left: 10px; top: 0; height: 180px; }
-.group-right .spider-leg:nth-child(1) .leg-label { left: 150px; }
+.fonctions-section .group-right .spider-leg:nth-child(1) { top: calc(50% - 180px); transition-delay: 0.1s; }
+.fonctions-section .group-right .spider-leg:nth-child(1)::before { left: 10px; width: 150px; }
+.fonctions-section .group-right .spider-leg:nth-child(1)::after  { left: 10px; top: 0; height: 180px; }
+.fonctions-section .group-right .spider-leg:nth-child(1) .leg-label { left: 150px; }
 
 /* Patte 2 */
-.group-right .spider-leg:nth-child(2) { top: calc(50% - 120px); transition-delay: 0.2s; }
-.group-right .spider-leg:nth-child(2)::before { left: 80px; width: 150px; }
-.group-right .spider-leg:nth-child(2)::after  { left: 50px; top: -8px; rotate: 30deg; height: 120px; }
-.group-right .spider-leg:nth-child(2) .leg-label { left: 200px; }
+.fonctions-section .group-right .spider-leg:nth-child(2) { top: calc(50% - 120px); transition-delay: 0.2s; }
+.fonctions-section .group-right .spider-leg:nth-child(2)::before { left: 80px; width: 150px; }
+.fonctions-section .group-right .spider-leg:nth-child(2)::after  { left: 50px; top: -8px; rotate: 30deg; height: 120px; }
+.fonctions-section .group-right .spider-leg:nth-child(2) .leg-label { left: 200px; }
 
 /* Patte 3 */
-.group-right .spider-leg:nth-child(3) { top: calc(50% - 60px); transition-delay: 0.3s; }
-.group-right .spider-leg:nth-child(3)::before { left: 80px; width: 230px; }
-.group-right .spider-leg:nth-child(3)::after  { left: 80px; top: 0; height: 60px; }
-.group-right .spider-leg:nth-child(3) .leg-label { left: 230px; }
+.fonctions-section .group-right .spider-leg:nth-child(3) { top: calc(50% - 60px); transition-delay: 0.3s; }
+.fonctions-section .group-right .spider-leg:nth-child(3)::before { left: 80px; width: 230px; }
+.fonctions-section .group-right .spider-leg:nth-child(3)::after  { left: 80px; top: 0; height: 60px; }
+.fonctions-section .group-right .spider-leg:nth-child(3) .leg-label { left: 230px; }
 
 /* Patte 4 (Milieu) */
-.group-right .spider-leg:nth-child(4) { top: 50%; transition-delay: 0.4s; }
-.group-right .spider-leg:nth-child(4)::before { width: 240px; }
-.group-right .spider-leg:nth-child(4)::after  { display: none; } /* Pas de ligne verticale */
-.group-right .spider-leg:nth-child(4) .leg-label { left: 240px; }
+.fonctions-section .group-right .spider-leg:nth-child(4) { top: 50%; transition-delay: 0.4s; }
+.fonctions-section .group-right .spider-leg:nth-child(4)::before { width: 240px; }
+.fonctions-section .group-right .spider-leg:nth-child(4)::after  { display: none; } /* Pas de ligne verticale */
+.fonctions-section .group-right .spider-leg:nth-child(4) .leg-label { left: 240px; }
 
 /* Patte 5 */
-.group-right .spider-leg:nth-child(5) { top: calc(50% + 60px); transition-delay: 0.5s; }
-.group-right .spider-leg:nth-child(5)::before { left: 90px; width: 230px; }
-.group-right .spider-leg:nth-child(5)::after  { left: 90px; bottom: 0; height: 60px; }
-.group-right .spider-leg:nth-child(5) .leg-label { left: 230px; }
+.fonctions-section .group-right .spider-leg:nth-child(5) { top: calc(50% + 60px); transition-delay: 0.5s; }
+.fonctions-section .group-right .spider-leg:nth-child(5)::before { left: 90px; width: 230px; }
+.fonctions-section .group-right .spider-leg:nth-child(5)::after  { left: 90px; bottom: 0; height: 60px; }
+.fonctions-section .group-right .spider-leg:nth-child(5) .leg-label { left: 230px; }
 
 /* Patte 6 */
-.group-right .spider-leg:nth-child(6) { top: calc(50% + 120px); transition-delay: 0.6s; }
-.group-right .spider-leg:nth-child(6)::before { left: 80px; width: 150px; }
-.group-right .spider-leg:nth-child(6)::after  { left: 50px; bottom: -8px; rotate: -30deg; height: 120px; }
-.group-right .spider-leg:nth-child(6) .leg-label { left: 200px; }
+.fonctions-section .group-right .spider-leg:nth-child(6) { top: calc(50% + 120px); transition-delay: 0.6s; }
+.fonctions-section .group-right .spider-leg:nth-child(6)::before { left: 80px; width: 150px; }
+.fonctions-section .group-right .spider-leg:nth-child(6)::after  { left: 50px; bottom: -8px; rotate: -30deg; height: 120px; }
+.fonctions-section .group-right .spider-leg:nth-child(6) .leg-label { left: 200px; }
 
 /* Patte 7 (Bas) */
-.group-right .spider-leg:nth-child(7) { top: calc(50% + 180px); transition-delay: 0.7s; }
-.group-right .spider-leg:nth-child(7)::before { left: 10px; width: 150px; }
-.group-right .spider-leg:nth-child(7)::after  { left: 10px; bottom: 0; height: 180px; }
-.group-right .spider-leg:nth-child(7) .leg-label { left: 150px; }
+.fonctions-section .group-right .spider-leg:nth-child(7) { top: calc(50% + 180px); transition-delay: 0.7s; }
+.fonctions-section .group-right .spider-leg:nth-child(7)::before { left: 10px; width: 150px; }
+.fonctions-section .group-right .spider-leg:nth-child(7)::after  { left: 10px; bottom: 0; height: 180px; }
+.fonctions-section .group-right .spider-leg:nth-child(7) .leg-label { left: 150px; }
 
 /* --- Positionnement INDIVIDUEL - GROUPE DE GAUCHE --- */
 
 /* Patte 1 (Haut) */
-.group-left .spider-leg:nth-child(1) { top: calc(50% - 180px); transition-delay: 0.8s; }
-.group-left .spider-leg:nth-child(1)::before { left: 10px; width: 150px; }
-.group-left .spider-leg:nth-child(1)::after  { left: 10px; top: 0; height: 180px; }
-.group-left .spider-leg:nth-child(1) .leg-label { left: 150px; }
+.fonctions-section .group-left .spider-leg:nth-child(1) { top: calc(50% - 180px); transition-delay: 0.8s; }
+.fonctions-section .group-left .spider-leg:nth-child(1)::before { left: 10px; width: 150px; }
+.fonctions-section .group-left .spider-leg:nth-child(1)::after  { left: 10px; top: 0; height: 180px; }
+.fonctions-section .group-left .spider-leg:nth-child(1) .leg-label { left: 150px; }
 
 /* Patte 2 */
-.group-left .spider-leg:nth-child(2) { top: calc(50% - 120px); transition-delay: 0.9s; }
-.group-left .spider-leg:nth-child(2)::before { left: 80px; width: 150px; }
-.group-left .spider-leg:nth-child(2)::after  { left: 50px; top: -8px; rotate: 30deg; height: 120px; }
-.group-left .spider-leg:nth-child(2) .leg-label { left: 200px; }
+.fonctions-section .group-left .spider-leg:nth-child(2) { top: calc(50% - 120px); transition-delay: 0.9s; }
+.fonctions-section .group-left .spider-leg:nth-child(2)::before { left: 80px; width: 150px; }
+.fonctions-section .group-left .spider-leg:nth-child(2)::after  { left: 50px; top: -8px; rotate: 30deg; height: 120px; }
+.fonctions-section .group-left .spider-leg:nth-child(2) .leg-label { left: 200px; }
 
 /* Patte 3 */
-.group-left .spider-leg:nth-child(3) { top: calc(50% - 60px); transition-delay: 1.0s; }
-.group-left .spider-leg:nth-child(3)::before { left: 90px; width: 230px; }
-.group-left .spider-leg:nth-child(3)::after  { left: 90px; top: 0; height: 60px; }
-.group-left .spider-leg:nth-child(3) .leg-label { left: 230px; }
+.fonctions-section .group-left .spider-leg:nth-child(3) { top: calc(50% - 60px); transition-delay: 1.0s; }
+.fonctions-section .group-left .spider-leg:nth-child(3)::before { left: 90px; width: 230px; }
+.fonctions-section .group-left .spider-leg:nth-child(3)::after  { left: 90px; top: 0; height: 60px; }
+.fonctions-section .group-left .spider-leg:nth-child(3) .leg-label { left: 230px; }
 
 /* Patte 4 (Milieu) */
-.group-left .spider-leg:nth-child(4) { top: 50%; transition-delay: 1.1s; }
-.group-left .spider-leg:nth-child(4)::before { width: 240px; }
-.group-left .spider-leg:nth-child(4)::after  { display: none; }
-.group-left .spider-leg:nth-child(4) .leg-label { left: 240px; }
+.fonctions-section .group-left .spider-leg:nth-child(4) { top: 50%; transition-delay: 1.1s; }
+.fonctions-section .group-left .spider-leg:nth-child(4)::before { width: 240px; }
+.fonctions-section .group-left .spider-leg:nth-child(4)::after  { display: none; }
+.fonctions-section .group-left .spider-leg:nth-child(4) .leg-label { left: 240px; }
 
 /* Patte 5 */
-.group-left .spider-leg:nth-child(5) { top: calc(50% + 60px); transition-delay: 1.2s; }
-.group-left .spider-leg:nth-child(5)::before { left: 90px; width: 230px; }
-.group-left .spider-leg:nth-child(5)::after  { left: 90px; bottom: 0; height: 60px; }
-.group-left .spider-leg:nth-child(5) .leg-label { left: 230px; }
+.fonctions-section .group-left .spider-leg:nth-child(5) { top: calc(50% + 60px); transition-delay: 1.2s; }
+.fonctions-section .group-left .spider-leg:nth-child(5)::before { left: 90px; width: 230px; }
+.fonctions-section .group-left .spider-leg:nth-child(5)::after  { left: 90px; bottom: 0; height: 60px; }
+.fonctions-section .group-left .spider-leg:nth-child(5) .leg-label { left: 230px; }
 
 /* Patte 6 */
-.group-left .spider-leg:nth-child(6) { top: calc(50% + 120px); transition-delay: 1.3s; }
-.group-left .spider-leg:nth-child(6)::before { left: 80px; width: 150px; }
-.group-left .spider-leg:nth-child(6)::after  { left: 50px; bottom: -8px; rotate: -30deg; height: 120px; }
-.group-left .spider-leg:nth-child(6) .leg-label { left: 200px; }
+.fonctions-section .group-left .spider-leg:nth-child(6) { top: calc(50% + 120px); transition-delay: 1.3s; }
+.fonctions-section .group-left .spider-leg:nth-child(6)::before { left: 80px; width: 150px; }
+.fonctions-section .group-left .spider-leg:nth-child(6)::after  { left: 50px; bottom: -8px; rotate: -30deg; height: 120px; }
+.fonctions-section .group-left .spider-leg:nth-child(6) .leg-label { left: 200px; }
 
 /* Patte 7 (Bas) */
-.group-left .spider-leg:nth-child(7) { top: calc(50% + 180px); transition-delay: 1.4s; }
-.group-left .spider-leg:nth-child(7)::before { left: 10px; width: 150px; }
-.group-left .spider-leg:nth-child(7)::after  { left: 10px; bottom: 0; height: 180px; }
-.group-left .spider-leg:nth-child(7) .leg-label { left: 150px; }
+.fonctions-section .group-left .spider-leg:nth-child(7) { top: calc(50% + 180px); transition-delay: 1.4s; }
+.fonctions-section .group-left .spider-leg:nth-child(7)::before { left: 10px; width: 150px; }
+.fonctions-section .group-left .spider-leg:nth-child(7)::after  { left: 10px; bottom: 0; height: 180px; }
+.fonctions-section .group-left .spider-leg:nth-child(7) .leg-label { left: 150px; }
 
 
 /* Le label est inversé sur le côté gauche pour être lisible */
-.group-left .leg-label {
+.fonctions-section .group-left .leg-label {
     /* On inverse uniquement le flip-factor pour les labels de gauche */
     --flip-factor: -1;
 }
 
-.leg-label i {
+.fonctions-section .leg-label i {
     color: #00AEE8;
     transition: transform 0.4s ease;
 }
 
 /* Style pour le label de la patte sélectionnée (panneau ouvert) */
-.spider-leg.is-panel-source .leg-label {
+.fonctions-section .spider-leg.is-panel-source .leg-label {
     background-color: #21366A;
     color: #ffffff;
     border: 0.15rem solid #21366A;
@@ -409,7 +397,7 @@
 }
 
 /* Style au survol pour les pattes non sélectionnées */
-.spider-leg:not(.is-panel-source):hover .leg-label {
+.fonctions-section .spider-leg:not(.is-panel-source):hover .leg-label {
     background-color: #d4f4ff;
     border: 0.15rem solid #21366A;
     --scale-factor: 1.05;
@@ -417,24 +405,24 @@
 }
 
 /* Rotation de l'icône au survol (non sélectionné) et à la sélection */
-.spider-leg:hover .leg-label i,
-.spider-leg.is-panel-source .leg-label i {
+.fonctions-section .spider-leg:hover .leg-label i,
+.fonctions-section .spider-leg.is-panel-source .leg-label i {
     transform: rotate(15deg);
 }
 
-.spider-leg:hover::before,
-.spider-leg:hover::after {
+.fonctions-section .spider-leg:hover::before,
+.fonctions-section .spider-leg:hover::after {
     background-color: #21366A;
     transition: all 0.4s ease;
 }
 
 /* Au survol d'une patte, on cible le cercle central grâce à :has() */
-.spider-container:has(.spider-leg:hover) .spider-circle {
+.fonctions-section .spider-container:has(.spider-leg:hover) .spider-circle {
     color: #ffffff;
     border-color: #21366A;
 }
 /* Select patte, le cercle central coloré */
-.spider-container:has(.spider-leg.is-panel-source) .spider-circle {
+.fonctions-section .spider-container:has(.spider-leg.is-panel-source) .spider-circle {
     color: #ffffff;
     border-color: #21366A;
 }
@@ -447,7 +435,7 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .spider-container {
+    .fonctions-section .spider-container {
         transform: scale(0.8);
         height: 450px;
         margin-top: 2rem;

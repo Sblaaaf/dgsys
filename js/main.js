@@ -15,6 +15,7 @@ import { initFaqAccordion } from './faq.js';
 import { initFonctionsAnimation, initFonctionsSpider } from './fonctions.js';
 import { initStatsCounter } from './stats.js';
 import { initTarifsV2 } from './tarifs2.js';
+import { initClientAnimation } from './clients2.js';
 
 
 // Attend que le DOM soit chargé
@@ -41,5 +42,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     initFonctionsSpider();
     initStatsCounter();
     initTarifsV2();
+    initClientAnimation();
 
 });

@@ -1,60 +1,66 @@
-.clients-showcase {
-  overflow: hidden; /* Empêche les barres de défilement si les cartes sortent */
+/* Conteneur principal de la section */
+.clients-section {
+  padding: 20rem 0;
+  background-color: #f8f9fa;
+  max-height: 500px;
 }
-.clients-title-container {
-  position: relative; /* Nécessaire pour que z-index fonctionne */
-  z-index: 10; /* S'assure que le titre est au-dessus des cartes */
+
+/* Zone où l'animation se produit */
+.clients-animation-area {
+  position: relative; /* Contexte de positionnement pour les cartes */
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
+
+/* Wrapper pour les titres pour les centrer */
+.clients-title-wrapper {
+  text-align: center;
+  z-index: 10; /* S'assure que le texte est au-dessus des cartes */
+  position: relative;
+}
+
+.clients-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.clients-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Style des cartes client */
 .client-card {
-  transition: transform 0.1s ease-out; /* Rend le mouvement de la souris plus fluide */
+  position: absolute; /* Permet un positionnement précis */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 100px;
+  /* Transition douce pour les mouvements */
+  transition: transform 0.1s ease-out;
+  will-change: transform; /* Optimisation des performances */
 }
 
-.clients-showcase {
-    padding: 100px 0;
-    background-color: #f8f9fa;
-    overflow: hidden; /* Empêche la barre de défilement horizontale causée par les cartes qui sortent */
-  }
+.client-card img {
+  max-width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
 
-  .clients-container {
-    max-width: 1200px;
-    margin: 30rem auto;
-    position: relative;
-    height: 200px; /* Hauteur de la zone où les logos peuvent se déplacer */
-  }
-
-  .client-card {
-    position: absolute;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.1s linear; /* Animation plus fluide */
-  }
-
-  .client-card img {
-    max-width: 120px;
-    max-height: 60px;
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: filter 0.3s ease, opacity 0.3s ease;
-  }
-
-  .client-card:hover img {
-    filter: grayscale(0%);
-    opacity: 1;
-  }
-
-  /* Positionnement "aléatoire" des cartes.
-     Certaines peuvent déborder légèrement grâce à des valeurs négatives ou > 100% */
-  #client-1 { top: 10%; left: 15%; }
-  #client-2 { top: 25%; left: 70%; }
-  #client-3 { top: 60%; left: 85%; }
-  #client-4 { top: 75%; left: 20%; }
-  #client-5 { top: 40%; left: 40%; }
-  #client-6 { top: -5%; left: 45%; } /* Dépasse en haut */
-  #client-7 { top: 80%; left: -8%; } /* Dépasse à gauche */
-  #client-8 { top: 5%; left: 90%; }
-  #client-9 { top: 55%; left: 5%; }
+.client-card:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}

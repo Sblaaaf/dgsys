@@ -21,8 +21,6 @@ body::before {
     content: '';
     position: fixed;
     top: 0;
-    left: 1rem;
-    right: 1rem;
     height: 5rem;
     z-index: 999; 
     backdrop-filter: blur(10px);

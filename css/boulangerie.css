@@ -1,0 +1,210 @@
+/* ============================================= */
+/*          STYLES POUR PAGE BOULANGERIE         */
+/* ============================================= */
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.boulangerie-intro-section,
+.boulangerie-types-section,
+.boulangerie-criteres-section,
+.boulangerie-logiciel-section,
+.boulangerie-achat-location-section,
+.boulangerie-devis-section {
+    padding: 4rem 2rem;
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0; /* Initial state for animation */
+    animation-timeline: view();
+    animation-range-start: entry 10%;
+    animation-range-end: entry 40%;
+}
+
+/* --- Section Introduction --- */
+.boulangerie-intro-section {
+    background-color: #f8f9fa;
+}
+.boulangerie-intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* --- Header de section commun --- */
+.boulangerie-section-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 3rem auto;
+}
+.boulangerie-section-header .section-title {
+    margin-bottom: 1rem;
+}
+
+.boulangerie-types-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Crée deux colonnes de largeur égale */
+    gap: 4rem; /* Espace entre les deux colonnes */
+    align-items: start; /* Aligne les éléments en haut de la grille */
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+/* Pour les écrans plus petits, on repasse sur une seule colonne */
+@media (max-width: 992px) {
+    .boulangerie-types-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* --- Section Types de Caisse --- */
+.boulangerie-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.boulangerie-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.boulangerie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.boulangerie-card .card-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color); /* Assurez-vous que cette variable est définie */
+    margin-bottom: 1rem;
+}
+.boulangerie-card h3 {
+    margin-bottom: 1rem;
+}
+.boulangerie-card .styled-list {
+    text-align: left;
+    padding-left: 0;
+    list-style: none;
+}
+.boulangerie-card .styled-list li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+.boulangerie-card .styled-list i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+/* --- Section Critères --- */
+.boulangerie-criteres-section {
+    background-color: #f8f9fa;
+}
+.boulangerie-criteres-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+}
+.criteres-image-col img {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.criteres-text-col h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+.criteres-text-col h4 i {
+    color: var(--primary-color);
+}
+.peripheriques-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+.peripheriques-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #e9ecef;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+.peripheriques-list i {
+    color: var(--primary-color);
+}
+
+/* --- Section Logiciel --- */
+.boulangerie-logiciel-section {
+    text-align: center;
+    background: var(--dark-blue); /* Assurez-vous que cette variable est définie */
+    color: #fff;
+}
+.boulangerie-logiciel-section .big-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+.boulangerie-logiciel-section p {
+    max-width: 800px;
+    margin: 1rem auto 0 auto;
+    line-height: 1.7;
+    color: #e5e7eb;
+}
+.boulangerie-logiciel-section .highlight-blue {
+    color: #fff;
+    background-color: var(--primary-color);
+    padding: 0.1em 0.3em;
+    border-radius: 4px;
+}
+
+/* --- Section Achat vs Location --- */
+.boulangerie-achat-location-section .materiels-grid {
+    align-items: stretch; /* Pour que les cartes aient la même hauteur */
+}
+.boulangerie-achat-location-section .materiel-card {
+    display: flex;
+    flex-direction: column;
+}
+.boulangerie-achat-location-section .materiel-content {
+    flex-grow: 1;
+}
+
+/* --- Section Devis --- */
+.boulangerie-devis-section {
+    background-color: #f8f9fa;
+    text-align: center;
+}
+.boulangerie-devis-section p {
+    max-width: 800px;
+    margin: 1rem auto 2rem auto;
+    line-height: 1.7;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .boulangerie-criteres-grid {
+        grid-template-columns: 1fr;
+    }
+}

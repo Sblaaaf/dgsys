@@ -34,12 +34,16 @@
     line-height: 1.7;
 }
 
-.about-image {
+.about-image-1, .about-image-2 {
     flex: 1;
     max-width: 500px;
 }
 
-.about-image img {
+.about-image-2 {
+    margin-bottom: -3rem;
+}
+
+.about-image-1 img, .about-image-2 img {
     width: 100%;
     border-radius: 16px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);

@@ -15,9 +15,12 @@
 /* --- Colonne de gauche (Image) --- */
 .solutions-visuals-column {
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
     align-items: center;
     justify-content: center;
     min-height: 450px;
+    border: 5px solid white;
 }
 
 .bento-grid {
@@ -36,6 +39,8 @@
     align-items: center;
     justify-content: center;
     transition: transform 0.4s ease;
+    background-size: cover;
+    background-position: center;
 }
 
 .bento-item i {

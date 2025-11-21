@@ -32,31 +32,6 @@ export function initTarifsV2() {
         updatePrices();
     }
 
-    // --- Logique de survol des cartes ---
-    if (cards.length > 0 && cardsGrid) {
-        const middleCard = cards[1]; // La carte centrale est la deuxième (index 1)
-
-        // Fonction pour réinitialiser à l'état initial
-        const resetToDefault = () => {
-            cards.forEach(card => card.classList.remove('is-highlighted'));
-            if (middleCard) {
-                middleCard.classList.add('is-highlighted');
-            }
-        };
-
-        // Appliquer l'état de survol
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                cards.forEach(c => c.classList.remove('is-highlighted'));
-                card.classList.add('is-highlighted');
-            });
-        });
-
-        // Réinitialiser quand la souris quitte la grille des cartes
-        cardsGrid.addEventListener('mouseleave', () => {
-            resetToDefault();
-        });
-    }
 
     // --- Logique pour l'animation au scroll ---
     const observer = new IntersectionObserver((entries) => {

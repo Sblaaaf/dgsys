@@ -2,7 +2,7 @@
 
 .faq-section {
     padding: 4rem 0;
-    background-color: #f8f9fa;
+    background-color: white;
 }
 
 .faq-layout {
@@ -25,15 +25,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-image: url("https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-camping.jpg.webp");
 }
 
-/* .faq-intro::before {
+.faq-intro::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, rgba(33, 54, 106, 0.9) 0%, rgba(0, 174, 232, 0.8) 100%);
+    background: linear-gradient(rgba(33, 54, 106, 0.8), rgba(33, 54, 106, 0.8));
     z-index: 1;
-} */
+}
 
 .faq-intro-content {
     position: relative;
@@ -85,7 +86,7 @@
 }
 
 .accordion-item {
-    background-color: #ffffff;
+    background-color: #E8F7FD;
     border: 1px solid #e6edf5;
     border-radius: 1rem;
     overflow: hidden;

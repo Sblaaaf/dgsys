@@ -1,35 +1,44 @@
 /* === Section Matériels === */
 
 .materiels-section {
-    padding: 4rem 0;
-    background-color: #f8f9fa;
+    padding: 12rem 0 4rem 0;
+    background-color: white;
 }
 
 .materiels-section .section-header {
     max-width: 700px;
-    text-align: start;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
 .materiels-grid {
-    display: flex;
+    display: grid;
+    margin-bottom: -4rem;
+    z-index: 5;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
     overflow-x: auto; /* Permet le défilement horizontal */
-    padding: 6rem 0 2rem; /* Ajout de padding en haut pour l'image et en bas pour la scrollbar */
+    padding: 8rem 0 2rem; /* Ajout de padding en haut pour l'image et en bas pour la scrollbar */
     
     /* Cache la barre de défilement */
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* IE et Edge */
+
+    z-index: 5;
+    position: relative;
 }
+
 .materiels-grid::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
 }
 
 .materiel-card {
-    position: relative; /* Nécessaire pour le positionnement de l'image */
+    position: relative;
     background-color: #ffffff;
     border-radius: 1.5rem;
     border: 1px solid #e6edf5;
-    box-shadow: 0 10px 25px rgba(33, 54, 106, 0.05);
+    box-shadow: 0 10px 25px rgba(33, 54, 106, 0.1);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -44,7 +53,7 @@
 
 .materiel-image {
     position: absolute;
-    top: -80px; /* Fait remonter l'image pour qu'elle déborde */
+    top: -100px;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;

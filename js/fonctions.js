@@ -8,11 +8,10 @@ export function initFonctionsAnimation() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 spiderContainer.classList.add('is-visible');
-                observer.unobserve(entry.target); // L'animation ne se joue qu'une fois
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.3 }); // Se déclenche quand 30% de la section est visible
-
+    }, { threshold: 0.2 }); // Se déclenche quand 20% de la section est visible
     observer.observe(section);
 }
 
@@ -22,81 +21,69 @@ export function initFonctionsSpider() {
 
     const spiderLegs = section.querySelectorAll('.spider-leg');
     const detailsStorage = section.querySelector('.feature-details-storage');
-    const panelLeft = section.querySelector('.feature-panel-left');
-    const panelRight = section.querySelector('.feature-panel-right');
-    const closeButtons = section.querySelectorAll('.close-panel-btn');
+    const featurePanel = section.querySelector('.feature-panel');
     const spiderContainer = section.querySelector('.spider-container');
 
-    if (!spiderLegs.length || !detailsStorage || !panelLeft || !panelRight) return;
+    if (!spiderLegs.length || !detailsStorage || !featurePanel) return;
 
-    const openPanel = (panel, featureName) => {
+    const openPanel = (featureName) => {
         const contentToClone = detailsStorage.querySelector(`.feature-detail-content[data-feature="${featureName}"]`);
-        const contentWrapper = panel.querySelector('.panel-content-wrapper');
+        const contentWrapper = featurePanel.querySelector('.panel-content-wrapper');
 
         if (contentToClone && contentWrapper) {
             // Vider le contenu précédent et injecter le nouveau
             contentWrapper.innerHTML = '';
             contentWrapper.appendChild(contentToClone.cloneNode(true));
-
-            // Fermer l'autre panneau s'il est ouvert
-            const otherPanel = (panel === panelLeft) ? panelRight : panelLeft;
-            otherPanel.classList.remove('is-open');
-            
-            // Ouvrir le panneau
-            panel.classList.add('is-open');
-
-            // Gérer les classes sur le conteneur principal
-            if (panel === panelLeft) {
-                spiderContainer.classList.add('left-panel-active');
-                spiderContainer.classList.remove('right-panel-active');
-            } else {
-                spiderContainer.classList.add('right-panel-active');
-                spiderContainer.classList.remove('left-panel-active');
-            }
         }
-    };
-
-    const closeAllPanels = () => {
-        panelLeft.classList.remove('is-open');
-        panelRight.classList.remove('is-open');
-        spiderContainer.classList.remove('left-panel-active', 'right-panel-active');
-        spiderLegs.forEach(leg => leg.classList.remove('is-panel-source'));
     };
 
     spiderLegs.forEach(leg => {
         leg.addEventListener('click', (e) => {
             e.preventDefault();
-            const featureName = leg.dataset.feature;
-            const isLeftGroup = leg.closest('.spider-legs-group').classList.contains('group-left');
 
-            if (isLeftGroup) {
-                openPanel(panelRight, featureName);
-            } else {
-                openPanel(panelLeft, featureName);
-            }
+            // Si on clique sur la patte déjà active, on ne fait rien
+            if (leg.classList.contains('is-panel-source')) return;
+
+            const featureName = leg.dataset.feature;
+            openPanel(featureName);
 
             // Mettre en évidence la patte source et retirer des autres
             spiderLegs.forEach(l => l.classList.remove('is-panel-source'));
             leg.classList.add('is-panel-source');
-        });
-    });
 
-    closeButtons.forEach(button => {
-        button.addEventListener('click', closeAllPanels);
+            // Indiquer qu'une patte est active pour le style
+            section.classList.add('is-leg-active');
+        });
     });
 
     // --- LOGIQUE DE NAVIGATION PAR FLÈCHES ---
 
-    const rightLegs = Array.from(section.querySelectorAll('.group-right .spider-leg'));
-    const leftLegs = Array.from(section.querySelectorAll('.group-left .spider-leg'));
-    const orderedNavigableLegs = [...rightLegs, ...leftLegs];
+    const orderedNavigableLegs = Array.from(section.querySelectorAll('.spider-leg'));
 
     const prevButtons = section.querySelectorAll('.prev-btn');
     const nextButtons = section.querySelectorAll('.next-btn');
+    const firstLeg = section.querySelectorAll('.fonction_Start');
+
+    // Si un bouton "Commencer" est présent, on l'utilise pour activer la première patte
+    firstLeg.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            orderedNavigableLegs[0].click();
+        });
+    });
 
     const navigateTo = (direction) => {
-        const currentIndex = orderedNavigableLegs.findIndex(leg => leg.classList.contains('is-panel-source'));
-        if (currentIndex === -1) return;
+        let currentIndex = orderedNavigableLegs.findIndex(leg => leg.classList.contains('is-panel-source'));
+
+        // Cas initial : aucune patte n'est sélectionnée, on active la première ou la dernière.
+        if (currentIndex === -1) {
+            if (direction === 'next') {
+                orderedNavigableLegs[0].click(); // Active la première patte
+            } else { // 'prev'
+                orderedNavigableLegs[orderedNavigableLegs.length - 1].click(); // Active la dernière patte
+            }
+            return;
+        }
 
         const totalLegs = orderedNavigableLegs.length;
         let newIndex;

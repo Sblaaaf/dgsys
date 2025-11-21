@@ -2,14 +2,14 @@
 
 .metiers-carousel-section {
   width: 100%;
-  padding: 1rem 0;
+  padding: 0;
   margin-top: 2rem;
-  background-color: #ffffff;
   overflow: hidden;
 }
 
 .carousel-wrapper {
   position: relative;
+  
   --active-card-height: 400px;
   width: 100%;
   height: auto;
@@ -17,6 +17,7 @@
   transition: min-height 0.6s ease, height 0.6s ease;
   justify-content: center;
   align-items: center;
+  z-index: 20;
 }
 
 .carousel-track {

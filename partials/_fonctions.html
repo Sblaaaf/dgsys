@@ -1,43 +1,36 @@
 <section class="fonctions-section" id="fonctions">
     <div class="container">
-        <h2 class="section-title">Une caisse, des possibilités infinies</h2>
-        <p class="section-subtitle">Notre système est le tronc commun qui s'adapte à toutes les branches de votre activité.</p>
+        
+        <div class="fonctions-section-title">
+            <h2 class="section-title">Une caisse, des <span class="highlight-blue">possibilités infinies</span></h2>
+            <div class="fonctions-section-col">
+                
+                <div class="fonctions-col-2">
+                    <div class="fonctions-key-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-cogs benefit-icon"></i>
+                            <h4 class="benefit-title">Gestion complète</h4>
+                            <p class="benefit-text">Pilotez stocks, ventes, comptabilité et analysez vos performances en détail depuis une seule interface.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-chart-line benefit-icon"></i>
+                            <h4 class="benefit-title">Productivité améliorée</h4>
+                            <p class="benefit-text">Optimisez l’organisation, améliorez la productivité et simplifiez la gestion quotidienne de votre commerce.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-sync-alt benefit-icon"></i>
+                            <h4 class="benefit-title">Adaptabilité totale</h4>
+                            <p class="benefit-text">Idéale pour les restaurants, boutiques ou services, elle s'adapte à tous les besoins pour accompagner votre croissance.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <!-- Le spider-container est maintenant le seul élément principal -->
         <div class="spider-container">
-            <!-- Le corps de l'araignée : l'image de la caisse -->
-            <div class="spider-body">
-                <div class="spider-circle"></div>
-                <img src="https://www.clyosystems.com/wp-content/uploads/2023/04/materiel-joon-2023.png" alt="Caisse enregistreuse DGsys">
-            </div>
 
-            <!-- Les pattes de l'araignée : les fonctionnalités -->
-            <div class="spider-legs-group group-right">
-                <a href="#" class="spider-leg" data-feature="plan-salle"><div class="leg-label"><i class="fas fa-map"></i><span>Plan de salle</span></div></a>
-                <a href="#" class="spider-leg" data-feature="stocks"><div class="leg-label"><i class="fas fa-boxes"></i><span>Gestion des stocks</span></div></a>
-                <a href="#" class="spider-leg" data-feature="stats"><div class="leg-label"><i class="fas fa-chart-bar"></i><span>Statistiques</span></div></a>
-                <a href="#" class="spider-leg" data-feature="paiement"><div class="leg-label"><i class="fas fa-credit-card"></i><span>Paiement TPE</span></div></a>
-                <a href="#" class="spider-leg" data-feature="kds"><div class="leg-label"><i class="fas fa-desktop"></i><span>Écran de cuisine (KDS)</span></div></a>
-                <a href="#" class="spider-leg" data-feature="reservations"><div class="leg-label"><i class="fas fa-calendar-check"></i><span>Réservations</span></div></a>
-                <a href="#" class="spider-leg" data-feature="click-collect"><div class="leg-label"><i class="fas fa-shopping-bag"></i><span>Click & Collect</span></div></a>
-            </div>
-            <div class="feature-panel feature-panel-right">
-                <button class="close-panel-btn"><i class="fas fa-times"></i></button>
-                <div class="panel-content-wrapper">
-                    <!-- Le contenu sera injecté ici par JS -->
-                </div>
-                 <!-- BOUTONS DE NAVIGATION -->
-                <div class="panel-nav-controls">
-                    <button class="panel-nav-btn prev-btn" aria-label="Activité précédente">
-                        <i class="fas fa-arrow-up"></i>
-                    </button>
-                    <button class="panel-nav-btn next-btn" aria-label="Activité suivante">
-                        <i class="fas fa-arrow-down"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="spider-legs-group group-left">
+            <div class="spider-legs-group">
                 <a href="#" class="spider-leg" data-feature="fidelite"><div class="leg-label"><i class="fas fa-star"></i><span>Fidélisation client</span></div></a>
                 <a href="#" class="spider-leg" data-feature="bornes"><div class="leg-label"><i class="fas fa-tablet-alt"></i><span>Bornes de commande</span></div></a>
                 <a href="#" class="spider-leg" data-feature="compta"><div class="leg-label"><i class="fas fa-file-invoice-dollar"></i><span>Exports comptables</span></div></a>
@@ -46,28 +39,44 @@
                 <a href="#" class="spider-leg" data-feature="marketing"><div class="leg-label"><i class="fas fa-bullhorn"></i><span>Marketing SMS</span></div></a>
                 <a href="#" class="spider-leg" data-feature="multisite"><div class="leg-label"><i class="fas fa-sitemap"></i><span>Gestion multi-site</span></div></a>
             </div>
-            <div class="feature-panel feature-panel-left">
-                <button class="close-panel-btn"><i class="fas fa-times"></i></button>
+            <!-- Le corps de l'araignée : l'image de la caisse -->
+            <div class="spider-body">
+                <div class="spider-circle"></div>
+                <img src="https://www.dgsys.fr/wp-content/uploads/2025/11/trx-3000.png" alt="Caisse enregistreuse DGsys">
+            </div>
+
+            <div class="feature-panel">
                 <div class="panel-content-wrapper">
-                    <!-- Contenu injecté en JS -->
+                    <!-- Contenu "master" affiché par défaut -->
+                    <div class="feature-detail-content is-master-feature" data-feature="master">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Écosystème de caisse" class="feature-image">
+                        <h3><i class="fas fa-rocket"></i> Un écosystème complet</h3>
+                        <hr>
+                        <p>Naviguez à travers nos fonctionnalités pour découvrir comment DGsys peut transformer la gestion de votre établissement au quotidien.</p>
+                        <hr>
+                        <p class="légende-fonctionnalités">Utilisez les flèches pour explorer ou cliquez directement sur une fonctionnalité.</p>
+                        <div class="feature-cta">
+                            <a href="#" class="btn btn-secondary fonction_Start" data-feature="fidelite">Commencer <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
                 </div>
                 <!-- BOUTONS DE NAVIGATION -->
                 <div class="panel-nav-controls">
-                    <button class="panel-nav-btn prev-btn" aria-label="Activité précédente">
+                    <button class="panel-nav-btn prev-btn" aria-label="Fonctionnalité précédente">
                         <i class="fas fa-arrow-up"></i>
                     </button>
-                    <button class="panel-nav-btn next-btn" aria-label="Activité suivante">
+                    <button class="panel-nav-btn next-btn" aria-label="Fonctionnalité suivante">
                         <i class="fas fa-arrow-down"></i>
                     </button>
                 </div>
             </div>
         </div>
-
     </div>
 
     <!-- Conteneur caché pour stocker les détails de chaque fonctionnalité -->
     <div class="feature-details-storage" style="display: none;">
-        <div class="feature-detail-content" data-feature="plan-salle">
+        <!-- Contenus existants -->
+        <!-- <div class="feature-detail-content" data-feature="plan-salle">
             <h3><i class="fas fa-map"></i> Plan de salle interactif</h3>
             <p>Organisez vos tables, suivez leur statut en temps réel et optimisez le placement de vos clients pour un service plus fluide.</p>
             <ul>
@@ -75,6 +84,9 @@
                 <li><i class="fas fa-check-circle"></i> Prise de commande directe depuis le plan.</li>
                 <li><i class="fas fa-check-circle"></i> Fusion et division de tables.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="stocks">
             <h3><i class="fas fa-boxes"></i> Gestion des stocks avancée</h3>
@@ -84,6 +96,9 @@
                 <li><i class="fas fa-check-circle"></i> Alertes de stock bas et suggestions de commande.</li>
                 <li><i class="fas fa-check-circle"></i> Inventaires rapides et gestion des fiches techniques.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="stats">
             <h3><i class="fas fa-chart-bar"></i> Statistiques et rapports</h3>
@@ -93,6 +108,9 @@
                 <li><i class="fas fa-check-circle"></i> Analyse des produits les plus vendus.</li>
                 <li><i class="fas fa-check-circle"></i> Rapports de TVA et exports comptables.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="paiement">
             <h3><i class="fas fa-credit-card"></i> Paiement TPE intégré</h3>
@@ -102,6 +120,9 @@
                 <li><i class="fas fa-check-circle"></i> Paiement sans contact, Apple Pay, Google Pay.</li>
                 <li><i class="fas fa-check-circle"></i> Partage de l'addition et pourboires simplifiés.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="kds">
             <h3><i class="fas fa-desktop"></i> Écran de cuisine (KDS)</h3>
@@ -111,6 +132,9 @@
                 <li><i class="fas fa-check-circle"></i> Statuts de préparation (en cours, prêt).</li>
                 <li><i class="fas fa-check-circle"></i> Moins de papier, plus d'efficacité.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="reservations">
             <h3><i class="fas fa-calendar-check"></i> Gestion des réservations</h3>
@@ -120,6 +144,9 @@
                 <li><i class="fas fa-check-circle"></i> Visualisation sur le plan de salle.</li>
                 <li><i class="fas fa-check-circle"></i> Envoi de confirmations par SMS/email.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="click-collect">
             <h3><i class="fas fa-shopping-bag"></i> Click & Collect</h3>
@@ -129,8 +156,12 @@
                 <li><i class="fas fa-check-circle"></i> Paiement en ligne sécurisé.</li>
                 <li><i class="fas fa-check-circle"></i> Gestion des créneaux de retrait.</li>
             </ul>
-        </div>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div> -->
         <div class="feature-detail-content" data-feature="fidelite">
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Gestion multi-site" class="feature-image">
             <h3><i class="fas fa-star"></i> Fidélisation client</h3>
             <p>Créez une relation durable avec vos clients grâce à des programmes de fidélité personnalisables et efficaces.</p>
             <ul>
@@ -138,8 +169,12 @@
                 <li><i class="fas fa-check-circle"></i> Base de données clients (CRM).</li>
                 <li><i class="fas fa-check-circle"></i> Offres spéciales et anniversaires.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="bornes">
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Gestion multi-site" class="feature-image">
             <h3><i class="fas fa-tablet-alt"></i> Bornes de commande</h3>
             <p>Réduisez les files d'attente et augmentez le panier moyen en laissant vos clients commander en toute autonomie.</p>
             <ul>
@@ -147,8 +182,12 @@
                 <li><i class="fas fa-check-circle"></i> Paiement par TPE intégré à la borne.</li>
                 <li><i class="fas fa-check-circle"></i> Synchronisation totale avec la caisse et la cuisine.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/bornes" class="btn btn-secondary">Voir nos bornes <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="compta">
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Gestion multi-site" class="feature-image">
             <h3><i class="fas fa-file-invoice-dollar"></i> Exports comptables</h3>
             <p>Simplifiez votre comptabilité. Générez des exports clairs et complets, compatibles avec la plupart des logiciels comptables.</p>
             <ul>
@@ -156,8 +195,12 @@
                 <li><i class="fas fa-check-circle"></i> Formats d'export personnalisables.</li>
                 <li><i class="fas fa-check-circle"></i> Accès sécurisé pour votre expert-comptable.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="balances">
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Gestion multi-site" class="feature-image">
             <h3><i class="fas fa-weight-scale"></i> Balances connectées</h3>
             <p>Pesez et encaissez en un seul geste. Nos balances connectées communiquent directement avec la caisse pour éviter les erreurs de saisie.</p>
             <ul>
@@ -165,8 +208,12 @@
                 <li><i class="fas fa-check-circle"></i> Calcul automatique du prix.</li>
                 <li><i class="fas fa-check-circle"></i> Fiabilité et gain de temps garantis.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="monnayeurs">
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Gestion multi-site" class="feature-image">
             <h3><i class="fas fa-coins"></i> Monnayeurs automatiques</h3>
             <p>Sécurisez vos transactions en espèces, éliminez les erreurs de rendu de monnaie et améliorez l'hygiène au point de vente.</p>
             <ul>
@@ -174,8 +221,12 @@
                 <li><i class="fas fa-check-circle"></i> Système sécurisé contre les vols.</li>
                 <li><i class="fas fa-check-circle"></i> Réduction du temps de comptage de caisse.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="marketing">
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Gestion multi-site" class="feature-image">
             <h3><i class="fas fa-bullhorn"></i> Marketing SMS</h3>
             <p>Communiquez directement avec vos clients sur leur mobile. Envoyez des promotions, des nouveautés ou des vœux.</p>
             <ul>
@@ -183,15 +234,22 @@
                 <li><i class="fas fa-check-circle"></i> Taux d'ouverture proche de 98%.</li>
                 <li><i class="fas fa-check-circle"></i> Personnalisation des messages.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/fidelisation" class="btn btn-secondary">Découvrir la fidélisation <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
         <div class="feature-detail-content" data-feature="multisite">
             <h3><i class="fas fa-sitemap"></i> Gestion multi-site</h3>
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60" alt="Gestion multi-site" class="feature-image">
             <p>Pilotez l'ensemble de votre réseau de points de vente depuis une seule interface centralisée sur le cloud.</p>
             <ul>
                 <li><i class="fas fa-check-circle"></i> Statistiques consolidées ou par établissement.</li>
                 <li><i class="fas fa-check-circle"></i> Gestion centralisée des articles et des prix.</li>
                 <li><i class="fas fa-check-circle"></i> Transferts de stock entre magasins.</li>
             </ul>
+            <div class="feature-cta">
+                <a href="/multisite" class="btn btn-secondary">En savoir plus <i class="fas fa-arrow-right"></i></a>
+            </div>
         </div>
     </div>
 </section>

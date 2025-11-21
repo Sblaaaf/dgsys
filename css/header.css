@@ -20,11 +20,6 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.site-header.is-sticky .megamenu.is-open {
-    /* background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px); */
-}
-
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -42,7 +37,7 @@
 }
 
 .header-logo img {
-    height: 120px;
+    height: 100px;
     width: auto;
     margin-top: -30px;
     margin-bottom: -30px;
@@ -51,14 +46,12 @@
 
 .site-header.is-sticky .header-logo img {
     height: 60px;
-    /* margin-top: -30px;
-    margin-bottom: -30px; */
 }
 
 .header-logo span {
     font-family: 'Poppins', sans-serif;
     color: #21366A;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     font-weight: 900;
     width: auto;
 }
@@ -71,6 +64,31 @@
     display: flex;
     align-items: center;
     gap: 1.5rem;
+
+}
+/* Dernier nav-item différent */
+.nav-item.last-child {
+    background-color: #ffffff;
+    border: 2px solid #21366A;
+    color: #21366A;
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+}
+
+.nav-item.last-child .nav-link::after {
+    display: none;
+}
+
+.nav-item.last-child:hover {
+    background-color: #E8F7FD;
+}
+
+.nav-item.last-child .fa-chevron-down {
+    margin-left: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+    color: #21366A;
 }
 
 .nav-link {
@@ -107,9 +125,9 @@
     margin-left: 0.3rem;
     transition: transform 0.3s ease;
 }
-/* Rotation de la flèche quand le menu est ouvert */
+/* inversion (flip) de la flèche quand le menu est ouvert */
 .nav-link.active .fa-chevron-down {
-    transform: rotate(180deg);
+    transform: scaleY(-1) translateY(2px);
 }
 
 /* Bouton "Devis" mis en avant */

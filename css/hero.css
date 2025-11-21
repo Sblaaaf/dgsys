@@ -35,6 +35,14 @@
     padding: 8rem 0;
     position: relative;
     z-index: 1;
+
+    img {
+        width: auto;
+        height: auto;
+        max-width: 420px;
+        object-fit: countain;
+        user-select: none;
+    }
 }
 
 .hero-content-container {
@@ -81,6 +89,12 @@
     margin-top: 1rem;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.hero-cta-buttons .btn-primary:hover {
+    background-color: #E8F7FD;
+    color:#00AEE8;
+    border: #00AEE8 1px solid;
 }
 
 
@@ -136,20 +150,36 @@
 
 .hero-captions-container {
     position: absolute;
-    width: 70%;
     height: auto;
-    max-width: 1200px;
+    width: 1000px;
     margin: 0 auto;
     bottom: -10rem;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 9999;
     padding: 0 1rem;
 }
 
+/* Effet "bulle de conversation" pour lier la légende à l'image */
+.hero-captions-container::before {
+    content: '';
+    position: absolute;
+    /* Positionnement au centre horizontalement, et juste au-dessus du conteneur */
+    top: -15px; /* La hauteur du triangle */
+    right: 6px;
+    transform: translateX(-50%);
+    /* Création du triangle avec les bordures */
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 0 solid transparent;
+    border-bottom: 15px solid #ffffff; /* Doit être de la même couleur que .hero-caption */
+}
+
 .hero-caption {
     background: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 1rem 0rem 1rem 1rem;
+    box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.12);
     padding: 1rem 1.5rem;
     
     /* Animation */

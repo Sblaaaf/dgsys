@@ -6,13 +6,15 @@ import { initHeroSlider } from './hero-slider.js';
 import { initStickyHeader } from './sticky-header.js';
 import { initSecteurHover } from './secteurs-hover.js';
 import { initMetiers } from './metiers.js';
-import { initMetiersPremium } from './metiers2.js';
-import { initMetiersCarousel } from './metiers3.js'; 
+import { initMetiersPremium } from './metiers-premium.js';
+import { initMetiers as initMetiers4 } from './metiers4.js'; 
 import { initActivitesAnimation, initActivitesSpider } from './activites.js'; 
 import { initProduits2 } from './produits2.js';
 import { initAvantagesSection } from './avantage.js';
 import { initFaqAccordion } from './faq.js';
-import { initFonctionsSpider } from './fonctions.js';
+import { initFonctionsAnimation, initFonctionsSpider } from './fonctions.js';
+import { initStatsCounter } from './stats.js';
+import { initTarifsV2 } from './tarifs2.js';
 
 
 // Attend que le DOM soit chargé
@@ -29,12 +31,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     initSecteurHover();
     initMetiers();
     initMetiersPremium();
+    initMetiers4();
     initActivitesAnimation();
     initActivitesSpider();
     initAvantagesSection(); 
     initProduits2();
-    initMetiersCarousel();
     initFaqAccordion();
+    initFonctionsAnimation();
     initFonctionsSpider();
+    initStatsCounter();
+    initTarifsV2();
 
 });

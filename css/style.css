@@ -1,9 +1,11 @@
 @import 'base.css';
+@import 'tarifs2.css';
 @import 'header.css';
 @import 'hero.css';
 @import 'metiers.css';
 @import 'metiers2.css';
 @import 'metiers3.css';
+@import 'metiers4.css';
 @import 'fonctions.css';
 @import 'activites.css';
 @import 'mission.css';
@@ -21,3 +23,4 @@
 @import 'solutions_showcase.css';
 @import 'contact.css';
 @import 'materiels.css';
+@import 'stats.css';

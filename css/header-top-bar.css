@@ -1,7 +1,7 @@
 /* === Header Top Bar === */
 .header-top-bar {
     position: relative; 
-    z-index: 3;
+    z-index: 1000;
     background-color: #E8F7FD;
     color: #21366A;
     padding: 0.4rem 0;

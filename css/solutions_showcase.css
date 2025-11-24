@@ -34,19 +34,13 @@
     position: absolute;
     border-radius: 1.5rem;
     box-shadow: 0 15px 30px rgba(33, 54, 106, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 3px solid rgba(255, 255, 255, 1);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: transform 0.4s ease;
     background-size: cover;
     background-position: center;
-}
-
-.bento-item i {
-    font-size: 3rem;
-    color: var(--blue-dark, #21366A);
-    opacity: 0.5;
 }
 
 .bento-grid:hover .item-1 { transform: translate(-5%, -5%) rotate(-3deg); }
@@ -59,6 +53,7 @@
     top: 0;
     left: 0;
     z-index: 2;
+    border: 3px solid #00AEE8;
 }
 .bento-item.item-2 {
     width: 55%;
@@ -66,6 +61,7 @@
     top: 10%;
     right: 0;
     z-index: 1;
+    border: 3px solid #21366A;
 }
 .bento-item.item-3 {
     width: 70%;
@@ -73,6 +69,62 @@
     bottom: 0;
     left: 15%;
     z-index: 3;
+    border: 3px solid #ff9a03;
+}
+
+/* --- Styles pour le témoignage --- */
+.bento-testimonial {
+    position: absolute;
+    bottom: .5rem;
+    left: .5rem;
+    right: .5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bento-testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.bento-testimonial-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #21366A;
+}
+
+.bento-testimonial-info {
+    flex-grow: 1;
+}
+
+.bento-testimonial-name {
+    font-weight: 700;
+    color: #21366A;
+    font-size: 0.8rem;
+}
+
+.bento-testimonial-rating {
+    color: #ffb703;
+    font-size: 0.5rem;
+}
+
+.bento-testimonial-text {
+    font-size: 0.85rem;
+    color: #344767;
+    line-height: 1.5;
+    margin: 0;
 }
 
 /* --- Colonne de droite (Contenu) --- */
@@ -92,7 +144,7 @@
     flex-shrink: 0;
     width: 60px;
     height: 60px;
-    background-color: #f0f7ff;
+    background-color: #E8F7FD;
     border-radius: 1rem;
     display: flex;
     align-items: center;
@@ -100,13 +152,17 @@
     transition: background-color 0.3s ease;
 }
 
-.feature-icon svg {
-    width: 32px;
-    height: 32px;
+.feature-icon i {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
 }
 
 .feature-block:hover .feature-icon {
-    background-color: #e0f0ff;
+    background-color: #d6f0fc;
+}
+.feature-block:hover .feature-icon i {
+    color: #00AEE8;
+    transform: rotateZ(-15deg);
 }
 
 .feature-details h3 {

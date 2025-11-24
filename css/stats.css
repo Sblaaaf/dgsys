@@ -2,6 +2,7 @@
 
 .stats-section {
     padding: 6rem 0;
+    margin-bottom: -8rem;
     background-color: #f8fafc; /* Un fond légèrement gris pour la section */
 }
 

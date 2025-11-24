@@ -1,0 +1,79 @@
+/* ============================
+   RESPONSIVE CUSTOM FIXES
+   ============================ */
+
+/* Cacher la version mobile en desktop */
+.spider-mobile-list {
+    display: none;
+}
+
+/* Cacher la version desktop en mobile */
+@media (max-width: 768px) {
+    .spider-desktop {
+        display: none;
+    }
+
+    .spider-mobile-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .mobile-leg {
+        background: white;
+        border: 2px solid var(--sec);
+        padding: 1rem 1.4rem;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--sec);
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .mobile-leg i {
+        color: var(--pri);
+        font-size: 1.3rem;
+    }
+
+    .mobile-leg:hover {
+        background: var(--sec);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    .mobile-leg:hover i {
+        color: white;
+    }
+
+    /* Panneau plein écran */
+    .activites-section .feature-panel {
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        border-radius: 0 !important;
+        transform: translateY(100%);
+    }
+
+    .activites-section .feature-panel.is-open {
+        transform: translateY(0);
+    }
+
+    .activites-section .panel-content-wrapper {
+        padding: 2rem 1.5rem !important;
+    }
+
+    /* Boutons navigation mobile */
+    .panel-nav-controls {
+        position: fixed !important;
+        bottom: 1rem !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+}

@@ -15,7 +15,8 @@ import { initFaqAccordion }                             from './js/faq.js';
 import { initFonctionsAnimation, initFonctionsSpider }  from './js/fonctions.js';
 import { initStatsCounter }                             from './js/stats.js';
 import { initTarifsV2 }                                 from './js/tarifs2.js';
-// import { initClientAnimation }                          from './js/clients2.js';
+import { initSpiderActivitesMobile }                    from './js/spider_responsive.js';
+
 
 
 // Attend que le DOM soit chargé
@@ -42,6 +43,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     initFonctionsSpider();
     initStatsCounter();
     initTarifsV2();
+    initSpiderActivitesMobile();
+
     // initClientAnimation();
 
 });

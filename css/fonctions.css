@@ -262,7 +262,7 @@
     display: grid;
     grid-template-columns: 1fr 300px 2fr;
     align-items: center;
-    margin: 5rem auto;
+    margin: 5rem 2rem;
 }
 
 /* Garder la patte active visible */
@@ -315,7 +315,8 @@
 .fonctions-section .spider-legs-group {
     position: relative;
     height: auto;
-    margin: -150px;
+    margin-left: 2rem;
+    margin-right: -160px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;

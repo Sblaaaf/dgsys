@@ -5,7 +5,7 @@
 
 .clients-section {
     padding: 6rem 0 2rem 0;
-    background-color: #ffffff;
+    background-color: white;
     display: flex  ;
     flex-direction: column;
     align-items: center;
@@ -22,7 +22,7 @@
     font-family: 'open sans', sans-serif;
     font-size: 2.5rem;
     line-height: 2.4rem;
-    color: #21366A;
+    color: var(--sec);
     margin-bottom: 2rem;
     font-weight: 800;
     max-width: 800px;

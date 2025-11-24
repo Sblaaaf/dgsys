@@ -3,7 +3,7 @@
 .stats-section {
     padding: 6rem 0;
     margin-bottom: -8rem;
-    background-color: #f8fafc; /* Un fond légèrement gris pour la section */
+    background-color: var(--ter); /* Un fond légèrement gris pour la section */
 }
 
 .stats-section .section-title-container {
@@ -23,7 +23,7 @@
 }
 
 .stat-card {
-    background-color: #ffffff;
+    background-color: white;
     position: relative;
     border-radius: 1rem;
     text-align: center;
@@ -53,21 +53,21 @@
     align-items: center;
     justify-content: center;
     border: 1px solid #e2e8f0;
-    background-color: #e0f8ff;
+    background-color: var(--light);
     box-shadow: 0 4px 6px rgba(0, 174, 232, 0.1);
     transition: all 0.3s ease;
 }
 
 .stat-icon-wrapper i {
     font-size: 1.5rem;
-    color: #00AEE8; /* Couleur cyan pour toutes les icônes */
+    color: var(--pri); /* Couleur cyan pour toutes les icônes */
 }
 
 .stat-value {
     font-size: 2.25rem;
     margin-top: 0.5rem; /* Espace pour l'icône qui est sortie du flux */
     font-weight: 800;
-    color: var(--blue-dark, #21366A);
+    color: var(--sec);
     line-height: 1;
     display: inline-block;
 }
@@ -75,20 +75,20 @@
 .stat-suffix {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--blue-dark, #21366A);
+    color: var(--sec);
     margin-left: 0.25rem;
 }
 
 .stat-label {
     font-size: 1rem;
     font-weight: 800;
-    color: #334155;
+    color: var(--sec);
     margin: 0.2rem 0 0.75rem 0;
 }
 
 .stat-description {
     font-size: 0.9rem;
-    color: #64748b;
+    color: var(--text);
     line-height: 1.5;
     max-width: 200px;
     margin: 0 auto;

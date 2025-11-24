@@ -1,7 +1,7 @@
 /* === Tarifs Section === */
 .tarifs-section {
     padding: 6rem 0;
-    background-color: #ffffff;
+    background-color: white;
     text-align: center;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .tarif-card {
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     overflow: hidden;
@@ -30,44 +30,44 @@
 }
 
 .tarif-card.is-highlighted {
-    border: 2px solid #00AEE8;
+    border: 2px solid var(--pri);
     box-shadow: 0 8px 25px rgba(0, 174, 232, 0.2);
 }
 
 .tarif-card.is-highlighted .card-header {
-    background-color: #00AEE8;
-    color: #ffffff;
+    background-color: var(--pri);
+    color: white;
 }
 
 .tarif-card.is-highlighted .card-header h3 {
-    color: #ffffff;
+    color: white;
 }
 
 .tarif-card.is-highlighted .card-header .price span {
-    color: #ffffff;
+    color: white;
 }
 
 .tarif-card .card-header {
-    background-color: #f8f9fa;
+    background-color: var(--ter);
     padding: 2rem 1.5rem;
     border-bottom: 1px solid #e9ecef;
 }
 
 .tarif-card .card-header h3 {
     font-size: 1.5rem;
-    color: #21366A;
+    color: var(--sec);
     margin-bottom: 0.5rem;
 }
 
 .tarif-card .card-header .price {
     font-size: 1.1rem;
-    color: #626262;
+    color: var(--text);
 }
 
 .tarif-card .card-header .price span {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #00AEE8;
+    color: var(--pri);
 }
 
 .tarif-card .card-body {
@@ -90,11 +90,11 @@
     gap: 0.75rem;
     margin-bottom: 0.75rem;
     font-size: 0.95rem;
-    color: #344767;
+    color: var(--sec);
 }
 
 .tarif-card .card-body li i {
-    color: #00AEE8;
+    color: var(--pri);
     font-size: 1.1rem;
 }
 

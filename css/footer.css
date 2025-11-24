@@ -1,7 +1,7 @@
 /* === Super Footer === */
 .super-footer {
-    background-color: #21366A;
-    color: #ffffff;
+    background-color: var(--sec);
+    color: white;
     padding-top: 4rem;
     position: relative;
     overflow: hidden; /* Pour contenir le pseudo-élément */
@@ -33,7 +33,7 @@
 
 .footer-column h3 {
     font-size: 1.2rem;
-    color: #00AEE8;
+    color: var(--pri);
     margin-bottom: 1.5rem;
     font-weight: 700;
 }
@@ -60,7 +60,7 @@
 }
 
 .footer-column ul li a:hover {
-    color: #00AEE8;
+    color: var(--pri);
 }
 
 .footer-about .footer-logo {
@@ -77,7 +77,7 @@
 
 .footer-about .footer-logo span {
     font-family: 'Poppins', sans-serif;
-    color: #ffffff;
+    color: white;
     font-size: 1.2rem;
     font-weight: 900;
 }
@@ -89,7 +89,7 @@
 }
 
 .social-links a {
-    color: #ffffff;
+    color: white;
     font-size: 1.2rem;
     width: 40px;
     height: 40px;
@@ -102,8 +102,8 @@
 }
 
 .social-links a:hover {
-    background-color: #00AEE8;
-    border-color: #00AEE8;
+    background-color: var(--pri);
+    border-color: var(--pri);
 }
 
 .footer-contact p {
@@ -114,7 +114,7 @@
 }
 
 .footer-contact p i {
-    color: #00AEE8;
+    color: var(--pri);
     font-size: 1.1rem;
     flex-shrink: 0;
 }
@@ -125,7 +125,7 @@
 }
 
 .footer-contact p a:hover {
-    color: #00AEE8;
+    color: var(--pri);
 }
 
 .footer-bottom {
@@ -146,7 +146,7 @@
 }
 
 .footer-bottom p a:hover {
-    color: #00AEE8;
+    color: var(--pri);
 }
 
 /* Responsive */

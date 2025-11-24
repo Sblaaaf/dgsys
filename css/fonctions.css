@@ -1,11 +1,12 @@
 /* === Section Fonctions (Spider + Panneaux latéraux) === */
 .fonctions-section {
     min-height: 100vh;
-    margin: 6rem auto 2rem auto;
-    background: linear-gradient(white 100%, #E8F7FD 0%);
+    margin: 8rem auto 4rem auto;
+    background: linear-gradient(white 100%, var(--light) 0%);
 }
 
 .fonctions-section-title {
+    margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -15,7 +16,7 @@
     .section-title {
         font-size: 2.5rem;
         font-weight: 800;
-        color: #21366A;
+        color: var(--sec);
         text-align: center;
     }
 }
@@ -36,7 +37,7 @@
 
     p {
         font-size: 1rem;
-        color: #334155;
+        color: var(--sec);
         line-height: 1.6rem;
         text-align: left;
     }
@@ -64,32 +65,32 @@
     align-items: center;
     text-align: center;
     padding: 1rem 2rem;
-    background-color: #E8F7FD;
+    background-color: var(--light);
     border-radius: 1rem;
 }
 
 .benefit-icon {
     font-size: 1.5rem;
-    color: var(--blue-dark, #21366A);
+    color: var(--sec);
     margin-bottom: 1rem;
 }
 
 .benefit-title {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #21366A;
+    color: var(--sec);
     margin-bottom: 0.5rem;
 }
 
 .benefit-text {
     font-size: 0.9rem;
-    color: #334155;
+    color: var(--sec);
     line-height: 1.6;
 }
 
 .fonctions-section .section-subtitle {
     max-width: 600px;
-    color: #334155;
+    color: var(--sec);
     line-height: 1.7rem;
     /* text-align est maintenant géré inline ou par .benefit-item */
 }
@@ -97,7 +98,7 @@
 .feature-panel {
     position: relative;
     height: 500px;
-    background-color: #ffffff;
+    background-color: white;
     /* transition: opacity 0.4s ease, transform 0.4s ease; */
     display: flex;
     flex-direction: column;
@@ -120,12 +121,12 @@
 
 .feature-panel:has(.is-master-feature) .feature-detail-content p,
 .feature-panel:has(.is-master-feature) .feature-detail-content h3 {
-    color: #ffffff;
+    color: white;
     font-weight: 700;
 }
 
 .légende-fonctionnalités {
-    font-size: 0.9rem; color: #00aee8; font-style: italic; margin-top: 1rem;
+    font-size: 0.9rem; color: var(--pri); font-style: italic; margin-top: 1rem;
 }
 
 
@@ -143,24 +144,24 @@
 
 /* La bordure et la ligne deviennent bleues uniquement si une patte est active */
 .fonctions-section.is-leg-active .feature-panel {
-    border-color: var(--blue-dark, #21366A);
+    border-color: var(--sec);
 }
 
 .fonctions-section.is-leg-active .feature-panel::before {
-    border-color: var(--blue-dark, #21366A);
-    background-color: var(--blue-dark, #21366A);
+    border-color: var(--sec);
+    background-color: var(--sec);
 }
 .feature-detail-content {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    color: #334155;
+    color: var(--sec);
     font-size: 1rem;
     line-height: 1.6;
     padding: 0 1rem;
 
     i {
-        color: #00AEE8;
+        color: var(--pri);
         margin-right: 0.5rem;
     }
 }
@@ -177,8 +178,8 @@
     border-radius: 1rem;
     margin-top: -2rem;
 
-    background-color: #ffffff;
-    border: 2px solid #21366A;
+    background-color: white;
+    border: 2px solid var(--sec);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -222,7 +223,7 @@
     display: none;
     gap: 0.5rem;
     padding: 0.5rem;
-    background-color: #ffffff;
+    background-color: white;
     border: 2px solid #cdd3e0;
     border-bottom: none;
     border-radius: 1rem 1rem 0 0;
@@ -232,7 +233,7 @@
 
 /* border de panel-nav-controls darkblue si leg-label is active */
 .fonctions-section.is-leg-active .panel-nav-controls {
-    border-color: var(--blue-dark, #21366A);
+    border-color: var(--sec);
 }
 
 .feature-panel .panel-nav-controls {
@@ -240,8 +241,8 @@
 }
 
 .panel-nav-btn {
-    background-color: var(--blue-dark, #21366A);
-    color: #ffffff;
+    background-color: var(--sec);
+    color: white;
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
@@ -251,7 +252,7 @@
 }
 
 .panel-nav-btn:hover {
-    background-color: #00AEE8;
+    background-color: var(--pri);
     transform: scale(1.1);
     border: none;
 }
@@ -261,7 +262,7 @@
     display: grid;
     grid-template-columns: 1fr 300px 2fr;
     align-items: center;
-    margin: 4rem auto;
+    margin: 5rem auto;
 }
 
 /* Garder la patte active visible */
@@ -272,7 +273,7 @@
 /* Maintient le style actif sur la ligne de la patte source */
 .fonctions-section .spider-leg.is-panel-source::before,
 .fonctions-section .spider-leg.is-panel-source::after {
-    background-color: #21366A;
+    background-color: var(--sec);
 }
 
 /* Le corps : l'image centrale */
@@ -288,7 +289,7 @@
 
 .fonctions-section .spider-circle {
     position: absolute;
-    background-color: #ffffff;
+    background-color: white;
     margin: 12.5%;
     width: 75%;
     height: 75%;
@@ -366,11 +367,11 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.5rem 1rem;
-    background-color: #ffffff;
+    background-color: white;
     border: 1px solid #e9ecef;
     border-radius: 99px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    color: #21366A;
+    color: var(--sec);
     font-weight: 700;
     font-size: 0.9rem;
     white-space: nowrap;
@@ -425,22 +426,22 @@
 .fonctions-section .spider-leg:nth-child(7) .leg-label { right: 150px; }
 
 .fonctions-section .leg-label i {
-    color: #00AEE8;
+    color: var(--pri);
     transition: transform 0.4s ease;
 }
 
 /* Style pour le label de la patte sélectionnée (panneau ouvert) */
 .fonctions-section .spider-leg.is-panel-source .leg-label {
-    background-color: #21366A;
-    color: #ffffff;
-    border: 0.15rem solid #21366A;
+    background-color: var(--sec);
+    color: white;
+    border: 0.15rem solid var(--sec);
     box-shadow: 0 8px 20px rgba(33, 54, 106, 0.15);
 }
 
 /* Style au survol pour les pattes non sélectionnées */
 .fonctions-section .spider-leg:not(.is-panel-source):hover .leg-label {
-    background-color: #d4f4ff;
-    border: 0.15rem solid #21366A;
+    background-color: var(--highlight);
+    border: 0.15rem solid var(--sec);
     box-shadow: 0 8px 20px rgba(33, 54, 106, 0.15);
 }
 
@@ -452,19 +453,19 @@
 
 .fonctions-section .spider-leg:hover::before,
 .fonctions-section .spider-leg:hover::after {
-    background-color: #21366A;
+    background-color: var(--sec);
     transition: all 0.4s ease;
 }
 
 /* Au survol d'une patte, on cible le cercle central grâce à :has() */
 .fonctions-section .spider-container:has(.spider-leg:hover) .spider-circle {
-    color: #ffffff;
-    border-color: #21366A;
+    color: white;
+    border-color: var(--sec);
 }
 /* Select patte, le cercle central coloré */
 .fonctions-section .spider-container:has(.spider-leg.is-panel-source) .spider-circle {
-    color: #ffffff;
-    border-color: #21366A;
+    color: white;
+    border-color: var(--sec);
 }
 
 /* Animations */

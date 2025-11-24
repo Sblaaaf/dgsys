@@ -34,8 +34,8 @@
   width: 320px;
   height: auto;
   min-height: 320px;
-  background-color: #ffffff;
-  border: 1px solid #00AEE8;
+  background-color: white;
+  border: 1px solid var(--pri);
   border-radius: 1.5rem;
   box-shadow: 0 10px 30px rgba(33, 54, 106, 0.1);
   cursor: pointer;
@@ -59,7 +59,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-color: #21366ae0;
+  background-color: var(--sec);
   border-radius: inherit;
   z-index: 1;
 }
@@ -94,14 +94,14 @@
 
 .card-content i {
   font-size: 2rem;
-  color: #00AEE8;
+  color: var(--pri)ri);
   transition: transform 0.5s ease;
 }
 
 .card-content h3 {
   font-size: 1.3rem;
   font-weight: 800;
-  color: #ffffff;
+  color: white;
   margin: 0;
   transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
   transform-origin: center;
@@ -123,7 +123,7 @@
   opacity: 1;
   z-index: 10;
   cursor: default;
-  border-color: #00AEE8;
+  border-color: var(--pri);
   filter: blur(0);
   min-height: var(--active-card-height);
   min-width: 700px;
@@ -211,17 +211,17 @@
 
 /* Rétablir les couleurs par défaut pour le contenu de la master-card */
 .carousel-card.master-card .card-content i {
-  color: #00AEE8;
+  color: var(--pri);
 }
 
 .carousel-card.master-card .card-content h3,
 .carousel-card.master-card .section-title {
-  color: #21366A;
+  color: var(--sec);
 }
 
 .carousel-card.master-card .card-content p,
 .carousel-card.master-card .metiers-intro-text {
-  color: #626262;
+  color: var(--text);
 }
 
 .carousel-card.master-card .metiers-intro-text {
@@ -245,10 +245,10 @@
   align-items: center;
   justify-content: center;
   padding: 0.6rem;
-  border: 1px solid #e6edf5;
+  border: 1px solid var(--border-gray);
   border-radius: 0.75rem;
   text-decoration: none;
-  color: #21366A;
+  color: var(--sec);
   font-size: 0.75rem;
   transition: all 0.3s ease;
 }
@@ -259,7 +259,7 @@
 }
 
 .master-card-link:hover {
-  background-color: #f0f7ff;
+  background-color: var(--ter);
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 174, 232, 0.1);
 }
@@ -349,21 +349,21 @@
 
 .carousel-arrow {
   pointer-events: auto;
-  background-color: #21366A;
-  border: 1px solid #00AEE8;
+  background-color: var(--sec);
+  border: 1px solid var(--pri);
   border-radius: 50%;
   width: 3.5rem;
   height: 3.5rem;
   cursor: pointer;
   font-size: 1.2rem;
-  color: #ffffff;
+  color: white;
   box-shadow: 0 5px 20px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
 }
 
 .carousel-arrow:hover {
-  background-color: #ffffff;
-  color: #21366A;
+  background-color: white;
+  color: var(--sec);
   transform: scale(1.1);
 }
 
@@ -374,10 +374,10 @@
   align-items: center;
   text-transform: uppercase;
   font-size: 0.7rem;
-  color: #00AEE870;
+  color: var(--pri);
   gap: 0.5rem;
-  background-color: #ffffff;
-  border: 1px solid #00AEE8;
+  background-color: white;
+  border: 1px solid var(--pri);
   border-radius: 2rem;
   top: calc(50% - ((var(--active-card-height) / 2) - 1.5rem));
   left: 50%;
@@ -387,8 +387,8 @@
 }
 
 #show-master-card-btn:hover {
-  background-color: #21366A;
-  color: #ffffff;
+  background-color: var(--sec);
+  color: white;
 }
 
 /* Classe pour masquer/afficher le bouton */

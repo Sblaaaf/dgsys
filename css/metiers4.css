@@ -2,7 +2,7 @@
 
 .metiers-section {
     padding: 6rem 0;
-    background-color: #f8fafc;
+    background-color: var(--ter);
 }
 
 .metiers-layout {
@@ -33,11 +33,11 @@
     width: 8rem;
     height: 8rem;
     padding: 1.25rem 1rem;
-    background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    background-color: white;
+    border: 1px solid var(--border-gray);
     border-radius: 1rem;
     text-decoration: none;
-    color: var(--blue-dark, #21366A);
+    color: var(--sec);
     font-weight: 600;
     font-size: 0.9rem;
     text-align: center;
@@ -47,24 +47,24 @@
 
 .metier-link i {
     font-size: 1.75rem;
-    color: var(--blue-cyan, #00AEE8);
+    color: var(--pri);
     transition: transform 0.3s ease;
 }
 
 .metier-link:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 15px -3px rgba(33, 54, 106, 0.1);
-    border-color: var(--blue-cyan, #00AEE8);
+    border-color:  var(--pri);
 }
 
 .metier-link.active-link {
-    background-color: var(--blue-dark, #21366A);
-    color: #ffffff;
-    border-color: var(--blue-dark, #21366A);
+    background-color: var(--sec);
+    color: white;
+    border-color: var(--sec);
 }
 
 .metier-link.active-link i {
-    color: #ffffff;
+    color: white;
     transform: scale(1.1);
 }
 
@@ -85,7 +85,7 @@
     top: 0;
     left: 50%;
     width: 1000px;
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 1.5rem;
     box-shadow: 0 10px 30px rgba(33, 54, 106, 0.1);
     transition: opacity 0.5s ease, visibility 0.5s ease;
@@ -111,7 +111,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-color: rgba(33, 54, 106, 0.85); /* #21366A avec opacité */
+    background-color: rgba(33, 54, 106, 0.85); /* var(--sec) avec opacité */
     border-radius: inherit;
     z-index: 1;
     transition: opacity 0.5s ease;
@@ -133,7 +133,7 @@
 .card-content {
     position: relative;
     z-index: 2;
-    color: #ffffff;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -142,7 +142,7 @@
 
 .card-content i {
     font-size: 2.5rem;
-    color: var(--blue-cyan, #00AEE8);
+    color: var(--blue-cyan, var(--pri));
 }
 
 .card-content h3 {
@@ -180,7 +180,7 @@
 .metiers-arrow {
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #e2e8f0;
-    color: var(--blue-dark, #21366A);
+    color: var(--sec);
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
@@ -191,8 +191,8 @@
 }
 
 .metiers-arrow:hover {
-    background-color: var(--blue-dark, #21366A);
-    color: #ffffff;
+    background-color: var(--sec);
+    color: white;
     transform: scale(1.1);
 }
 

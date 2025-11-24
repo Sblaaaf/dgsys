@@ -27,9 +27,9 @@
 }
 
 .hero-section {
-    /* background: linear-gradient(110deg, #21366A 0%, #00AEE8 100%); */
-    background-color: #21366A;
-    color: #ffffff;
+    /* background: linear-gradient(110deg, var(--sec) 0%, var(--pri) 100%); */
+    background-color: var(--sec);
+    color: white;
     margin: 0;
     padding: 8rem 0;
     position: relative;
@@ -58,7 +58,7 @@
 }
 
 .hero-first {
-    color: #ffffff;
+    color: white;
     opacity: 0.8;
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
@@ -67,7 +67,7 @@
 }
 
 .hero-headline {
-    color: #ffffff;
+    color: white;
 }
 
 .hero-subheadline {
@@ -80,7 +80,7 @@
 .hero-subheadline em {
     font-style: normal;
     font-weight: 600;
-    color: #ffffff;
+    color: white;
 }
 
 .hero-cta-buttons {
@@ -91,9 +91,9 @@
 }
 
 .hero-cta-buttons .btn-primary:hover {
-    background-color: #E8F7FD;
-    color:#00AEE8;
-    border: #00AEE8 1px solid;
+    background-color: var(--light);
+    color:var(--pri);
+    border: var(--pri) 1px solid;
 }
 
 
@@ -160,7 +160,7 @@
 }
 
 .hero-caption {
-    background: #ffffff;
+    background: white;
     border-radius: 1rem;
     box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.12);
     padding: 1rem 1.5rem;
@@ -183,7 +183,7 @@
 
 .caption-icon {
     font-size: 2rem;
-    color: #00AEE8;
+    color: var(--pri);
 }
 
 .caption-content {
@@ -204,7 +204,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem; /* Espace réduit entre l'icône et le titre */
-    color: #21366A;
+    color: var(--sec);
 }
 
 .hero-caption h3 {
@@ -215,13 +215,13 @@
 }
 
 .caption-header .separator {
-    color: #00AEE8;
+    color: var(--pri);
     font-weight: 300;
 }
 
 .caption-header p {
     font-size: 0.95rem;
-    color: #626262;
+    color: var(--text);
     margin: 0;
 }
 
@@ -244,15 +244,14 @@
 
 /* Style pour le nouveau bouton "outline" */
 .btn-outline-secondary.btn-sm {
-    background-color: #21366A10;
-    border: 1px solid #21366A;
-    color: #21366A;
+    border: 1px solid var(--sec);
+    color: var(--sec);
 }
 
 .btn-outline-secondary.btn-sm:hover {
-    background-color: #21366A;
-    border-color: #21366A;
-    color: #ffffff;
+    background-color: var(--sec);
+    border-color: var(--sec);
+    color: white;
 }
 
 .hero-caption .btn-sm i {
@@ -365,7 +364,7 @@
 
 .hero-caption i {
     font-size: 1.5rem;
-    color: #00AEE8;
+    color: var(--pri);
 }
 
 .caption-text {
@@ -381,14 +380,14 @@
 
 .caption-text p {
     font-size: 0.9rem;
-    color: #626262;
+    color: var(--text);
     line-height: 1.5;
 }
 
 .caption-link {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #00AEE8;
+    color: var(--pri);
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -400,7 +399,7 @@
 }
 
 .caption-link:hover {
-    color: #21366A;
+    color: var(--sec);
 }
 
 .caption-link:hover i {

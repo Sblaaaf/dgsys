@@ -2,8 +2,8 @@
 .header-top-bar {
     position: relative; 
     z-index: 1000;
-    background-color: #E8F7FD;
-    color: #21366A;
+    background-color: var(--light);
+    color: var(--sec);
     padding: 0.4rem 0;
     font-size: 0.8rem;
     font-weight: 700;
@@ -34,5 +34,5 @@
 }
 
 .top-bar-container i {
-    color: #00AEE8;
+    color: var(--pri);
 }

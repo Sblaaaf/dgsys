@@ -151,7 +151,7 @@ export function initProduits2() {
     if (p.video) {
       heroMedia.innerHTML = `<video class="hero-video" src="${p.video}" autoplay muted loop playsinline></video>`;
     } else {
-      heroMedia.innerHTML = `<div style="width:100%;height:260px;display:flex;align-items:center;justify-content:center;color:#e5e7eb;font-size:1.1rem;">Visuel produit DGsys</div>`;
+      heroMedia.innerHTML = `<div style="width:100%;height:260px;display:flex;align-items:center;justify-content:center;color:var;font-size:1.1rem;">Visuel produit DGsys</div>`;
     }
 
     heroFeatures.innerHTML = p.features.map(f => `

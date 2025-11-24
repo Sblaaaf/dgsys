@@ -59,7 +59,7 @@ La palette principale s'articule autour des couleurs historiques de DGSys, avec 
 | **Gris Foncé** | `#333333` | Texte principal |
 | **Gris Moyen** | `#767676` | Texte secondaire, métadonnées |
 | **Gris Clair** | `#F2F2F2` | Arrière-plans de section |
-| **Blanc** | `#FFFFFF` | Arrière-plans principaux, texte sur fond sombre |
+| **Blanc** | `white` | Arrière-plans principaux, texte sur fond sombre |
 
 ### Typographie
 

@@ -1,7 +1,7 @@
 /* === Our Mission Section === */
 .our-mission-section {
     padding: 6rem 0;
-    background-color: #f8f9fa;
+    background-color: var(--ter);
     text-align: left;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .mission-item {
-    background-color: #ffffff;
+    background-color: white;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -31,7 +31,7 @@
 }
 
 .mission-icon-wrapper {
-    background-color: #E8F7FD;
+    background-color: var(--light);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -43,19 +43,19 @@
 
 .mission-item i {
     font-size: 1.8rem;
-    color: #00AEE8;
+    color: var(--pri);
 }
 
 .mission-item h3 {
     font-size: 1.2rem;
-    color: #21366A;
+    color: var(--sec);
     margin-bottom: 0.75rem;
     font-weight: 700;
 }
 
 .mission-item p {
     font-size: 0.95rem;
-    color: #626262;
+    color: var(--text);
     line-height: 1.6;
 }
 

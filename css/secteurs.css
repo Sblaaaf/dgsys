@@ -1,7 +1,7 @@
 /* === Secteur Section === */
 .secteur-section {
     padding: 6rem 0;
-    background-color: #ffffff;
+    background-color: white;
 }
 
 .secteur-split-view {
@@ -43,20 +43,20 @@
 
 .secteur-card i {
     font-size: 2.5rem;
-    color: #00AEE8;
+    color: var(--pri);
     margin-bottom: 1rem;
 }
 
 .secteur-card h3 {
     font-size: 1.3rem;
-    color: #21366A;
+    color: var(--sec);
     margin-bottom: 0.75rem;
     font-weight: 700;
 }
 
 .secteur-card p {
     font-size: 0.95rem;
-    color: #626262;
+    color: var(--text);
     padding: 0 0.5rem;
     margin-bottom: 1.5rem;
     line-height: 1.6;

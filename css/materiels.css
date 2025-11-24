@@ -42,9 +42,9 @@
 
 .materiel-card {
     position: relative;
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 1.5rem;
-    border: 1px solid #e6edf5;
+    border: 1px solid var(--border-gray);
     box-shadow: 0 10px 25px rgba(33, 54, 106, 0.1);
     transition: all 0.3s ease;
     display: flex;
@@ -81,7 +81,7 @@
 
 .materiel-content {
     padding: 1.5rem 1.5rem 2rem 1.5rem;
-    border-top: 1px solid #e6edf5;
+    border-top: 1px solid var(--border-gray);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -90,12 +90,12 @@
 .materiel-content h3 {
     margin-top: 80px; /* Espace pour compenser le débordement de l'image */
     font-size: 1.5rem;
-    color: var(--blue-dark, #21366A);
+    color: var(--blue-dark, var(--sec));
     margin: 0 0 0.25rem;
 }
 
 .materiel-tag {
-    color: var(--blue-primary, #00AEE8);
+    color: var(--blue-primary, var(--pri));
     font-weight: 600;
     margin: 0 0 1.5rem;
     font-size: 0.9rem;
@@ -112,7 +112,7 @@
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    color: var(--grey, #626262);
+    color: var(--text);
     font-size: 0.9rem;
     line-height: 1.5;
 }
@@ -122,7 +122,7 @@
 }
 
 .materiel-features i {
-    color: var(--blue-primary, #00AEE8);
+    color: var(--blue-primary, var(--pri));
     margin-top: 4px;
 }
 

@@ -1,7 +1,7 @@
 /* === Section Tarifs v2 === */
 .tarifs-v2-section {
     padding: 6rem 0;
-    background-color: #f8f9fa;
+    background-color: var(--ter);
     overflow: hidden; /* Pour les animations */
 }
 
@@ -24,12 +24,12 @@
 }
 
 .billing-label {
-    color: #21366A;
+    color: var(--sec);
     transition: color 0.3s ease;
 }
 
 .billing-label.is-active {
-    color: #21366A;
+    color: var(--sec);
     font-weight: 900;
 }
 
@@ -53,7 +53,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: var(--border-gray);
     transition: .4s;
     border-radius: 28px;
 }
@@ -71,7 +71,7 @@
 }
 
 input:checked + .slider {
-    background-color: var(--blue-dark, #00AEE8);
+    background-color: var(--sec);
 }
 
 input:checked + .slider:before {
@@ -94,7 +94,7 @@ input:checked + .slider:before {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 1.5rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
     border: 3px solid transparent;
@@ -128,9 +128,9 @@ input:checked + .slider:before {
 }
 
 /* Couleurs spécifiques par carte */
-.card-logiciel { --card-color: #21366A; }
-.card-caisse { --card-color: #ff9a03; }
-.card-tablette { --card-color: #00AEE8; }
+.card-logiciel { --card-color: var(--sec); }
+.card-caisse { --card-color: var(--orange); }
+.card-tablette { --card-color: var(--pri); }
 
 .card-header {
     display: flex;
@@ -154,7 +154,7 @@ input:checked + .slider:before {
     display: inline-block;
     padding: 0.5rem 1rem;
     background-color: var(--card-color);
-    color: #ffffff;
+    color: white;
     border-radius: 2rem;
     font-size: 0.9rem;
     font-weight: 700;
@@ -172,7 +172,7 @@ input:checked + .slider:before {
 .card-catchphrase {
     font-size: 0.9rem;
     font-style: italic;
-    color: #626262;
+    color: var(--text);
     min-height: 40px;
 }
 
@@ -238,5 +238,5 @@ input:checked + .slider:before {
 .tarif-card-v2 .btn {
     width: 100%;
     background-color: var(--card-color);
-    color: #ffffff;
+    color: white;
 }

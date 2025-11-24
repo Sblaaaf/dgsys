@@ -1,6 +1,6 @@
 /* === norme Section === */
 .norme-section {
-    background-color: #f8fafc;
+    background-color: var(--ter);
     position: relative; /* Contexte de positionnement pour la superposition */
     padding: 8rem 0;
     margin-top: -8rem;
@@ -25,7 +25,7 @@
     justify-content: center;
     
     /* Superposition du dégradé sur l'image d'arrière-plan */
-    background: linear-gradient(rgba(33, 54, 106, 0.85), rgba(33, 54, 106, 0.85)), url('https://www.dgsys.fr/wp-content/uploads/2024/11/DGsys-photo-equipe-768x530-1.jpg.webp'); /* Remplacez par le chemin de votre image */
+    background: var(--overlay-dark), url('https://www.dgsys.fr/wp-content/uploads/2024/11/DGsys-photo-equipe-768x530-1.jpg.webp'); /* Remplacez par le chemin de votre image */
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Ajoute l'effet de parallaxe */
@@ -67,7 +67,7 @@
     color: white;
     margin-top: 2rem;
     padding-left: 1.5rem;
-    border-left: 3px solid #00AEE8;
+    border-left: 3px solid var(--pri);
 }
 .norme-header h2 {
     color: white;
@@ -78,12 +78,12 @@
 }
 
 .norme-header .section-subtitle {
-    color: #e2e8f0;
+    color: var(--ter);
 }
 
 .norme-conclusion {
     font-size: 1.1rem;
-    color: #ffffff;
+    color: white;
     font-style: italic;
 }
 
@@ -116,8 +116,8 @@
 }
 
 .nf525-feature-card {
-    background-color: #ffffff;
-    border: 1px solid #e6edf5;
+    background-color: white;
+    border: 1px solid var(--border-gray);
     border-radius: 1rem;
     padding: 1.5rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -127,8 +127,8 @@
 .nf525-feature-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(33, 54, 106, 0.1);
-    background-color: #E8F7FD;
-    border: 1px solid #00AEE8;
+    background-color: var(--light);
+    border: 1px solid var(--pri);
 }
 
 .nf525-feature-header {
@@ -140,7 +140,7 @@
 
 .nf525-feature-icon {
     font-size: 1.2rem;
-    color: #00AEE8;
+    color: var(--pri);
     background-color: rgba(0, 174, 232, 0.1);
     width: 40px;
     height: 40px;
@@ -149,19 +149,19 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border: 1px solid #00AEE8;
+    border: 1px solid var(--pri);
 }
 
 .nf525-feature-card h4 {
     font-size: 1rem;
     font-weight: 700;
-    color: #21366A;
+    color: var(--sec);
     margin: 0;
 }
 
 .nf525-feature-card p {
     font-size: 0.9rem;
-    color: #626262;
+    color: var(--text);
     margin: 0;
     line-height: 1.6;
 }

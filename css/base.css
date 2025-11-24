@@ -1,4 +1,15 @@
-/* === 1. Styles Globaux & Reset === */
+:root {
+    --pri: #00AEE8;
+    --sec: #21366A;
+    --ter: #F9FAFB;
+    --border-gray: #e6edf5;
+    --text: #626262;
+    --light: #E8F7FD;
+    --highlight: #d4f4ff;
+    --orange: #ff9a03;
+    --overlay-dark: linear-gradient(rgba(33, 54, 106, 0.8), rgba(33, 54, 106, 0.8));
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,9 +22,9 @@ html {
 
 body {
     font-family: 'Open Sans', sans-serif;
-    color: #1f2a44;
+    color: var(--sec);
     line-height: 1.6;
-    background-color: #ffffff;
+    background-color: white;
 }
 
 /* flou en haut pour header sticky */
@@ -37,18 +48,17 @@ body::before {
 
 .highlight-blue {
     position: relative;
-    display: inline-block;
-    background: linear-gradient(180deg, rgba(255,255,255,0) 60%, #d4f4ff 60%, #d4f4ff 90%, rgba(255,255,255,0) 90%);
-    padding: 1rem 0.2rem;
-    margin-bottom: -0.5rem;
-    z-index: 1;
+    /* display: inline-block; */
+    background: linear-gradient(180deg, rgba(255,255,255,0) 60%, var(--highlight) 60%, var(--highlight) 90%, rgba(255,255,255,0) 90%);
+    padding: 0.4rem 0.2rem;
+    z-index: 0;
 
 }
 
 .highlight-text {
     position: relative;
     display: inline-block;
-    background: linear-gradient(180deg, rgba(255,255,255,0) 60%, #d4f4ff 60%, #d4f4ff 90%, rgba(255,255,255,0) 90%);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 60%, var(--highlight) 60%, var(--highlight) 90%, rgba(255,255,255,0) 90%);
     padding: 0.3rem 0.2rem;
     margin-bottom: -0.3rem;
     z-index: 1;
@@ -60,7 +70,7 @@ body::before {
     font-family: 'open sans', sans-serif;
     font-size: 2.5rem;
     line-height: 2.4rem;
-    color: #21366A;
+    color: var(--sec);
     margin-bottom: 1rem;
     font-weight: 800;
     max-width: 800px;
@@ -68,9 +78,10 @@ body::before {
 
 .section-subtitle {
     font-size: 1rem;
-    color: #626262;
+    color: var(--text);
     max-width: 800px;
     line-height: 1.4;
+    text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -95,7 +106,7 @@ ul {
 
 a {
     text-decoration: none;
-    color: #21366A; 
+    color: var(--sec); 
 }
 
 /* Classe utilitaire pour les lecteurs d'écran */
@@ -124,61 +135,61 @@ a {
 }
 
 .btn-primary {
-    background-color: #00AEE8;
-    color: #ffffff;
+    background-color: var(--pri);
+    color: white;
     box-shadow: 0 4px 15px rgba(0, 174, 232, 0.2);
 }
 .btn-primary:hover {
-    background-color: #21366A;
+    background-color: var(--sec);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(9, 58, 75, 0.3);
 }
 
 .btn-secondary {
-    background-color: #E8F7FD; 
-    color: #00AEE8;
-    border: 1px solid #00AEE8;
+    background-color: var(--light); 
+    color: var(--pri);
+    border: 1px solid var(--pri);
 }
 .btn-secondary:hover {
-    background-color: #d6f0fc;
+    background-color: var(--highlight);
     transform: translateY(-2px);
 }
 
 .btn-outline-secondary {
     background-color: transparent;
-    border: 1px solid #21366A;
-    color: #21366A;
+    border: 1px solid var(--sec);
+    color: var(--sec);
 }
 .btn-outline-secondary:hover {
-    background-color: #21366A;
-    border-color: #21366A;
-    color: #ffffff;
+    background-color: var(--sec);
+    border-color: var(--sec);
+    color: white;
     transform: translateY(-2px);
 }
 .btn-outline-secondary.is-active {
-    background-color: #21366A;
-    color: #ffffff;
-    border-color: #21366A;
+    background-color: var(--sec);
+    color: white;
+    border-color: var(--sec);
     /* box-shadow: 0 4px 15px rgba(33, 54, 106, 0.2); */
 }
 
 .btn-ghost-white {
-    background-color: #ffffff;
-    color: #21366A; 
+    background-color: white;
+    color: var(--sec); 
     border: 1px solid transparent;
-    border-color: #ffffff;
+    border-color: white;
     box-shadow: none;
 }
 .btn-ghost-white:hover {
     background-color: transparent;
-    color: #ffffff;
+    color: white;
     border: 2px solid rgba(255, 255, 255, 0.7);
     transform: translateY(-2px);
 }
 
 /* === 3. Typographie (Homogène) === */
 h1, h2, h3, h4, h5, h6 {
-    color: #21366A; 
+    color: var(--sec); 
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.5px;
@@ -205,7 +216,17 @@ h4 {
 
 p {
     line-height: 1.5;
-    color: #344767;
+    color: var(--sec);
+
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+
+    letter-spacing: 0.01em;
+    text-justify: inter-word;
+    text-align-last: left;
+    max-width: 70ch;
 }
 
 /* Classe utilitaire pour espacer des enfants */

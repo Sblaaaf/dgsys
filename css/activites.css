@@ -5,7 +5,7 @@
     top: 50%;
     max-width: 500px;
     height: auto;
-    background-color: #ffffff;
+    background-color: white;
     transition: opacity 0.4s ease, transform 0.4s ease;
     display: flex;
     flex-direction: column;
@@ -23,14 +23,14 @@
     top: 50%;
     transform: translateY(-50%);
     height: 2px;
-    background-color: var(--blue-dark, #21366A);
+    background-color: var(--sec);
     width: 25px;
 }
 
 .activites-section .feature-panel-left {
     left: -85px;
     transform: translateY(-50%);
-    border: 2px solid var(--blue-dark, #21366A);
+    border: 2px solid var(--sec);
 }
 
 .activites-section .feature-panel-left::before {
@@ -40,7 +40,7 @@
 .activites-section .feature-panel-right {
     right: -85px;
     transform: translateY(-50%);
-    border: 2px solid var(--blue-dark, #21366A);
+    border: 2px solid var(--sec);
 }
 
 .activites-section .feature-panel-right::before {
@@ -57,7 +57,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    color: #334155;
+    color: var(--sec);
     font-size: 1rem;
     line-height: 1.6;
     padding: 0 1rem;
@@ -72,7 +72,7 @@
     width: 2rem;
     height: 2rem;
     font-size: 1rem;
-    color: #64748b;
+    color: var(--sec);
     cursor: pointer;
     transition: all 0.3s ease;
     z-index: 5;
@@ -81,8 +81,8 @@
 .activites-section .feature-panel-right .close-panel-btn { right: 1rem }
 
 .activites-section .close-panel-btn:hover {
-    background: #e2e8f0;
-    color: #1e293b;
+    background: var(--border-gray);
+    color: var(--sec);
     transform: rotate(90deg);
 }
 
@@ -122,8 +122,8 @@
     display: none; /* Caché par défaut */
     gap: 0.5rem;
     padding: 0.5rem;
-    background-color: #ffffff;
-    border: 2px solid var(--blue-dark, #21366A);
+    background-color: white;
+    border: 2px solid var(--sec);
     border-radius: 1rem;
     box-shadow: 0 -5px 15px rgba(33, 54, 106, 0.1);
     z-index: 20;
@@ -141,8 +141,8 @@
 }
 
 .activites-section .panel-nav-btn {
-    background-color: var(--blue-dark, #21366A);
-    color: #ffffff;
+    background-color: var(--sec);
+    color: white;
     border: none;
     width: 2.5rem;
     height: 2.5rem;
@@ -153,14 +153,14 @@
 }
 
 .activites-section .panel-nav-btn:hover {
-    background-color: #00AEE8; /* Couleur d'accentuation au survol */
+    background-color: var(--pri); /* Couleur d'accentuation au survol */
     transform: scale(1.1);
 }
 
 /* === Section Activités (Diagramme) === */
 .activites-spider-section {
     padding: 6rem 0;
-    background-color: #ffffff;
+    background-color: white;
     text-align: center;
     overflow: hidden;
 }
@@ -192,7 +192,7 @@
 /* Maintient le style actif sur la ligne de la patte source */
 .activites-section .spider-leg.is-panel-source::before,
 .activites-section .spider-leg.is-panel-source::after {
-    background-color: #21366A;
+    background-color: var(--sec);
 }
 
 /* Le corps : l'image centrale */
@@ -205,7 +205,7 @@
 
 .activites-section .spider-circle {
     position: absolute;
-    background-color: #ffffff;
+    background-color: white;
     margin: 12.5%;
     width: 75%;
     height: 75%;
@@ -287,11 +287,11 @@
     align-items: center;
     gap: 0.6rem;
     padding: 0.5rem 1rem;
-    background-color: #ffffff;
-    border: 1px solid #e9ecef;
+    background-color: white;
+    border: 1px solid var(--border-gray);
     border-radius: 99px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    color: #21366A;
+    color: var(--sec);
     font-weight: 700;
     font-size: 0.9rem;
     white-space: nowrap;
@@ -394,15 +394,15 @@
 }
 
 .activites-section .leg-label i {
-    color: #00AEE8;
+    color: var(--pri);
     transition: transform 0.4s ease;
 }
 
 /* Style pour le label de la patte sélectionnée (panneau ouvert) */
 .activites-section .spider-leg.is-panel-source .leg-label {
-    background-color: #21366A;
-    color: #ffffff;
-    border: 0.15rem solid #21366A;
+    background-color: var(--sec);
+    color: white;
+    border: 0.15rem solid var(--sec);
     /* On change uniquement le scale-factor, sans toucher au flip */
     --scale-factor: 1.05;
     box-shadow: 0 8px 20px rgba(33, 54, 106, 0.15);
@@ -410,8 +410,8 @@
 
 /* Style au survol pour les pattes non sélectionnées */
 .activites-section .spider-leg:not(.is-panel-source):hover .leg-label {
-    background-color: #d4f4ff;
-    border: 0.15rem solid #21366A;
+    background-color: var(--highlight);
+    border: 0.15rem solid var(--sec);
     --scale-factor: 1.05;
     box-shadow: 0 8px 20px rgba(33, 54, 106, 0.15);
 }
@@ -424,19 +424,19 @@
 
 .activites-section .spider-leg:hover::before,
 .activites-section .spider-leg:hover::after {
-    background-color: #21366A;
+    background-color: var(--sec);
     transition: all 0.4s ease;
 }
 
 /* Au survol d'une patte, on cible le cercle central grâce à :has() */
 .activites-section .spider-container:has(.spider-leg:hover) .spider-circle {
-    color: #ffffff;
-    border-color: #21366A;
+    color: white;
+    border-color: var(--sec);
 }
 /* Select patte, le cercle central coloré */
 .activites-section .spider-container:has(.spider-leg.is-panel-source) .spider-circle {
-    color: #ffffff;
-    border-color: #21366A;
+    color: white;
+    border-color: var(--sec);
 }
 
 /* Animations */

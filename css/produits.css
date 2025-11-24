@@ -1,7 +1,7 @@
 /* === Our Products Section === */
 .our-products-section {
     padding: 6rem 0;
-    background-color: #f8f9fa;
+    background-color: var(--ter);
     text-align: center;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .product-card {
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     text-align: center;
@@ -44,20 +44,20 @@
 
 .product-card i {
     font-size: 2.5rem;
-    color: #00AEE8;
+    color: var(--pri);
     margin-bottom: 1rem;
 }
 
 .product-card h3 {
     font-size: 1.3rem;
-    color: #21366A;
+    color: var(--sec);
     margin-bottom: 0.75rem;
     font-weight: 700;
 }
 
 .product-card p {
     font-size: 0.95rem;
-    color: #626262;
+    color: var(--text);
     padding: 0 0.5rem;
     margin-bottom: 1.5rem;
     line-height: 1.6;

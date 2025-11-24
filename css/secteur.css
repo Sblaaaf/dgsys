@@ -1,7 +1,7 @@
 /* === Secteur Section === */
 .secteur-section {
     padding: 6rem 0;
-    background-color: #ffffff;
+    background-color: white;
 }
 
 .secteur-split-view {
@@ -47,7 +47,7 @@
     right: 0;
     padding: 2rem;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-    color: #ffffff;
+    color: white;
 }
 
 .preview-text h3 {
@@ -81,35 +81,35 @@
 }
 
 .secteur-trigger-item:hover {
-    background-color: #f8f9fa;
-    border-color: #dee2e6;
+    background-color: var(--ter);
+    border-color: var(--border-gray);
 }
 
 .secteur-trigger-item.is-active {
-    background-color: #E8F7FD;
-    border-color: #00AEE8;
+    background-color: var(--light);
+    border-color: var(--pri);
     box-shadow: 0 4px 15px rgba(0, 174, 232, 0.1);
 }
 
 .secteur-trigger-item i {
     font-size: 1.2rem;
-    color: #00AEE8;
+    color: var(--pri);
 }
 
 .secteur-trigger-item span {
     flex-grow: 1; /* Permet au texte de prendre l'espace disponible */
     font-weight: 700;
-    color: #21366A;
+    color: var(--sec);
 }
 
 .secteur-trigger-item .arrow {
     font-size: 0.8rem;
-    color: #b0b0b0;
+    color: var(--border-gray);
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .secteur-trigger-item.is-active .arrow {
-    color: #00AEE8;
+    color: var(--pri);
     transform: translateX(3px);
 }
 

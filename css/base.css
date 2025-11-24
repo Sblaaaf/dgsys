@@ -46,7 +46,12 @@ body::before {
 }
 
 .highlight-text {
-    color: #00AEE8;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 60%, #d4f4ff 60%, #d4f4ff 90%, rgba(255,255,255,0) 90%);
+    padding: 0.3rem 0.2rem;
+    margin-bottom: -0.3rem;
+    z-index: 1;
 }
 
 

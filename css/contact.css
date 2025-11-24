@@ -1,0 +1,308 @@
+/* ============================================= */
+/*              STYLES POUR CONTACT              */
+/* ============================================= */
+.contact-section {
+    margin-top: -10rem;
+    padding: 12rem 2rem 4rem 2rem;
+    background-color: #f8f9fa;
+}
+
+.contact-section .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: none;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    /* align-items: flex-start; */
+}
+
+.contact-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.contact-info-header {
+    text-align: left;
+}
+
+.contact-info-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #21366A;
+}
+
+.info-points-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.75rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+.info-point-icon {
+    flex-shrink: 0;
+    background-color: #E8F7FD;
+    color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: row; /* Changé pour l'alignement horizontal */
+    justify-content: center; /* Centre les cartes horizontalement */
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap; /* Permet le passage à la ligne sur petits écrans */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #E8F7FD;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    flex: 1; /* Permet aux cartes de prendre une taille équivalente */
+    min-width: 280px; /* Largeur minimale pour éviter qu'elles soient trop écrasées */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-item-title {
+    font-weight: 700;
+    color: #00AEE8;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #00AEE8;
+    width: 40px;
+    text-align: center;
+}
+
+.contact-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-item a, .contact-item span {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 800;
+    line-height: 1.4rem;
+}
+
+.contact-item a:hover {
+    color: var(--primary-color);
+}
+
+.contact-item a, .contact-item .contact-item-info {
+    color: var(--text-color);
+    font-weight: 800;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 174, 232, 0.1);
+    border: #00AEE8 1px solid;
+}
+
+.contact-image-wrapper {
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative; /* Nécessaire pour positionner l'overlay */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    flex-grow: 1; /* Permet à cet élément de grandir pour remplir l'espace */
+}
+
+.contact-image-wrapper img {
+    height: auto;
+    width: 100%;
+    max-height: 340px;
+    object-fit: cover;
+}
+
+.contact-form-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-container {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    border: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+}
+
+.form-container h4 {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group input::placeholder {
+    color: #21366A;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #21366A; /* Assure que le texte sélectionné a la bonne couleur */
+    background-color: #fff; /* Fond blanc */
+}
+
+#main-contact-form button[type="submit"]:hover {
+    cursor: pointer;
+}
+
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+
+.quick-contact-container {
+    position: absolute; /* Positionne par-dessus l'image */
+    bottom: 1rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    background: rgba(255, 255, 255, 0.9); /* Fond blanc légèrement transparent */
+    backdrop-filter: blur(5px); /* Effet de flou pour la lisibilité */
+    color: var(--dark-blue);
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.quick-contact-container i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.quick-contact-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.quick-contact-form {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+}
+
+.quick-contact-form input[type="tel"] {
+    flex-grow: 1; /* Permet à l'input de prendre l'espace restant */
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    border-right: none; /* Supprime la bordure droite pour la fusion */
+    border-radius: 0.5rem 0 0 0.5rem; /* Arrondit les coins gauches */
+    font-size: 1rem;
+    color: #21366A;
+}
+
+.quick-contact-form input[type="tel"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.quick-contact-form .btn-secondary {
+    border-radius: 0 0.5rem 0.5rem 0;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.quick-contact-form .btn-secondary:hover {
+    transform: none;
+    background-color: #21366A;
+    color: #fff;
+    border: #21366A 1px solid;
+}
+.form-container .btn-primary {
+    width: 100%;
+    border: none;
+    padding: 1rem; /* Ajout d'un padding pour une meilleure apparence */
+}
+
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

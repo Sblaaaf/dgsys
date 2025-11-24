@@ -303,9 +303,11 @@
     top: 50%;
     transform: translate(-50%, -50%);
     object-fit: contain;    
-    max-width: 250px;
+    max-width: 280px;
     filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.1));
     animation: float 4s ease-in-out infinite;
+
+    margin-left: 1rem;
 }
 
 /* Conteneurs pour les groupes de pattes (gauche/droite) */

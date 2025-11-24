@@ -73,8 +73,8 @@ export function initMetiersPremium() {
         if (relatedGrid) {
             const currentIndex = metierKeys.indexOf(metierKey);
             const relatedKeys = [];
-            // On prend les 4 prochains métiers dans la liste
-            for (let i = 1; i <= 4; i++) {
+            // On prend les 10 prochains métiers dans la liste
+            for (let i = 1; i <= 10; i++) {
                 const nextIndex = (currentIndex + i) % metierKeys.length;
                 relatedKeys.push(metierKeys[nextIndex]);
             }
@@ -93,6 +93,41 @@ export function initMetiersPremium() {
                 miniCard.addEventListener('click', () => updateView(relatedKey));
                 relatedGrid.appendChild(miniCard);
             });
+        }
+
+        // Gérer le carrousel des métiers similaires
+        const scroller = panel.querySelector('.related-metiers-scroller');
+        if (scroller) {
+            const gridWrapper = scroller.querySelector('.related-metiers-grid-wrapper');
+            const prevArrow = scroller.querySelector('.related-scroll-arrow.prev');
+            const nextArrow = scroller.querySelector('.related-scroll-arrow.next');
+
+            const updateArrows = () => {
+                const maxScrollLeft = gridWrapper.scrollWidth - gridWrapper.clientWidth;
+                prevArrow.disabled = gridWrapper.scrollLeft <= 0;
+                nextArrow.disabled = gridWrapper.scrollLeft >= maxScrollLeft - 1; // -1 pour la précision
+            };
+
+            prevArrow.addEventListener('click', () => {
+                gridWrapper.scrollLeft -= gridWrapper.clientWidth * 0.8;
+            });
+
+            nextArrow.addEventListener('click', () => {
+                gridWrapper.scrollLeft += gridWrapper.clientWidth * 0.8;
+            });
+
+            gridWrapper.addEventListener('scroll', updateArrows);
+
+            // Vérifier si le défilement est nécessaire et masquer les flèches si non
+            // Utilise un petit délai pour s'assurer que le DOM est bien rendu
+            setTimeout(() => {
+                if (gridWrapper.scrollWidth <= gridWrapper.clientWidth) {
+                    scroller.classList.add('no-scroll');
+                    prevArrow.style.display = 'none';
+                    nextArrow.style.display = 'none';
+                }
+                updateArrows();
+            }, 100);
         }
 
         // Ajouter les écouteurs pour la navigation
@@ -146,7 +181,7 @@ export function initMetiersPremium() {
     });
 
     // Optionnel: ouvrir le premier métier au chargement
-    // updateView(metierKeys[0], true);
+    updateView(metierKeys[0], true);
 }
 
 initMetiersPremium();

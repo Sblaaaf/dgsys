@@ -3,7 +3,7 @@
     background-color: #f8fafc;
     position: relative; /* Contexte de positionnement pour la superposition */
     padding: 8rem 0;
-    margin-top: -6rem;
+    margin-top: -8rem;
 }
 
 .norme-layout {
@@ -57,27 +57,17 @@
 .norme-text-wrapper {
     position: relative;
     z-index: 2;
-    padding-right: 2rem; /* Espace pour ne pas coller aux features */
-    /* text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); */
+    padding-right: 2rem;
 }
 
 .norme-conclusion-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Aligné à gauche sous le texte */
-    gap: 0.5rem;
-    margin: 2rem auto;
-    max-width: 350px; /* Limite la largeur de la citation */
-}
-
-/* --- Fin des nouvelles règles --- */
-
-
-.norme-header, .norme-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap : 1rem;
     color: white;
+    margin-top: 2rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid #00AEE8;
 }
 .norme-header h2 {
     color: white;
@@ -91,18 +81,10 @@
     color: #e2e8f0;
 }
 
-.norme-conclusion-wrapper i {
-    font-size: 1.5rem;
-    color: #00AEE8;
-    opacity: 0.6;
-}
-.norme-conclusion-wrapper i.fa-quote-right { align-self: flex-end; }
-
 .norme-conclusion {
     font-size: 1.1rem;
     color: #ffffff;
     font-style: italic;
-    text-align: center;
 }
 
 .norme-visual-column {
@@ -114,27 +96,28 @@
 .norme-image-container {
     width: 100%;
     text-align: center;
-    margin-right:-10rem;
 }
 
 .norme-image {
     max-width: auto;
     padding: 2rem;
     height: auto;
+    max-height: 350px;
+    margin-bottom: 2rem;
 }
 
-/* === New Key Features V2 === */
+/* === Cartes de fonctionnalités === */
 .key-features {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
     z-index: 5;
-    /* La marge négative n'est plus nécessaire, le positionnement est géré par la grille parente */
+    position: relative;
 }
 
 .nf525-feature-card {
-    background-color: rgba(255, 255, 255, 1);
-    border: 1px solid #21366A;
+    background-color: #ffffff;
+    border: 1px solid #e6edf5;
     border-radius: 1rem;
     padding: 1.5rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -142,9 +125,10 @@
 }
 
 .nf525-feature-card:hover {
-    background-color: rgba(33, 54, 106, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.2);
     transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(33, 54, 106, 0.1);
+    background-color: #E8F7FD;
+    border: 1px solid #00AEE8;
 }
 
 .nf525-feature-header {
@@ -175,18 +159,11 @@
     margin: 0;
 }
 
-.nf525-feature-card:hover h4 {
-    color:white;
-}
-
 .nf525-feature-card p {
     font-size: 0.9rem;
-    color: #21366A;
+    color: #626262;
     margin: 0;
     line-height: 1.6;
-}
-.nf525-feature-card:hover p {
-    color: #e2e8f0;
 }
 
 /* Responsive */
@@ -197,31 +174,29 @@
         margin: 0;
         min-height: auto;
     }
-    .norme-content-column, .norme-visual-column {
-        padding: 2rem;
+    .norme-content-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
-    .key-features {
-        width: auto;
-        margin-top: 2rem;
-        position: static;
-        margin-right: 0;
-        transform: none;
-    }
-    .norme-text-wrapper {
-        margin-left: 0;
-        padding-right: 0;
-    }
-    .norme-details-container {
-        margin-right: 0;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 2rem;
-    }
-    .norme-conclusion-wrapper {
-        display: none;
+    .norme-content-column {
+        background-attachment: scroll; /* Annule la parallaxe sur mobile */
+        padding: 4rem 2rem;
+        border-radius: 1.5rem;
     }
     .norme-visual-column {
-        padding-top: 0;
+        display: none; /* On cache la colonne visuelle vide */
+    }
+    .norme-image-container {
+        margin-right: 0;
+        padding: 0 2rem;
+    }
+    .key-features {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 3rem;
+        padding: 0 2rem;
+    }
+    .norme-text-wrapper {
+        padding-right: 0;
     }
 }
 

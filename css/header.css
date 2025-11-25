@@ -360,6 +360,18 @@
 }
 
 
+@media (max-width: 1200px) {
+    /* Cache la top-bar sur mobile */
+    .header-top-bar {
+        display: none;
+    }
+
+
+    .site-header {
+    }
+}
+
+
 /* === 6. Responsive (Point de rupture à 992px) === */
 @media (max-width: 992px) {
     /* Cache la top-bar sur mobile */

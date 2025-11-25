@@ -22,7 +22,6 @@ export function initFonctionsSpider() {
     const spiderLegs = section.querySelectorAll('.spider-leg');
     const detailsStorage = section.querySelector('.feature-details-storage');
     const featurePanel = section.querySelector('.feature-panel');
-    const spiderContainer = section.querySelector('.spider-container');
 
     if (!spiderLegs.length || !detailsStorage || !featurePanel) return;
 

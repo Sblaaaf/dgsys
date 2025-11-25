@@ -102,10 +102,18 @@
     /* transition: opacity 0.4s ease, transform 0.4s ease; */
     display: flex;
     flex-direction: column;
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     box-shadow: 0 10px 40px rgba(33, 54, 106, 0.1);
     z-index: 15;
     border: 2px solid #cdd3e0;
+}
+
+.feature-panel .feature-detail-content h3 {
+    text-align: center;
+}
+
+.feature-panel .feature-detail-content ul {
+    margin-left: 1rem;
 }
 
 /* Style pour le panneau master (sans patte active), en utilisant :has() pour cibler le parent */
@@ -114,9 +122,9 @@
     background-size: cover;
     background-position: center;
 
-    img {
+    .feature-image {
         border: #cdd3e0 2px solid;
-    };
+    }
 }
 
 .feature-panel:has(.is-master-feature) .feature-detail-content p,
@@ -166,12 +174,25 @@
     }
 }
 
+.panel-content-image {
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1rem;
+}
+
+.caisse-image {
+    width: 130px;
+    height: auto;
+    margin: 0 -2rem 1rem -1rem;
+    border-radius: 1rem;
+    z-index:15;
+}
+
 /* Styles pour l'image et le CTA dans le panneau */
 .feature-image {
-    position: absolute;
-    top: 0;
-    right: 50%;
-    transform: translate(50%, 0);
     width: 90%;
     height: 10rem;
     object-fit: cover;
@@ -184,49 +205,38 @@
 }
 
 .feature-cta {
+    margin-top: 1rem;
+    display: inline-flex;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease, gap 0.3s ease;
 }
 
 .panel-content-wrapper {
-    padding: 10rem 2rem 2rem 2rem;
+    padding: 0 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    overflow-y: auto;
-    overflow-x: visible;
+    z-index: 1;
 }
 
-/* --- Responsive --- */
-@media (max-width: 1024px) {
-    /* Sur mobile, le panneau prend toute la largeur et n'a plus de hauteur fixe */
-    .feature-panel {
-        width: 100%;
-        height: auto;
-        border-radius: 0;
-        border: none;
-        box-shadow: none;
-        border-top: 2px solid #cdd3e0;
-        padding-top: 2rem;
-    }
-    .feature-panel.is-open {
-        transform: translateY(0);
-    }
-}
 
 /* --- Contrôles de navigation dans le panneau --- */
 .panel-nav-controls {
     position: absolute;
     height: auto;
     bottom: 0;
-    left: 80%;
-    transform: translateX(-50%);
+    right: 0;
     display: none;
     gap: 0.5rem;
     padding: 0.5rem;
     background-color: white;
     border: 2px solid #cdd3e0;
     border-bottom: none;
-    border-radius: 1rem 1rem 0 0;
+    border-right: none;
+    border-radius: 1rem 0 1rem 0;
     box-shadow: 0 -5px 15px rgba(33, 54, 106, 0.1);
     z-index: 20;
 }
@@ -475,32 +485,115 @@
     50% { transform: translateY(-10px); }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .fonctions-section .spider-container {
-        transform: scale(0.8);
-        height: 450px;
-        margin-top: 2rem;
-        margin-bottom: -2rem;
+
+@media (min-width: 1200px) { /* DESKTOP */
+    .panel-content-image .caisse-image{
+        display: none; /* On cache l'image dans le panneau */
+    }
+    .feature-image {
+        height: 12rem;
+        width: 100%;
+        margin-bottom: 1rem;
     }
 }
 
 /* --- Responsive pour le diagramme --- */
 @media (max-width: 1200px) { /* Tablettes et écrans intermédiaires */
     .fonctions-section .spider-container {
-        grid-template-columns: 1fr 2fr; /* On passe à 2 colonnes */
-        gap: 2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-left: 30%;
     }
     .fonctions-section .spider-body {
         display: none; /* On cache l'image centrale */
     }
+
+    .feature-panel {
+        max-width: 550px;
+    }
+
+    .feature-panel::before {
+        display: none; /* On cache la ligne de connexion du panneau */
+    }
+
+    .fonctions-section .spider-legs-group {
+        margin-right: 0;
+    }
+
+    /* Patte 1 (Haut) - Note: right est relatif à .spider-legs-group */
+    .fonctions-section .spider-leg:nth-child(1) { top: calc(50% - 180px); transition-delay: 0.2s; }
+    .fonctions-section .spider-leg:nth-child(1)::before { right: 0; width: 150px; }
+    .fonctions-section .spider-leg:nth-child(1)::after  { display: none; }
+    .fonctions-section .spider-leg:nth-child(1) .leg-label { right: 50px; }
+    .fonctions-section .spider-leg:nth-child(1):hover .leg-label { right: 60px;}
+
+    /* Patte 2 */
+    .fonctions-section .spider-leg:nth-child(2) { top: calc(50% - 120px); transition-delay: 0.3s; }
+    .fonctions-section .spider-leg:nth-child(2)::before { right: 0; width: 150px; }
+    .fonctions-section .spider-leg:nth-child(2)::after  { display: none; }
+    .fonctions-section .spider-leg:nth-child(2) .leg-label { right: 50px; }
+    .fonctions-section .spider-leg:nth-child(2):hover .leg-label { right: 60px;}
+
+    /* Patte 3 */
+    .fonctions-section .spider-leg:nth-child(3) { top: calc(50% - 60px); transition-delay: 0.4s; }
+    .fonctions-section .spider-leg:nth-child(3)::before { right: 0; width: 230px; }
+    .fonctions-section .spider-leg:nth-child(3)::after  { display: none; }
+    .fonctions-section .spider-leg:nth-child(3) .leg-label { right: 50px; }
+    .fonctions-section .spider-leg:nth-child(3):hover .leg-label { right: 60px;}
+
+    /* Patte 4 (Milieu)*/
+    .fonctions-section .spider-leg:nth-child(4) { top: 50%; transition-delay: 0.5s; }
+    .fonctions-section .spider-leg:nth-child(4)::before { width: 240px; }
+    .fonctions-section .spider-leg:nth-child(4)::after  { display: none; }
+    .fonctions-section .spider-leg:nth-child(4) .leg-label { right: 50px; }
+    .fonctions-section .spider-leg:nth-child(4):hover .leg-label { right: 60px;}
+
+    /* Patte 5 */
+    .fonctions-section .spider-leg:nth-child(5) { top: calc(50% + 60px); transition-delay: 0.6s; }
+    .fonctions-section .spider-leg:nth-child(5)::before { right: 0; width: 230px; }
+    .fonctions-section .spider-leg:nth-child(5)::after  { display: none; }
+    .fonctions-section .spider-leg:nth-child(5) .leg-label { right: 50px; }
+    .fonctions-section .spider-leg:nth-child(5):hover .leg-label { right: 60px;}
+
+    /* Patte 6 */
+    .fonctions-section .spider-leg:nth-child(6) { top: calc(50% + 120px); transition-delay: 0.7s; }
+    .fonctions-section .spider-leg:nth-child(6)::before { right: 0; width: 150px; }
+    .fonctions-section .spider-leg:nth-child(6)::after  { display: none; }
+    .fonctions-section .spider-leg:nth-child(6) .leg-label { right: 50px; }
+    .fonctions-section .spider-leg:nth-child(6):hover .leg-label { right: 60px;}
+
+    /* Patte 7 (Bas) */
+    .fonctions-section .spider-leg:nth-child(7) { top: calc(50% + 180px); transition-delay: 0.8s; }
+    .fonctions-section .spider-leg:nth-child(7)::before { right: 0; width: 150px; }
+    .fonctions-section .spider-leg:nth-child(7)::after  { display: none; }
+    .fonctions-section .spider-leg:nth-child(7) .leg-label { right: 50px; }
+    .fonctions-section .spider-leg:nth-child(7):hover .leg-label { right: 60px;}
+
 }
 
-@media (max-width: 992px) { /* Mobiles */
+@media (max-width: 810px) { /* Mobiles */
     .fonctions-section .spider-container {
         grid-template-columns: 1fr;
+        margin-left: 5%;
     }
+
     .fonctions-section .spider-legs-group {
         display: none; /* On cache les pattes, ne reste que le panneau */
+    }
+
+    /* Boutons navigation mobile */
+    .panel-nav-controls {
+        right: 50% !important;
+        transform: translateX(50%) !important;
+        border: 2px solid #cdd3e0;
+        border-radius: 1rem 1rem 0 0;
+        border-bottom: none;
+    }
+
+    /* faire pivoter de 90° les boutons nav-controls */
+    .panel-nav-btn, .panel-nav-btn:hover {
+        transform: rotate(-90deg);
     }
 }

@@ -68,10 +68,10 @@
 }
 /* Dernier nav-item différent */
 .nav-item.last-child {
-    background-color: white;
-    border: 2px solid var(--sec);
+    background-color: var(--light);
     color: var(--sec);
     border-radius: 0.5rem;
+    border: 2px solid var(--light);
     padding: 0 0.5rem;
 }
 
@@ -80,7 +80,12 @@
 }
 
 .nav-item.last-child:hover {
-    background-color: var(--light)ight);
+    background-color: var(--sec);
+    border: 2px solid var(--sec);
+
+    a {
+        color: white;
+    }
 }
 
 .nav-item.last-child .fa-chevron-down {
@@ -178,6 +183,38 @@
     padding: 2rem;
     gap: 2rem;
 }
+/* .megamenu-container  */.special-card {
+    padding: 0;
+}
+
+.megamenu-body {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.megamenu-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.megamenu-header-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--pri);
+    text-transform: uppercase;
+}
+
+.megamenu-header hr {
+    flex-grow: 1; /* La ligne prend tout l'espace restant */
+    border: none;
+    border-bottom: 2px solid var(--light);
+    margin: 0 1rem;
+}
 
 .megamenu-column {
     flex: 1; 
@@ -202,6 +239,59 @@
     padding-bottom: 0.5rem;
 
     /* min-height: 3.2rem; */
+}
+
+.megamenu-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Espace entre les cartes */
+    margin-top: 1.25rem;
+}
+
+.megamenu-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.megamenu-card:hover {
+    background-color: var(--light);
+    transform: translateY(-2px);
+
+    i {
+        transform: rotate(-10deg);
+    }
+
+    h4 {
+        color: var(--pri);
+    }
+}
+
+.megamenu-card i {
+    font-size: 1.2rem;
+    color: var(--pri);
+    margin-top: 4px;
+    text-align: center;
+}
+
+.megamenu-card h4 {
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--sec);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.megamenu-card p {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    text-align: left;
+    padding: 0.2rem 0 0 0 ;
 }
 
 .megamenu-list li a {

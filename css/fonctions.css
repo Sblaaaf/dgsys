@@ -485,9 +485,22 @@
     }
 }
 
-@media (max-width: 1024px) {
+/* --- Responsive pour le diagramme --- */
+@media (max-width: 1200px) { /* Tablettes et écrans intermédiaires */
+    .fonctions-section .spider-container {
+        grid-template-columns: 1fr 2fr; /* On passe à 2 colonnes */
+        gap: 2rem;
+    }
+    .fonctions-section .spider-body {
+        display: none; /* On cache l'image centrale */
+    }
+}
+
+@media (max-width: 992px) { /* Mobiles */
     .fonctions-section .spider-container {
         grid-template-columns: 1fr;
-        gap: 4rem;
+    }
+    .fonctions-section .spider-legs-group {
+        display: none; /* On cache les pattes, ne reste que le panneau */
     }
 }

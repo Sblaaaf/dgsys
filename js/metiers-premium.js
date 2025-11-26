@@ -4,99 +4,48 @@ export function initMetiersPremium() {
 
     const triggerCards = section.querySelectorAll('.metier-trigger-card');
     const detailContainer = section.querySelector('#metier-detail-container');
-    const detailTemplate = section.querySelector('#metier-detail-template');
-    const dataElement = section.querySelector('#metiers-data');
+    const detailPanels = section.querySelectorAll('.metier-detail-panel');
+    const navControls = section.querySelector('.detail-controls');
 
-    if (!triggerCards.length || !detailContainer || !detailTemplate || !dataElement) {
+    if (!triggerCards.length || !detailContainer || !detailPanels.length) {
         console.error('Metiers Premium: Missing required elements.');
         return;
     }
 
-    const metiersData = JSON.parse(dataElement.textContent);
     const metierKeys = Array.from(triggerCards).map(card => card.dataset.metier);
     let activeMetierKey = null;
+    let zIndexCounter = 2; // Démarrer le z-index à 2
 
     function updateView(metierKey, isInitial = false) {
-        if (!metierKey || !metiersData[metierKey]) return;
+        if (!metierKey) return;
 
         activeMetierKey = metierKey;
 
-        // Mettre à jour la carte active
+        // Mettre à jour la carte de déclenchement active
         triggerCards.forEach(card => {
             card.classList.toggle('is-active', card.dataset.metier === metierKey);
         });
 
-        // Vider le conteneur et créer le nouveau panneau
-        detailContainer.innerHTML = '';
-        const panelClone = detailTemplate.content.cloneNode(true);
-        const panel = panelClone.querySelector('.metier-detail-panel');
-        const data = metiersData[metierKey];
+        // Afficher le panneau de détails et les contrôles
+        detailContainer.classList.add('is-visible');
+        if (navControls) navControls.classList.add('is-visible');
 
-        // Remplir le template avec les données
-        panel.querySelector('.detail-image').src = data.image;
-        panel.querySelector('.detail-image').alt = data.title;
-        panel.querySelector('.detail-family-badge').textContent = data.family;
-        panel.querySelector('.detail-title').textContent = data.title;
-        panel.querySelector('.detail-subtitle').textContent = data.subtitle;
-        panel.querySelector('.detail-description').textContent = data.description;
-        panel.querySelector('.detail-icon').className = `detail-icon ${data.icon}`;
-        
-        const ctaButton = panel.querySelector('.detail-cta-button');
-        ctaButton.href = data.url;
-
-        // Remplir le témoignage
-        if (data.testimonial) {
-            panel.querySelector('.testimonial-avatar').src = data.testimonial.avatar;
-            panel.querySelector('.testimonial-avatar').alt = `Avatar de ${data.testimonial.name}`;
-            panel.querySelector('.testimonial-name').textContent = data.testimonial.name;
-            panel.querySelector('.testimonial-text').textContent = data.testimonial.text;
-            
-            const ratingContainer = panel.querySelector('.testimonial-rating');
-            ratingContainer.innerHTML = ''; // Vider les anciennes étoiles
-            for (let i = 0; i < 5; i++) {
-                const star = document.createElement('i');
-                star.className = i < data.testimonial.rating ? 'fas fa-star' : 'far fa-star';
-                ratingContainer.appendChild(star);
+        // Gérer la superposition des panneaux
+        let activePanel = null;
+        detailPanels.forEach(p => {
+            if (p.dataset.metier === metierKey) {
+                p.classList.add('is-active');
+                p.style.zIndex = zIndexCounter++; // Incrémenter et assigner le nouveau z-index
+                activePanel = p;
+            } else {
+                p.classList.remove('is-active'); // Ne retirer que si ce n'est pas le panneau actif
             }
-        }
-
-        const featuresList = panel.querySelector('.detail-features-list');
-        featuresList.innerHTML = '';
-        data.features.forEach(featureText => {
-            const li = document.createElement('li');
-            li.innerHTML = `<i class="fas fa-check-circle"></i><span>${featureText}</span>`;
-            featuresList.appendChild(li);
         });
 
-        // Remplir les métiers similaires
-        const relatedGrid = panel.querySelector('.related-metiers-grid');
-        if (relatedGrid) {
-            const currentIndex = metierKeys.indexOf(metierKey);
-            const relatedKeys = [];
-            // On prend les 10 prochains métiers dans la liste
-            for (let i = 1; i <= 10; i++) {
-                const nextIndex = (currentIndex + i) % metierKeys.length;
-                relatedKeys.push(metierKeys[nextIndex]);
-            }
-
-            relatedKeys.forEach(relatedKey => {
-                const relatedData = metiersData[relatedKey];
-                if (!relatedData) return;
-
-                const miniCard = document.createElement('button');
-                miniCard.className = 'metier-trigger-card metier-trigger-card--mini';
-                miniCard.dataset.metier = relatedKey;
-                miniCard.innerHTML = `
-                    <i class="${relatedData.icon}"></i>
-                    <h3>${relatedData.title}</h3>
-                `;
-                miniCard.addEventListener('click', () => updateView(relatedKey));
-                relatedGrid.appendChild(miniCard);
-            });
-        }
+        if (!activePanel) return;
 
         // Gérer le carrousel des métiers similaires
-        const scroller = panel.querySelector('.related-metiers-scroller');
+        const scroller = activePanel.querySelector('.related-metiers-scroller');
         if (scroller) {
             const gridWrapper = scroller.querySelector('.related-metiers-grid-wrapper');
             const prevArrow = scroller.querySelector('.related-scroll-arrow.prev');
@@ -130,16 +79,6 @@ export function initMetiersPremium() {
             }, 100);
         }
 
-        // Ajouter les écouteurs pour la navigation
-        const prevBtn = panel.querySelector('.metiers-arrow.prev');
-        const nextBtn = panel.querySelector('.metiers-arrow.next');
-
-        prevBtn.addEventListener('click', () => navigate(-1));
-        nextBtn.addEventListener('click', () => navigate(1));
-
-        // Ajouter le panneau au DOM
-        detailContainer.appendChild(panelClone);
-
         // Scroll vers le panneau si ce n'est pas le chargement initial
         if (!isInitial) {
             detailContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -163,22 +102,35 @@ export function initMetiersPremium() {
             if (metierKey === activeMetierKey) {
                 // Si on clique sur la carte déjà active, on ferme le panneau
                 activeMetierKey = null;
-                detailContainer.innerHTML = '';
                 card.classList.remove('is-active');
+                detailContainer.classList.remove('is-visible');
+                if (navControls) navControls.classList.remove('is-visible');
+                // Réinitialiser tous les panneaux
+                detailPanels.forEach(p => {
+                    p.classList.remove('is-active');
+                });
             } else {
                 updateView(metierKey);
             }
         });
     });
 
-    // Associer l'image de fond à chaque carte pour l'effet de survol
-    triggerCards.forEach(card => {
-        const metierKey = card.dataset.metier;
-        const data = metiersData[metierKey];
-        if (data && data.image) {
-            card.style.setProperty('--bg-image', `url(${data.image})`);
-        }
-    });
+    // Écouteurs sur les flèches de navigation centralisées
+    if (navControls) {
+        navControls.querySelector('.metiers-arrow.prev').addEventListener('click', () => navigate(-1));
+        navControls.querySelector('.metiers-arrow.next').addEventListener('click', () => navigate(1));
+    }
+
+    // Initialisation : générer le contenu statique une seule fois
+    function initializePanels() {
+        const container = document.getElementById('metier-detail-container');
+        container.innerHTML = ''; // Vider le conteneur au cas où
+
+        // Cache tous les panneaux au début
+        detailPanels.forEach(panel => {
+            panel.classList.remove('is-active');
+        });
+    }
 
     // Optionnel: ouvrir le premier métier au chargement
     updateView(metierKeys[0], true);

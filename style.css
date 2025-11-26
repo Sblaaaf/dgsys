@@ -1,21 +1,54 @@
 @import 'css/base.css';
-@import 'css/tarifs.css';
-@import 'css/header.css';
-@import 'css/hero.css';
-@import 'css/metiers-premium.css';
-@import 'css/fonctions.css';
-@import 'css/activites.css';
-@import 'css/mission.css';
-@import 'css/norme.css';
-@import 'css/clients.css'; 
-@import 'css/footer.css';
-@import 'css/about.css';
-@import 'css/header-top-bar.css';
-@import 'css/faq.css';
-@import 'css/solutions_showcase.css';
-@import 'css/contact.css';
-@import 'css/materiels.css';
-@import 'css/stats.css';
-@import 'css/boulangerie.css';
-@import 'css/contact.css';
 
+@import 'css/tarifs.css';
+@import 'css/tarifs_mobile.css';
+
+@import 'css/header.css';
+
+@import 'css/hero.css';
+@import 'css/hero_mobile.css';
+
+@import 'css/metiers-premium.css';
+@import 'css/metiers-premium_mobile.css';
+
+@import 'css/fonctions.css';
+@import 'css/fonctions_mobile.css';
+
+@import 'css/activites.css';
+@import 'css/activites_mobile.css';
+
+@import 'css/mission.css';
+@import 'css/mission_mobile.css';
+
+@import 'css/norme.css';
+@import 'css/norme_mobile.css';
+
+@import 'css/clients.css'; 
+@import 'css/clients_mobile.css'; 
+
+@import 'css/footer.css';
+
+@import 'css/about.css';
+@import 'css/about_mobile.css';
+
+@import 'css/header-top-bar.css';
+
+@import 'css/faq.css';
+@import 'css/faq_mobile.css';
+
+@import 'css/solutions_showcase.css';
+@import 'css/solutions_showcase_mobile.css';
+
+@import 'css/contact.css';
+@import 'css/contact_mobile.css';
+
+@import 'css/materiels.css';
+@import 'css/materiels_mobile.css';
+
+@import 'css/stats.css';
+@import 'css/stats_mobile.css';
+
+@import 'css/boulangerie.css';
+
+@import 'css/contact.css';
+@import 'css/contact_mobile.css';

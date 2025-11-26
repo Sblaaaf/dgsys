@@ -1,6 +1,6 @@
 /* === 4. Header & Navigation === */
 .site-header {
-    background-color: transparent;
+    background-color: white;
     padding: 0.8rem 0;
     position: sticky;
     top: 1rem;
@@ -13,7 +13,6 @@
 .site-header.is-sticky {
     width: 100%;
     max-width: 1200px;
-    /* background-color: rgba(255, 255, 255, 0.9); */
     border-radius:1rem;
     margin: 0 auto;
     padding: 1rem;
@@ -365,9 +364,11 @@
     .header-top-bar {
         display: none;
     }
-
-
     .site-header {
+        margin-top: rem;
+    }
+    .header-container {
+        padding: 0 2rem;
     }
 }
 

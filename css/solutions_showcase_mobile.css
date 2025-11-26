@@ -1,0 +1,226 @@
+/* === Section Solutions Showcase === */
+
+.solutions-showcase {
+    padding: 4rem 0;
+    background-color: white;
+}
+
+.solutions-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* --- Colonne de gauche (Image) --- */
+.solutions-visuals-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    min-height: 450px;
+    border: 5px solid white;
+}
+
+.bento-grid {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 1 / 1;
+}
+
+.bento-item {
+    position: absolute;
+    border-radius: 1.5rem;
+    box-shadow: 0 15px 30px rgba(33, 54, 106, 0.1);
+    border: 3px solid rgba(255, 255, 255, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.4s ease;
+    background-size: cover;
+    background-position: center;
+}
+
+.bento-grid:hover .item-1 { transform: translate(-5%, -5%) rotate(-3deg); }
+.bento-grid:hover .item-2 { transform: translate(5%, -5%) rotate(4deg); }
+.bento-grid:hover .item-3 { transform: translate(0, 5%) rotate(-2deg); }
+
+.bento-item.item-1 {
+    width: 65%;
+    height: 65%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border: 3px solid var(--pri);
+}
+.bento-item.item-2 {
+    width: 55%;
+    height: 55%;
+    top: 10%;
+    right: 0;
+    z-index: 1;
+    border: 3px solid var(--sec);
+}
+.bento-item.item-3 {
+    width: 70%;
+    height: 45%;
+    bottom: 0;
+    left: 15%;
+    z-index: 3;
+    border: 3px solid var(--orange);
+}
+
+/* --- Styles pour le témoignage --- */
+.bento-testimonial {
+    position: absolute;
+    bottom: .5rem;
+    left: .5rem;
+    right: .5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bento-testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.bento-testimonial-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--sec);
+}
+
+.bento-testimonial-info {
+    flex-grow: 1;
+}
+
+.bento-testimonial-name {
+    font-weight: 700;
+    color: var(--sec);
+    font-size: 0.8rem;
+}
+
+.bento-testimonial-rating {
+    color: var(--orange);
+    font-size: 0.5rem;
+}
+
+.bento-testimonial-text {
+    font-size: 0.85rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+}
+
+/* --- Colonne de droite (Contenu) --- */
+.solutions-content-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.feature-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.feature-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background-color: var(--light);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.feature-icon i {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.feature-block:hover .feature-icon {
+    background-color: var(--light);
+}
+.feature-block:hover .feature-icon i {
+    color: var(--pri);
+    transform: rotateZ(-15deg);
+}
+
+.feature-details h3 {
+    font-size: 1.2rem;
+    color: var(--sec);
+    margin: 0 0 0.5rem;
+}
+
+.feature-details p {
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+}
+
+.feature-cta {
+    color: var(--pri);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease, gap 0.3s ease;
+}
+
+.feature-cta i {
+    transition: transform 0.3s ease;
+}
+
+.feature-cta:hover {
+    color: var(--sec);
+    gap: 0.75rem;
+}
+
+.feature-cta:hover i {
+    transform: translateX(4px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    .solutions-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .solutions-visuals-column {
+        order: -1; /* Place l'image en haut sur mobile */
+    }
+}
+
+@media (max-width: 767px) {
+    .solutions-showcase {
+        padding: 3rem 0;
+    }
+
+    .feature-block {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}

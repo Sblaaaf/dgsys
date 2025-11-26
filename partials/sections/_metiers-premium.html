@@ -1,5 +1,5 @@
 <section class="metiers-premium-section doublediagonal" id="metiers-premium">
-    <div class="container">
+    <div class="metiers-premium-section container">
         <!-- En-tête de la section -->
         <div class="metiers-premium-header">
             <h2 class="section-title">Des <span class="highlight-blue">solutions</span> adaptées pour tous types d'activités</h2>
@@ -34,51 +34,51 @@
 
         <!-- Grille de sélection des métiers -->
         <div class="metiers-grid" id="metiers-grid">
-            <button class="metier-trigger-card" data-metier="boulangerie">
+            <button class="metier-trigger-card" data-metier="boulangerie" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-boulangerie.jpg.webp')">
                 <i class="fas fa-bread-slice"></i>
                 <h3>Boulangerie</h3>
             </button>
-            <button class="metier-trigger-card" data-metier="restaurant">
+            <button class="metier-trigger-card" data-metier="restaurant" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-restaurant.jpg.webp')">
                 <i class="fas fa-utensils"></i>
                 <h3>Restaurant</h3>
             </button>
-            <button class="metier-trigger-card" data-metier="commerce">
+            <button class="metier-trigger-card" data-metier="commerce" style="--bg-image: url('https://images.unsplash.com/photo-1523381294911-8d3cead13475?auto=format&fit=crop&w=800&q=80')">
                 <i class="fas fa-store"></i>
                 <h3>Commerce</h3>
             </button>
-            <button class="metier-trigger-card" data-metier="fleuriste">
+            <button class="metier-trigger-card" data-metier="fleuriste" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-fleuriste.jpg.webp')">
                 <i class="fas fa-leaf"></i>
                 <h3>Fleuriste</h3>
             </button>
-            <button class="metier-trigger-card" data-metier="boucherie">
+            <button class="metier-trigger-card" data-metier="boucherie" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-boucherie.jpg.webp')">
                 <i class="fas fa-drumstick-bite"></i>
                 <h3>Boucherie</h3>
             </button>
-            <button class="metier-trigger-card" data-metier="pressing">
+            <button class="metier-trigger-card" data-metier="pressing" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2025/03/caisse-enregistreuse-pressing.webp')">
                 <i class="fas fa-tshirt"></i>
                 <h3>Pressing</h3>
             </button>
-            <button class="metier-trigger-card" data-metier="coiffure">
+            <button class="metier-trigger-card" data-metier="coiffure" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2025/02/caisse-enregistreuse-salon-coiffure-beaute.webp')">
                 <i class="fas fa-cut"></i>
                 <h3>Coiffure</h3>
             </button>
-            <button class="metier-trigger-card" data-metier="snack">
+            <button class="metier-trigger-card" data-metier="snack" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-snack.jpg.webp')">
                 <i class="fas fa-hamburger"></i>
                 <h3>Snack</h3>
             </button>
-            <button class="metier-trigger-card" data-metier="bar">
+            <button class="metier-trigger-card" data-metier="bar" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2025/03/caisse-enregistreuse-bar-1.webp')">
                 <i class="fas fa-cocktail"></i>
                 <h3>Bar</h3>
             </button>
-            <button class="metier-trigger-card" data-metier="camping">
+            <button class="metier-trigger-card" data-metier="camping" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-camping.jpg.webp')">
                 <i class="fas fa-campground"></i>
                 <h3>Camping</h3>
             </button>
-            <button class="metier-trigger-card" data-metier="poissonnerie">
+            <button class="metier-trigger-card" data-metier="poissonnerie" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2025/02/caisse-enregistreuse-poissonnerie.webp')">
                 <i class="fas fa-fish"></i>
                 <h3>Poissonnerie</h3>
             </button>
-            <button class="metier-trigger-card" data-metier="discotheque">
+            <button class="metier-trigger-card" data-metier="discotheque" style="--bg-image: url('https://www.dgsys.fr/wp-content/uploads/2025/02/caisse-enregistreuse-discotheque-1.webp')">
                 <i class="fas fa-compact-disc"></i>
                 <h3>Discothèque</h3>
             </button>
@@ -86,206 +86,707 @@
 
         <!-- Conteneur pour le panneau de détails (initialement vide) -->
         <div class="metier-detail-container" id="metier-detail-container">
-            <!-- Le contenu sera injecté ici par le JavaScript -->
-        </div>
-    </div>
-
-    <!-- Gabarit pour le panneau de détails (caché) -->
-    <template id="metier-detail-template">
-        <div class="metier-detail-panel">
-            <div class="detail-image-wrapper">
-                <span class="detail-family-badge"></span>
-                <img src="" alt="" class="detail-image">
-                <div class="detail-testimonial">
-                    <div class="testimonial-header">
-                        <img src="" alt="Avatar du client" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <span class="testimonial-name"></span>
-                            <div class="testimonial-rating"></div>
-                        </div>
-                    </div>
-                    <p class="testimonial-text"></p>
-                    <a href="#" class="testimonial-cta">Lire la suite...</a>
-                </div>
-            </div>
-            <div class="detail-content">
-                <div class="detail-header">
-                    <h2 class="pre-title">caisse enregistreuse</h2>
-                    <h3 class="detail-title"></h3>
-                </div>
-                <p class="detail-subtitle"></p>
-                <div class="detail-main">
-                    <div class="detail-text-content">
-                        <p class="detail-description"></p>
-                        <ul class="detail-features-list">
-                        </ul>
-                    </div>
-                    <div class="detail-cta-area">
-                        <i class="detail-icon"></i>
-                        <a href="#" class="btn btn-primary detail-cta-button">Voir la solution <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <!-- Section des métiers similaires -->
-                <div class="related-metiers">
-                    <div class="related-metiers-header">
-                        <h4>Découvrez aussi</h4>
-                        <hr>
-                    </div>
-                    <div class="related-metiers-scroller">
-                        <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled><i class="fas fa-chevron-left"></i></button>
-                        <div class="related-metiers-grid-wrapper">
-                            <div class="related-metiers-grid">
-                                <!-- Les mini-cartes seront injectées ici -->
+            <!-- Boulangerie -->
+            <div class="metier-detail-panel" data-metier="boulangerie">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Alimentaire</span>
+                    <img src="https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-boulangerie.jpg.webp" alt="Boulangerie" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar de Marc L." class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Marc L.</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                             </div>
                         </div>
-                        <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        <p class="testimonial-text">La caisse a changé notre gestion du rush du matin. Tout est plus fluide, des commandes à l'encaissement...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Boulangerie</h3>
+                    </div>
+                    <p class="detail-subtitle">Simplifiez la gestion de votre boulangerie avec une caisse enregistreuse sur-mesure, robuste et intuitive.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">Notre solution DGsys pour boulangerie est pensée pour les pics d’affluence et l’encaissement en continu. Le logiciel gère vos menus, vos produits au poids, et centralise vos transactions pour vous offrir une vision claire de votre commerce. Connectée à vos balances poids-prix et à votre programme de fidélité, la caisse enregistreuse optimise chaque passage client.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Gestion des formules et menus</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Connexion aux balances poids-prix</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Programme de fidélité intégré</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Vente à emporter et Click & Collect</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/boulangerie" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="detail-controls">
-                <button class="metiers-arrow prev" aria-label="Métier précédent"><i class="fas fa-chevron-left"></i></button>
-                <button class="metiers-arrow next" aria-label="Métier suivant"><i class="fas fa-chevron-right"></i></button>
+            <!-- Restaurant -->
+            <div class="metier-detail-panel" data-metier="restaurant">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Restauration</span>
+                    <img src="https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-restaurant.jpg.webp" alt="Restaurant" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Avatar de Sophie D." class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Sophie D.</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Le plan de salle interactif et la prise de commande sur PAD ont réduit les erreurs et amélioré la communication avec la cuisine...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Restaurant</h3>
+                    </div>
+                    <p class="detail-subtitle">Optimisez votre salle et votre cuisine avec une caisse tactile conçue pour les restaurants.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">DGsys propose une solution POS complète permettant la gestion des tables, plans de salle, envoi cuisine et encaissement multi-moyens de paiement. Le système fluidifie la communication entre salle et cuisine et accélère la prise de commande. Grâce à son écran tactile réactif et son logiciel intuitif, vos équipes gagnent en rapidité et fiabilité.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Gestion des tables et plans de salle</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Envoi direct en cuisine (KDS / tickets)</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Paiement à table et division de note</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Gestion menus, suppléments et happy hours</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/restaurant" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Commerce -->
+            <div class="metier-detail-panel" data-metier="commerce">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Retail</span>
+                    <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?auto=format&fit=crop&w=800&q=80" alt="Commerce de détail" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Avatar de Julien R." class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Julien R.</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">La gestion des stocks avec les déclinaisons de taille et couleur est un vrai plus. Je gagne un temps précieux...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Commerce de détail</h3>
+                    </div>
+                    <p class="detail-subtitle">Une solution flexible pour tous les commerces souhaitant une caisse enregistreuse moderne et rapide.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">DGsys facilite la gestion des stocks, l’encaissement tactile et la fidélisation client. Le logiciel centralise vos produits, vos ventes et vos retours pour offrir une gestion simple et performante. Vos transactions sont sécurisées et synchronisées en temps réel.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Gestion des stocks et inventaires</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Fiche client et fidélisation</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Connexion TPE intégrée</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Codes barres et étiquettes produits</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/commerce" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fleuriste -->
+            <div class="metier-detail-panel" data-metier="fleuriste">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Artisanat</span>
+                    <img src="https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-fleuriste.jpg.webp" alt="Fleuriste" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/women/31.jpg" alt="Avatar de Carole B." class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Carole B.</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Enfin une caisse qui comprend les spécificités de mon métier, notamment pour les compositions sur mesure...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Fleuriste</h3>
+                    </div>
+                    <p class="detail-subtitle">Une caisse tactile pensée pour les compositions, les pics d’activité et les livraisons.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">DGsys vous aide à gérer les bouquets, les produits à la pièce, les commandes personnalisées et les livraisons. Le système POS simplifie l’encaissement et le suivi des stocks saisonniers. La fidélité clients est intégrée nativement.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Gestion des compositions florales et bouquets</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Module livraisons et retrait en magasin</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Tickets cadeaux et messages personnalisés</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Gestion saisonnière des stocks</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/fleuriste" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Boucherie -->
+            <div class="metier-detail-panel" data-metier="boucherie">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Alimentaire</span>
+                    <img src="https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-boucherie.jpg.webp" alt="Boucherie" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Avatar de Alain P." class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Alain P.</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">La connexion avec la balance est parfaite, plus aucune erreur de saisie. La traçabilité est aussi beaucoup plus simple à gérer...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Boucherie</h3>
+                    </div>
+                    <p class="detail-subtitle">Une caisse enregistreuse adaptée aux ventes au poids et aux exigences de traçabilité.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">DGsys se connecte aux balances homologuées et gère automatiquement les prix au kilo. Le logiciel optimise l’encaissement rapide et la gestion des commandes clients. Son système POS garantit un suivi précis des stocks et une conformité totale.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Connexion balances poids-prix</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Gestion des commandes et réservations</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Traçabilité produits</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Programme de fidélité intégré</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/boucherie" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pressing -->
+            <div class="metier-detail-panel" data-metier="pressing">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Service</span>
+                    <img src="https://www.dgsys.fr/wp-content/uploads/2025/03/caisse-enregistreuse-pressing.webp" alt="Pressing" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Avatar de Nathalie G." class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Nathalie G.</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Les notifications SMS sont un vrai plus pour le service client. Mes clients adorent et ça m'évite des appels...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Pressing</h3>
+                    </div>
+                    <p class="detail-subtitle">La solution DGsys simplifie la gestion des dépôts, retraits et paiements dans les pressings.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">La caisse tactile gère les articles, délais, suppléments, pertes, remises et notifications clients. Votre équipe encaisse plus vite et suit les commandes en temps réel. Le système POS réduit les erreurs et améliore la satisfaction.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Tickets de dépôt/retrait</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Notifications SMS clients</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Gestion des services</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Paiement rapide et fidélité</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/pressing" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Coiffure -->
+            <div class="metier-detail-panel" data-metier="coiffure">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Beauté</span>
+                    <img src="https://www.dgsys.fr/wp-content/uploads/2025/02/caisse-enregistreuse-salon-coiffure-beaute.webp" alt="Coiffure" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Avatar de Laura M." class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Laura M.</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">L'agenda connecté à la caisse me fait gagner un temps fou. La gestion des fiches clientes est aussi très pratique...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Coiffure</h3>
+                    </div>
+                    <p class="detail-subtitle">Une caisse enregistreuse conçue pour les salons de coiffure et instituts.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">DGsys gère les rendez-vous, les prestations, les stocks produits et la fidélité client. L’écran tactile assure un encaissement rapide et fluide. Le suivi des ventes et des statistiques permet d’optimiser votre activité.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Gestion des rendez-vous</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Fiche client et fidélité</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Stock de produits coiffure</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Prestations et forfaits</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/coiffure" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Snack / Fast-food -->
+            <div class="metier-detail-panel" data-metier="snack">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Restauration</span>
+                    <img src="https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-snack.jpg.webp" alt="Snack / Fast-food" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Avatar de Kevin S." class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Kevin S.</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Ultra rapide pour la vente à emporter. Les clients peuvent payer en sans contact et ça va très vite...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Snack / Fast-food</h3>
+                    </div>
+                    <p class="detail-subtitle">Encaissement ultra-rapide pour les snacks, fast-foods et food-trucks.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">DGsys gère les menus, formules, suppléments et paiements express. Le logiciel POS offre une prise de commande rapide et un affichage tactile ergonomique. La solution supporte les volumes élevés aux heures de pointe.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Prise de commande rapide</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Gestion menus &amp; suppléments</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Click &amp; Collect compatible</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Connexion bornes &amp; TPE</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/snack" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Snack / Fast-food -->
+            <div class="metier-detail-panel" data-metier="bar">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Restauration</span>
+                    <img src="https://www.dgsys.fr/wp-content/uploads/2025/03/caisse-enregistreuse-bar-1.webp" alt="Bar" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/78.jpg" alt="Avatar de Alex C." class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Alex C.</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">La gestion des happy hours est automatique, c'est un gain de temps et ça évite les erreurs en fin de soirée...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Bar</h3>
+                    </div>
+                    <p class="detail-subtitle">Une caisse tactile stable et rapide pour gérer consommations et encaissements.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">DGsys facilite la gestion des tournées, des happy hours, des stocks et des paiements rapides. Le logiciel POS s’adapte parfaitement aux bars et cafés. La rapidité d’encaissement permet de réduire les files d’attente.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Mode “service rapide”</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Happy hours &amp; promotions</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Gestion des stocks boissons</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Encaissement multi-paiements</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/bar" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Camping -->
+            <div class="metier-detail-panel" data-metier="camping">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Hôtellerie</span>
+                    <img src="https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-camping.jpg.webp" alt="Camping" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/lego/1.jpg" alt="Avatar de Famille Dubois" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Famille Dubois</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Super pratique de pouvoir tout gérer depuis la même caisse, de l'épicerie au bar de la piscine...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Camping</h3>
+                    </div>
+                    <p class="detail-subtitle">Une caisse enregistreuse tout-en-un pour boutiques, bar, restauration et services camping.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">DGsys centralise toutes vos activités : hébergement, restauration, bar, épicerie… Le système POS relie l’ensemble de vos points de vente. Le client peut être reconnu partout grâce à son compte.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Multi-points de vente</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Fiche client camping</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Centralisation des paiements</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Gestion boutique &amp; restauration</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/camping" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Poissonnerie -->
+            <div class="metier-detail-panel" data-metier="poissonnerie">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Alimentaire</span>
+                    <img src="https://www.dgsys.fr/wp-content/uploads/2025/02/caisse-enregistreuse-poissonnerie.webp" alt="Poissonnerie" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Avatar de Yves F." class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Yves F.</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">La balance connectée est un must. Le poids est envoyé directement à la caisse, c'est fiable et rapide...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Poissonnerie</h3>
+                    </div>
+                    <p class="detail-subtitle">Une caisse tactile adaptée aux ventes au poids et à la gestion du frais.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">DGsys se connecte aux balances et assure un encaissement rapide et fiable. Le logiciel POS gère les arrivages, les produits saisonniers et les commandes clients. Traçabilité et suivi des stocks sont intégrés.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Connexion balances poids-prix</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Gestion produits frais</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Traçabilité &amp; étiquetage</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Commandes &amp; retraits</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/poissonnerie" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Discothèque -->
+            <div class="metier-detail-panel" data-metier="discotheque">
+                <div class="detail-image-wrapper">
+                    <span class="detail-family-badge">Loisirs</span>
+                    <img src="https://www.dgsys.fr/wp-content/uploads/2025/02/caisse-enregistreuse-discotheque-1.webp" alt="Discothèque" class="detail-image">
+                    <div class="detail-testimonial">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Avatar de DJ Mike" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">DJ Mike</span>
+                                <div class="testimonial-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Le système cashless a fluidifié le service au bar. Moins d'attente pour les clients, plus de sécurité pour nous...</p>
+                        <a href="#" class="testimonial-cta">Lire la suite...</a>
+                    </div>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-header">
+                        <h2 class="pre-title">caisse enregistreuse</h2>
+                        <h3 class="detail-title">Discothèque</h3>
+                    </div>
+                    <p class="detail-subtitle">Une caisse enregistreuse pensée pour les bars de nuit, discothèques et clubs.</p>
+                    <div class="detail-main">
+                        <div class="detail-text-content">
+                            <p class="detail-description">DGsys gère les consommations, les passages, les consignes et les paiements express. Le système POS est rapide et adapté aux volumes importants. Votre équipe gagne du temps et réduit les erreurs d’encaissement.</p>
+                            <ul class="detail-features-list">
+                                <li><i class="fas fa-check-circle"></i><span>Mode service rapide</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Gestion consignes et entrées</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Statistiques &amp; transactions</span></li>
+                                <li><i class="fas fa-check-circle"></i><span>Paiement sans contact</span></li>
+                            </ul>
+                        </div>
+                        <a href="/metiers/discotheque" class="btn btn-secondary">Voir la solution <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-metiers">
+                        <div class="related-metiers-header"><h4>Découvrez aussi</h4><hr></div>
+                        <div class="related-metiers-scroller">
+                            <button class="related-scroll-arrow prev" aria-label="Métiers précédents" disabled=""><i class="fas fa-chevron-left"></i></button>
+                            <div class="related-metiers-grid-wrapper">
+                                <div class="related-metiers-grid">
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                    <a href="" class="btn btn-secondary"><i class="fas fa-pen"></i> test</a>
+                                </div>
+                            </div>
+                            <button class="related-scroll-arrow next" aria-label="Métiers suivants"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </template>
-
-    <!-- Stockage des données (pourrait venir d'un JSON/API) -->
-    <div id="metiers-data" style="display: none;">
-        {
-            "boulangerie": {
-                "title": "Boulangerie",
-                "subtitle": "Simplifiez la gestion de votre boulangerie avec une caisse enregistreuse sur-mesure, robuste et intuitive.",
-                "family": "Alimentaire",
-                "image": "https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-boulangerie.jpg.webp",
-                "description": "Notre solution pour boulangerie est conçue pour les pics d'affluence. Gérez facilement vos menus, connectez vos balances et proposez un programme de fidélité pour faire revenir vos clients.",
-                "icon": "fas fa-bread-slice",
-                "features": [
-                    "Gestion des formules et menus",
-                    "Connexion aux balances poids-prix",
-                    "Programme de fidélité intégré",
-                    "Vente à emporter et Click & Collect"
-                    ],
-                    "url": "/metiers/boulangerie",
-                    "testimonial": {
-                        "name": "Marc L.",
-                        "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
-                        "rating": 5,
-                        "text": "La caisse a changé notre gestion du rush du matin. Tout est plus fluide, des commandes à l'encaissement..."
-                    }
-            },
-            "restaurant": {
-                "title": "Restaurant",
-                "subtitle": "Gérez efficacement votre restaurant avec une caisse enregistreuse tactile certifiée.",
-                "family": "Restauration",
-                "image": "https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-restaurant.jpg.webp",
-                "description": "De la table à la cuisine, optimisez chaque étape du service. Notre plan de salle interactif, la prise de commande sur tablette et les écrans de production (KDS) fluidifient votre organisation.",
-                "icon": "fas fa-utensils",
-                "features": [
-                    "Plan de salle interactif",
-                    "Prise de commande sur tablette (PAD)",
-                    "Écrans de cuisine (KDS)",
-                    "Partage et division de l'addition"
-                ],
-                "url": "/metiers/restaurant",
-                "testimonial": {
-                    "name": "Sophie D.",
-                    "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
-                    "rating": 5,
-                    "text": "Le plan de salle interactif et la prise de commande sur PAD ont réduit les erreurs et amélioré la communication avec la cuisine..."
-                }
-            },
-            "commerce": {
-                "title": "Commerce",
-                "subtitle": "Optez pour une caisse enregistreuse de qualité pour votre commerce, conçue pour maximiser vos ventes.",
-                "family": "Retail",
-                "image": "https://images.unsplash.com/photo-1523381294911-8d3cead13475?auto=format&fit=crop&w=800&q=80",
-                "description": "Pilotez votre boutique efficacement. Notre logiciel gère les déclinaisons d'articles, simplifie les inventaires et peut se synchroniser avec votre plateforme de vente en ligne.",
-                "icon": "fas fa-store",
-                "features": [
-                    "Gestion des déclinaisons (tailles, couleurs)",
-                    "Inventaire par scan mobile",
-                    "Étiquetage et codes-barres",
-                    "Synchronisation e-commerce"
-                ],
-                "url": "/metiers/commerce",
-                "testimonial": {
-                    "name": "Julien R.",
-                    "avatar": "https://randomuser.me/api/portraits/men/36.jpg",
-                    "rating": 4,
-                    "text": "La gestion des stocks avec les déclinaisons de taille et couleur est un vrai plus. Je gagne un temps précieux..."
-                }
-            },
-            "fleuriste": {
-                "title": "Fleuriste",
-                "subtitle": "Simplifiez vos ventes et fidélisez vos clients.",
-                "family": "Artisanat",
-                "image": "https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-fleuriste.jpg.webp",
-                "description": "Gérez facilement vos compositions florales, vos stocks de plantes et vos livraisons. Notre solution vous aide à offrir un service client impeccable.",
-                "icon": "fas fa-leaf",
-                "features": ["Gestion des compositions", "Stocks de plantes", "Livraisons"],
-                "url": "/metiers/fleuriste",
-                "testimonial": {
-                    "name": "Carole B.",
-                    "avatar": "https://randomuser.me/api/portraits/women/31.jpg",
-                    "rating": 5,
-                    "text": "Enfin une caisse qui comprend les spécificités de mon métier, notamment pour les compositions sur mesure..."
-                }
-            },
-            "boucherie": {
-                "title": "Boucherie",
-                "subtitle": "Optimisez votre boucherie avec notre caisse enregistreuse performante et sécurisée.",
-                "family": "Alimentaire",
-                "image": "https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-boucherie.jpg.webp",
-                "description": "Connectez vos balances poids-prix, assurez une traçabilité parfaite de vos produits et gérez les commandes clients sans effort.",
-                "icon": "fas fa-drumstick-bite",
-                "features": ["Balance poids-prix", "Traçabilité", "Commandes clients"],
-                "url": "/metiers/boucherie",
-                "testimonial": {
-                    "name": "Alain P.",
-                    "avatar": "https://randomuser.me/api/portraits/men/41.jpg",
-                    "rating": 5,
-                    "text": "La connexion avec la balance est parfaite, plus aucune erreur de saisie. La traçabilité est aussi beaucoup plus simple à gérer..."
-                }
-            },
-            "pressing": {
-                "title": "Pressing",
-                "subtitle": "Gagnez du temps au comptoir avec une caisse enregistreuse sur-mesure pour pressing.",
-                "family": "Service",
-                "image": "https://www.dgsys.fr/wp-content/uploads/2025/03/caisse-enregistreuse-pressing.webp",
-                "description": "Suivez les dépôts, imprimez des tickets de retrait et notifiez vos clients par SMS lorsque leur commande est prête. Simplifiez votre quotidien.",
-                "icon": "fas fa-tshirt",
-                "features": ["Tickets de dépôt/retrait", "Notifications SMS clients", "Gestion des services"],
-                "url": "/metiers/pressing",
-                "testimonial": {
-                    "name": "Nathalie G.",
-                    "avatar": "https://randomuser.me/api/portraits/women/55.jpg",
-                    "rating": 5,
-                    "text": "Les notifications SMS sont un vrai plus pour le service client. Mes clients adorent et ça m'évite des appels..."
-                }
-            },
-            "coiffure": {
-                "title": "Coiffure",
-                "subtitle": "Optimisez la gestion de votre salon avec une caisse enregistreuse tactile pour coiffeurs.",
-                "family": "Beauté",
-                "image": "https://www.dgsys.fr/wp-content/uploads/2025/02/caisse-enregistreuse-salon-coiffure-beaute.webp",
-                "description": "Gérez votre planning de rendez-vous, vos fiches clients, la vente de produits et vos programmes de fidélité depuis une seule interface.",
-                "icon": "fas fa-cut",
-                "features": ["Agenda en ligne", "Fiche client détaillée", "Vente de produits"],
-                "url": "/metiers/coiffure",
-                "testimonial": {
-                    "name": "Laura M.",
-                    "avatar": "https://randomuser.me/api/portraits/women/68.jpg",
-                    "rating": 4,
-                    "text": "L'agenda connecté à la caisse me fait gagner un temps fou. La gestion des fiches clientes est aussi très pratique..."
-                }
-            },
-            "snack": { "title": "Snack", "subtitle": "Notre caisse tactile pensée pour les snacks.", "family": "Restauration", "image": "https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-snack.jpg.webp", "description": "Prise de commande express, gestion des menus et options, paiement mobile intégré.", "icon": "fas fa-hamburger", "features": ["Prise de commande rapide", "Gestion des menus", "Click & Collect"], "url": "/metiers/snack", "testimonial": { "name": "Kevin S.", "avatar": "https://randomuser.me/api/portraits/men/75.jpg", "rating": 4, "text": "Ultra rapide pour la vente à emporter. Les clients peuvent payer en sans contact et ça va très vite..." } },
-            "bar": { "title": "Bar", "subtitle": "Boostez votre service et accélérez vos encaissements.", "family": "Restauration", "image": "https://www.dgsys.fr/wp-content/uploads/2025/03/caisse-enregistreuse-bar-1.webp", "description": "Gestion des tables, happy hours, et encaissement rapide pour un service dynamique.", "icon": "fas fa-cocktail", "features": ["Gestion des tables", "Happy Hours", "Paiement rapide"], "url": "/metiers/bar", "testimonial": { "name": "Alex C.", "avatar": "https://randomuser.me/api/portraits/men/78.jpg", "rating": 5, "text": "La gestion des happy hours est automatique, c'est un gain de temps et ça évite les erreurs en fin de soirée..." } },
-            "camping": { "title": "Camping", "subtitle": "Boostez la gestion de votre camping avec notre caisse enregistreuse pour camping sur mesure.", "family": "Hôtellerie", "image": "https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-camping.jpg.webp", "description": "Gérez les emplacements, la facturation des séjours et les services annexes (bar, épicerie) depuis une interface unique.", "icon": "fas fa-campground", "features": ["Gestion des emplacements", "Facturation séjours", "Services annexes"], "url": "/metiers/camping", "testimonial": { "name": "Famille Dubois", "avatar": "https://randomuser.me/api/portraits/lego/1.jpg", "rating": 4, "text": "Super pratique de pouvoir tout gérer depuis la même caisse, de l'épicerie au bar de la piscine..." } },
-            "poissonnerie": { "title": "Poissonnerie", "subtitle": "Gérez vos ventes sans accrocs, de la criée au comptoir.", "family": "Alimentaire", "image": "https://www.dgsys.fr/wp-content/uploads/2025/02/caisse-enregistreuse-poissonnerie.webp", "description": "Balances connectées, gestion des arrivages et étiquetage conforme pour une fraîcheur garantie.", "icon": "fas fa-fish", "features": ["Balances connectées", "Gestion des arrivages", "Étiquetage"], "url": "/metiers/poissonnerie", "testimonial": { "name": "Yves F.", "avatar": "https://randomuser.me/api/portraits/men/52.jpg", "rating": 5, "text": "La balance connectée est un must. Le poids est envoyé directement à la caisse, c'est fiable et rapide..." } },
-            "discotheque": { "title": "Discothèque", "subtitle": "Améliorez la gestion de votre discothèque avec une caisse enregistreuse performante et sécurisée.", "family": "Loisirs", "image": "https://www.dgsys.fr/wp-content/uploads/2025/02/caisse-enregistreuse-discotheque-1.webp", "description": "Gestion des entrées, des vestiaires et des consommations au bar en toute simplicité.", "icon": "fas fa-compact-disc", "features": ["Gestion des entrées", "Vestiaire", "Paiement cashless"], "url": "/metiers/discotheque", "testimonial": { "name": "DJ Mike", "avatar": "https://randomuser.me/api/portraits/men/5.jpg", "rating": 4, "text": "Le système cashless a fluidifié le service au bar. Moins d'attente pour les clients, plus de sécurité pour nous..." } },
-            "restauration-collective": { "title": "Collective", "subtitle": "Améliorez l'efficacité de votre restauration collective avec une caisse enregistreuse fiable et performante.", "family": "Restauration", "image": "https://www.dgsys.fr/wp-content/uploads/2024/11/caisse-enregistreuse-restauration-collective.jpg.webp", "description": "Gestion des badges, des menus et des flux importants avec une solution robuste.", "icon": "fas fa-users", "features": ["Gestion des badges", "Menus multiples", "Rapports détaillés"], "url": "/metiers/restauration-collective", "testimonial": { "name": "Hélène V. (DRH)", "avatar": "https://randomuser.me/api/portraits/women/15.jpg", "rating": 5, "text": "La gestion par badge est très efficace pour notre restaurant d'entreprise. Les rapports sont clairs et précis..." } },
-            "salon-de-the": { "title": "Salon de thé", "subtitle": "Une caisse enregistreuse simple et efficace pour vos encaissements.", "family": "Restauration", "image": "https://www.dgsys.fr/wp-content/uploads/2025/03/salon-de-the.webp", "description": "Une ambiance cosy, un service impeccable avec une caisse discrète et efficace.", "icon": "fas fa-coffee", "features": ["Service à table", "Vente à emporter", "Fidélisation"], "url": "/metiers/salon-de-the", "testimonial": { "name": "Chloé T.", "avatar": "https://randomuser.me/api/portraits/women/25.jpg", "rating": 5, "text": "J'adore le programme de fidélité, mes habitués aussi ! La caisse est simple à utiliser et s'intègre bien à l'ambiance du salon..." } }
-        }
+        <!-- Contrôles de navigation centralisés -->
+        <div class="detail-controls">
+            <button class="metiers-arrow prev" aria-label="Métier précédent"><i class="fas fa-chevron-left"></i></button>
+            <button class="metiers-arrow next" aria-label="Métier suivant"><i class="fas fa-chevron-right"></i></button>
+        </div>
     </div>
 </section>

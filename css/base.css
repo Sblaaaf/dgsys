@@ -228,20 +228,3 @@ p {
     text-align-last: left;
     max-width: 70ch;
 }
-
-/* Classe utilitaire pour espacer des enfants */
-.stack-lg {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-.stack-md {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; 
-}
-.stack-sm {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}

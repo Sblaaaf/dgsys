@@ -8,8 +8,8 @@
 @import 'css/hero.css';
 @import 'css/hero_mobile.css';
 
-@import 'css/metiers-premium.css';
-@import 'css/metiers-premium_mobile.css';
+@import 'css/metiers.css';
+@import 'css/metiers_mobile.css';
 
 @import 'css/fonctions.css';
 @import 'css/fonctions_mobile.css';
@@ -36,8 +36,8 @@
 @import 'css/faq.css';
 @import 'css/faq_mobile.css';
 
-@import 'css/solutions_showcase.css';
-@import 'css/solutions_showcase_mobile.css';
+@import 'css/temoignages.css';
+@import 'css/temoignages_mobile.css';
 
 @import 'css/contact.css';
 @import 'css/contact_mobile.css';

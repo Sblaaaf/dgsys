@@ -4,7 +4,7 @@ import { initMegamenu }                                 from './js/megamenu.js';
 import { initMobileNav }                                from './js/mobile-nav.js';
 import { initHeroSlider }                               from './js/hero-slider.js';
 import { initStickyHeader }                             from './js/sticky-header.js';
-import { initMetiersPremium }                           from './js/metiers-premium.js';
+import { initMetiers }                           from './js/metiers.js';
 import { initActivitesAnimation, initActivitesSpider }  from './js/activites.js'; 
 import { initFaqAccordion }                             from './js/faq.js';
 import { initFonctionsAnimation, initFonctionsSpider }  from './js/fonctions.js';
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initMobileNav();
     initHeroSlider(); 
     initStickyHeader();
-    initMetiersPremium();
+    initMetiers();
     initActivitesAnimation();
     initActivitesSpider();
     initFaqAccordion();

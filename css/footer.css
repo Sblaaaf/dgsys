@@ -1,8 +1,12 @@
+/*//////////////////////////*/
+/* ==== Footer Section ==== */
+/*//////////////////////////*/
+
 /* === Super Footer === */
 .super-footer {
     background-color: var(--sec);
     color: white;
-    padding-top: 4rem;
+    padding-top: clamp(3rem, 10vw, 5rem);
     position: relative;
     overflow: hidden; /* Pour contenir le pseudo-élément */
 }
@@ -25,24 +29,24 @@
 .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    padding-bottom: 3rem;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    padding-bottom: clamp(2rem, 6vw, 4rem);
     position: relative; /* Pour que le contenu passe au-dessus du filigrane */
     z-index: 1;
 }
 
 .footer-column h3 {
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 1vw + 0.9rem, 1.2rem); /* 17.6px à 19.2px */
     color: var(--pri);
-    margin-bottom: 1.5rem;
+    margin-bottom: clamp(1.2rem, 3vw, 1.8rem);
     font-weight: 700;
 }
 
 .footer-column p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
-    margin-bottom: 1rem;
+    margin-bottom: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 .footer-column ul {
@@ -50,12 +54,12 @@
 }
 
 .footer-column ul li {
-    margin-bottom: 0.75rem;
+    margin-bottom: clamp(0.6rem, 1.5vw, 0.9rem);
 }
 
 .footer-column ul li a {
     color: rgba(255, 255, 255, 0.8);
-    font-size: 0.95rem;
+    font-size: 1rem;
     transition: color 0.2s ease;
 }
 
@@ -66,8 +70,8 @@
 .footer-about .footer-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    gap: clamp(0.4rem, 1vw, 0.6rem);
+    margin-bottom: clamp(1.2rem, 3vw, 1.8rem);
 }
 
 .footer-about .footer-logo img {
@@ -78,19 +82,19 @@
 .footer-about .footer-logo span {
     font-family: 'Poppins', sans-serif;
     color: white;
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 1vw + 0.9rem, 1.2rem); /* 17.6px à 19.2px */
     font-weight: 900;
 }
 
 .social-links {
     display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
+    margin-top: clamp(1.2rem, 3vw, 1.8rem);
 }
 
 .social-links a {
     color: white;
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 1vw + 0.9rem, 1.2rem); /* 17.6px à 19.2px */
     width: 40px;
     height: 40px;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -109,13 +113,13 @@
 .footer-contact p {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
+    gap: clamp(0.6rem, 1.5vw, 0.9rem);
+    margin-bottom: clamp(0.6rem, 1.5vw, 0.9rem);
 }
 
 .footer-contact p i {
     color: var(--pri);
-    font-size: 1.1rem;
+    font-size: 1rem; /* 16px à 17.6px */
     flex-shrink: 0;
 }
 
@@ -130,14 +134,16 @@
 
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.5rem 0;
+    padding:
+        clamp(1.2rem, 3vw, 1.8rem) /* top, bottom */
+        0 /* left, right */;
     text-align: center;
 }
 
 .footer-bottom p {
-    font-size: 0.85rem;
+    font-size: clamp(0.8rem, 0.5vw + 0.65rem, 0.85rem); /* 12.8px à 13.6px */
     color: rgba(255, 255, 255, 0.6);
-    margin: 0;
+    margin: clamp(0rem, 0vw, 0rem);
 }
 
 .footer-bottom p a {

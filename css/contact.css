@@ -1,29 +1,34 @@
-/* ============================================= */
-/*              STYLES POUR CONTACT              */
-/* ============================================= */
+/*//////////////////////////*/
+/* ==== Contact Section ==== */
+/*//////////////////////////*/
+
 .contact-section {
-    margin-top: -10rem;
-    padding: 12rem 2rem 4rem 2rem;
+    margin-top: clamp(-12rem, -25vw, -8rem);
+    padding:
+        clamp(10rem, 25vw, 14rem) /* top */
+        clamp(1.5rem, 4vw, 2.5rem) /* right */
+        clamp(3rem, 10vw, 5rem) /* bottom */
+        clamp(1.5rem, 4vw, 2.5rem) /* left */;
     background-color: var(--ter);
 }
 
 .contact-section .section-title {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
     max-width: none;
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: clamp(2rem, 6vw, 4rem);
     /* align-items: flex-start; */
 }
 
 .contact-info-col {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
     justify-content: space-between;
 }
 
@@ -32,7 +37,7 @@
 }
 
 .contact-info-title {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--sec);
 }
@@ -40,13 +45,13 @@
 .info-points-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 .info-point {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
     background-color: var(--ter);
     border-radius: 0.75rem;
 }
@@ -60,27 +65,34 @@
     border-radius: 50%;
     display: grid;
     place-items: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .contact-details {
     display: flex;
     flex-direction: row; /* Changé pour l'alignement horizontal */
     justify-content: center; /* Centre les cartes horizontalement */
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: clamp(1.2rem, 3vw, 1.8rem);
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
     flex-wrap: wrap; /* Permet le passage à la ligne sur petits écrans */
+
+    a {
+        text-decoration: none;
+        color: var(--sec);
+    }
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
     background-color: var(--light);
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     border: 1px solid #e5e7eb;
     border-radius: 1rem;
-    padding: 1rem 2rem;
+    padding:
+        clamp(0.8rem, 2.5vw, 1.2rem) /* top, bottom */
+        clamp(1.5rem, 4vw, 2.5rem) /* left, right */;
     flex: 1; /* Permet aux cartes de prendre une taille équivalente */
     min-width: 280px; /* Largeur minimale pour éviter qu'elles soient trop écrasées */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -92,7 +104,7 @@
 }
 
 .contact-item i {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 2vw + 1rem, 1.5rem); /* 20.8px à 24px */
     color: var(--pri);
     width: 40px;
     text-align: center;
@@ -143,34 +155,34 @@
 .contact-form-col {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 .form-container {
     background: white;
-    padding: 2rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
     border-radius: 1rem;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
     border: 1px solid #e5e7eb;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 2rem;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
 }
 
 .form-container h4 {
     text-align: center;
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 1vw + 0.9rem, 1.25rem); /* 17.6px à 20px */
 }
 
 .form-row {
     display: flex;
-    gap: 1rem;
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 .form-group {
     flex: 1;
-    margin-bottom: 1rem;
+    margin-bottom: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 .form-group:last-child {
@@ -187,7 +199,7 @@
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 0.6rem;
+    padding: clamp(0.5rem, 1.2vw, 0.7rem); /* 16px */
     border: 1px solid #ccc;
     border-radius: 0.5rem;
     font-size: 1rem;
@@ -214,7 +226,7 @@
 .checkbox-group {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: clamp(0.4rem, 1vw, 0.6rem);
 }
 
 .checkbox-group input[type="checkbox"] {
@@ -224,33 +236,35 @@
 .checkbox-group label {
     margin-bottom: 0;
     font-weight: 400;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .quick-contact-container {
     position: absolute; /* Positionne par-dessus l'image */
-    bottom: 1rem;
-    left: 1rem;
+    bottom: clamp(0.8rem, 2.5vw, 1.2rem);
+    left: clamp(0.8rem, 2.5vw, 1.2rem);
     width: calc(100% - 2rem);
     background: rgba(255, 255, 255, 0.9); /* Fond blanc légèrement transparent */
     backdrop-filter: blur(5px); /* Effet de flou pour la lisibilité */
     color: var(--sec);
-    padding: 1.5rem 2rem;
+    padding:
+        clamp(1.2rem, 3vw, 1.8rem) /* top, bottom */
+        clamp(1.5rem, 4vw, 2.5rem) /* left, right */;
     border-radius: 1rem;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 .quick-contact-container i {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 2vw + 1.5rem, 2rem); /* 28.8px à 32px */
     color: var(--pri);
 }
 
 .quick-contact-title {
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 1vw + 0.9rem, 1.25rem); /* 17.6px à 20px */
     font-weight: 700;
     text-align: center;
 }
@@ -264,7 +278,7 @@
 .quick-contact-form input[type="tel"] {
     flex-grow: 1; /* Permet à l'input de prendre l'espace restant */
     border: 1px solid #ccc;
-    padding: 0.75rem;
+    padding: clamp(0.6rem, 1.5vw, 0.9rem);
     border-right: none; /* Supprime la bordure droite pour la fusion */
     border-radius: 0.5rem 0 0 0.5rem; /* Arrondit les coins gauches */
     font-size: 1rem;
@@ -290,7 +304,7 @@
 .form-container .btn-primary {
     width: 100%;
     border: none;
-    padding: 1rem; /* Ajout d'un padding pour une meilleure apparence */
+    padding: clamp(0.8rem, 2.5vw, 1.2rem); /* Ajout d'un padding pour une meilleure apparence */
 }
 
 @media (max-width: 992px) {

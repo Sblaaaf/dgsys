@@ -1,3 +1,7 @@
+/*/////////////////////////////*/
+/* ==== Hero Section ==== */
+/*/////////////////////////////*/
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -31,7 +35,9 @@
     background-color: var(--sec);
     color: white;
     margin: 0;
-    padding: 8rem 0;
+    padding:
+        clamp(6rem, 18vw, 10rem) /* top, bottom */
+        0 /* left, right */;
     position: relative;
     z-index: 1;
 
@@ -47,7 +53,9 @@
 .hero-content-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding:
+        0 /* top, bottom */
+        clamp(0.8rem, 2.5vw, 1.2rem) /* left, right */;
     position: relative;
     z-index: 3;
 }
@@ -56,7 +64,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
     width: 50%;
     animation: fadeInUp 0.8s ease backwards;
 }
@@ -75,7 +83,7 @@
 }
 
 .hero-subheadline {
-    font-size: 1.1rem;
+    font-size: 1rem; /* 16px à 17.6px */
     font-weight: 600;
     color: rgba(255, 255, 255, 0.9);
     max-width: 500px;
@@ -89,8 +97,8 @@
 
 .hero-cta-buttons {
     display: flex;
-    margin-top: 1rem;
-    gap: 1rem;
+    margin-top: clamp(0.8rem, 2.5vw, 1.2rem);
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
     flex-wrap: wrap;
 }
 
@@ -156,18 +164,22 @@
     height: auto;
     width: 1000px;
     margin: 0 auto;
-    bottom: -10rem;
+    bottom: clamp(-12rem, -25vw, -8rem);
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
-    padding: 0 1rem;
+    padding:
+        0 /* top, bottom */
+        clamp(0.8rem, 2.5vw, 1.2rem) /* left, right */;
 }
 
 .hero-caption {
     background: white;
     border-radius: 1rem;
     box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.12);
-    padding: 1rem 1.5rem;
+    padding:
+        clamp(0.8rem, 2.5vw, 1.2rem) /* top, bottom */
+        clamp(1.2rem, 3vw, 1.8rem) /* left, right */;
     
     /* Animation */
     opacity: 0;
@@ -195,24 +207,24 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    gap: 1rem;
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 .caption-header {
     display: flex;
     align-items: center; /* Aligne verticalement le titre, le séparateur et le texte */
-    gap: 0.75rem;
+    gap: clamp(0.6rem, 1.5vw, 0.9rem);
 }
 
 .caption-title-group {
     display: flex;
     align-items: center;
-    gap: 0.75rem; /* Espace réduit entre l'icône et le titre */
+    gap: clamp(0.6rem, 1.5vw, 0.9rem); /* Espace réduit entre l'icône et le titre */
     color: var(--sec);
 }
 
 .hero-caption h3 {
-    font-size: 1.1rem;
+    font-size: 1rem; /* 16px à 17.6px */
     font-weight: 700;
     margin: 0;
     white-space: nowrap; /* Empêche le titre de passer à la ligne */
@@ -224,7 +236,7 @@
 }
 
 .caption-header p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--text);
     margin: 0;
     text-align: left;
@@ -234,41 +246,65 @@
     display: flex;
     /* flex-direction: column; */
     align-items: center;
-    gap: 0.75rem;
-}
-
-/* Style pour le bouton dans la caption */
-.hero-caption .btn-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-/* Style pour le nouveau bouton "outline" */
-.btn-outline-secondary.btn-sm {
-    border: 1px solid var(--sec);
-    color: var(--sec);
-}
-
-.btn-outline-secondary.btn-sm:hover {
-    background-color: var(--sec);
-    border-color: var(--sec);
-    color: white;
-}
-
-.hero-caption .btn-sm i {
-    font-size: 0.7rem;
-    transition: transform 0.2s ease-in-out;
-}
-
-.hero-caption .btn-sm:hover i {
-    transform: translateX(3px);
+    gap: clamp(0.6rem, 1.5vw, 0.9rem);
 }
 
 /* media query entre mobile et grand écran */
 @media (min-width: 576px) and (max-width: 1200px) {
     
+}
+
+/* --- Responsive Hero Section --- */
+@media (max-width: 992px) {
+    .hero-section {
+        padding:
+            clamp(5rem, 15vw, 7rem) /* top, bottom */
+            0 /* left, right */;
+        text-align: center;
+    }
+
+    .hero-content-container {
+        padding:
+            0 /* top, bottom */
+            clamp(2rem, 6vw, 4rem) /* left, right */;
+    }
+
+    .hero-content {
+        width: 100%;
+        align-items: center;
+        gap: clamp(1.5rem, 4vw, 2.5rem);
+    }
+
+    .hero-subheadline {
+        max-width: 100%;
+        font-size: 1rem;
+        text-align: center;
+        text-align-last: center;
+    }
+
+    .hero-cta-buttons {
+        justify-content: center;
+    }
+
+    /* On cache les visuels pour laisser la place au contenu */
+    .hero-visuals-wrapper,
+    .hero-product-image {
+        display: none;
+    }
+
+    /* On cache les captions en dessous sur mobile pour simplifier */
+    .hero-captions-container {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding:
+            clamp(3rem, 10vw, 5rem) /* top, bottom */
+            0 /* left, right */;
+    }
+    .hero-headline {
+        font-size: clamp(2rem, 4vw + 1rem, 2.2rem); /* 32px à 35.2px */
+    }
 }

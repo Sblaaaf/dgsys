@@ -1,32 +1,45 @@
-/* === Section Matériels === */
+/*/////////////////////////////*/
+/* ==== Section Matériels ==== */
+/*/////////////////////////////*/
 
 .materiels-section {
-    padding: 12rem 0 4rem 0;
     background-color: white;
+    padding:
+        clamp(10rem, 25vw, 14rem)
+        0 clamp(3rem, 10vw, 5rem) 0;
 }
 
 .materiels-section .section-header {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
     align-items: center;
+
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(2rem, 6vw, 4rem);
+    z-index: 9999;
 }
 
 .material-btn {
-    margin-top: 1rem;
+    margin-top: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 .materiels-grid {
     display: grid;
-    margin-bottom: -4rem;
+    margin-bottom: clamp(-5rem, -10vw, -3rem);
     z-index: 5;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    overflow-x: auto; /* Permet le défilement horizontal */
-    padding: 8rem 0 2rem; /* Ajout de padding en haut pour l'image et en bas pour la scrollbar */
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
+    overflow-x: auto;
+    padding:
+        clamp(6rem, 18vw, 10rem)
+        0
+        clamp(1.5rem, 4vw, 2.5rem)
+        0;
     
     /* Cache la barre de défilement */
     scrollbar-width: none; /* Firefox */
@@ -42,15 +55,16 @@
 
 .materiel-card {
     position: relative;
+    display: flex;
+    flex-direction: column;
+
     background-color: white;
     border-radius: 1.5rem;
     border: 1px solid var(--border-gray);
     box-shadow: 0 10px 25px rgba(33, 54, 106, 0.1);
+
     transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    flex: 0 0 300px;
-    padding-top: 6rem;
+    padding-top: clamp(5rem, 15vw, 7rem);
 }
 
 .materiel-card:hover {
@@ -60,11 +74,18 @@
 
 .materiel-image {
     position: absolute;
-    top: -100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    top: clamp(-120px, -25vw, -80px);
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
-    height: 220px;
+
+    width: 70%;
+    height: clamp(220px, 55vw, 300px);
 }
 
 .materiel-image img {
@@ -80,25 +101,31 @@
 }
 
 .materiel-content {
-    padding: 1.5rem 1.5rem 2rem 1.5rem;
-    border-top: 1px solid var(--border-gray);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+
+    border-top: 1px solid var(--border-gray);
+
+    padding:
+        clamp(1.2rem, 3vw, 1.8rem)
+        clamp(1.2rem, 3vw, 1.8rem)
+        clamp(1.5rem, 4vw, 2.5rem)
+        clamp(1.2rem, 3vw, 1.8rem);
 }
 
 .materiel-content h3 {
-    margin-top: 80px; /* Espace pour compenser le débordement de l'image */
+    margin-top: clamp(60px, 15vw, 100px); /* Espace pour compenser le débordement de l'image */
     font-size: 1.5rem;
-    color: var(--blue-dark, var(--sec));
-    margin: 0 0 0.25rem;
+    color: var(--sec);
+    margin: 0 0 clamp(0.2rem, 0.5vw, 0.3rem);
 }
 
 .materiel-tag {
-    color: var(--blue-primary, var(--pri));
+    color: var(--pri);
     font-weight: 600;
-    margin: 0 0 1.5rem;
-    font-size: 0.9rem;
+    margin: 0 0 clamp(1.2rem, 3vw, 1.8rem); /* 14.4px */
+    font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem);
 }
 
 .materiel-features {
@@ -111,26 +138,17 @@
 .materiel-features li {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: clamp(0.6rem, 1.5vw, 0.9rem);
+
     color: var(--text);
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem);
 }
 
 .materiel-features li:not(:last-child) {
-    margin-bottom: 0.75rem;
+    margin-bottom: clamp(0.6rem, 1.5vw, 0.9rem);
 }
 
 .materiel-features i {
-    color: var(--blue-primary, var(--pri));
-    margin-top: 4px;
-}
-
-@media (max-width: 991px) {
-    .materiels-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        display: grid; /* Rétablit la grille sur mobile pour le wrapping */
-        overflow-x: visible;
-        padding: 1rem 0 0 0;
-    }
+    color: var(--pri);
+    margin-top: clamp(2px, 1vw, 6px);
 }

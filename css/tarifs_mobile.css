@@ -1,231 +1,233 @@
-/* === Section Tarifs v2 === */
-.tarifs-section {
-    padding: 6rem 0;
-    background-color: var(--ter);
-    overflow: hidden; /* Pour les animations */
-}
+/*/////////////////////////////*/
+/* ==== Tarifs Section ==== */
+/*/////////////////////////////*/
 
-.tarifs-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-}
+@media (max-width: 576px) {
+    .tarifs-section {
+        padding:
+            clamp(5rem, 15vw, 7rem) /* top, bottom */
+            0 /* left, right */;
+        background-color: var(--ter);
+        overflow: hidden; /* Pour les animations */
+    }
 
-/* --- Sélecteur de facturation --- */
-.billing-toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 3rem 0;
-    gap: 1rem;
-    font-weight: 600;
-}
+    .tarifs-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: clamp(0.8rem, 2.5vw, 1.2rem);
+    }
 
-.billing-label {
-    color: var(--sec);
-    transition: color 0.3s ease;
-}
+    /* --- Sélecteur de facturation --- */
+    .billing-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:
+            clamp(2rem, 6vw, 4rem) /* top, bottom */
+            0 /* left, right */;
+        gap: clamp(0.8rem, 2.5vw, 1.2rem);
+        font-weight: 600;
+    }
 
-.billing-label.is-active {
-    color: var(--sec);
-    font-weight: 900;
-}
+    .billing-label {
+        color: var(--sec);
+        transition: color 0.3s ease;
+    }
 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 28px;
-}
+    .billing-label.is-active {
+        color: var(--sec);
+        font-weight: 900;
+    }
 
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 28px;
+    }
 
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--border-gray);
-    transition: .4s;
-    border-radius: 28px;
-}
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 20px;
-    width: 20px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-}
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--border-gray);
+        transition: .4s;
+        border-radius: 28px;
+    }
 
-input:checked + .slider {
-    background-color: var(--sec);
-}
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
 
-input:checked + .slider:before {
-    transform: translateX(22px);
-}
+    input:checked + .slider {
+        background-color: var(--sec);
+    }
 
-/* --- Grille des tarifs --- */
-.tarifs-grid {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    max-width: 1200px;
-    margin: 5rem auto 0;
-    flex-wrap: wrap;
-}
+    input:checked + .slider:before {
+        transform: translateX(22px);
+    }
 
-.tarif-card-v2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    background-color: white;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-    border: 3px solid transparent;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding: 2rem;
-    transition: all 0.5s ease;
-    flex-basis: 390px; /* Largeur de base pour chaque carte */
-    flex-grow: 0;
-}
+    /* --- Grille des tarifs --- */
+    .tarifs-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        max-width: 1200px;
+        margin:0 1rem ;
+        flex-wrap: wrap;
+    }
+
+    .tarif-card-v2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(0.8rem, 2.5vw, 1.2rem);
+        background-color: white;
+        border-radius: 1.5rem;
+        box-shadow: none;
+        border: 3px solid transparent;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: clamp(1.5rem, 4vw, 2.5rem);
+        transition: all 0.5s ease;
+        flex-basis: 390px; /* Largeur de base pour chaque carte */
+        flex-grow: 0;
+    }
+
+    .tarif-card-v2.is-highlighted {
+        margin:0;
+    }
 
 
-.tarif-card-v2.is-highlighted {
-    border-color: var(--card-color);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    z-index: 10;
-    position: relative;
-    margin: -2rem -1rem ;
-}
+    /* Couleurs spécifiques par carte */
+    .card-logiciel { --card-color: var(--sec); border : 2px solid var(--sec);}
+    .card-caisse { --card-color: var(--orange); border : 2px solid var(--orange);}
+    .card-tablette { --card-color: var(--pri); border : 2px solid var(--pri); }
 
-/* Couleurs spécifiques par carte */
-.card-logiciel { --card-color: var(--sec); }
-.card-caisse { --card-color: var(--orange); }
-.card-tablette { --card-color: var(--pri); }
+    .card-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(0.8rem, 2.5vw, 1.2rem);
+    }
 
-.card-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
+    .card-image {
+        width: 100%;
+        height: var(--image-height, 100%);
+        /* margin négatif de la moitié de la hauteur de l'image */
+        /* margin-top: calc(-(var(--image-height) / 2)); */
+        margin-top: 0;
+        border: 0 auto 1rem auto;
+        border-radius: 0.75rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
 
-.card-image {
-    width: 100%;
-    height: var(--image-height, 100%);
-    /* margin négatif de la moitié de la hauteur de l'image */
-    /* margin-top: calc(-(var(--image-height) / 2)); */
-    margin-top: -4rem;
-    border: 0 auto 1rem auto;
-    border-radius: 0.75rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
+    .card-badge {
+        display: inline-block;
+        padding:
+            clamp(0.4rem, 1vw, 0.6rem) /* top, bottom */
+            clamp(0.8rem, 2.5vw, 1.2rem) /* left, right */;
+        background-color: var(--card-color);
+        color: white;
+        border-radius: 2rem;
+        font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem); /* 13.6px à 14.4px */
+        font-weight: 700;
+        z-index: 10;
+        margin-top: clamp(-2.8rem, -6vw, -1.8rem);
+    }
 
-.card-badge {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: var(--card-color);
-    color: white;
-    border-radius: 2rem;
-    font-size: 0.9rem;
-    font-weight: 700;
-    z-index: 10;
-    margin-top: -2.3rem;
-}
+    .card-title {
+        font-size: clamp(1.3rem, 2vw + 1rem, 1.5rem); /* 20.8px à 24px */
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--card-color);
+    }
 
-.card-title {
-    font-size: 1.5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: var(--card-color);
-}
+    .card-catchphrase {
+        display: none;
+    }
 
-.card-catchphrase {
-    font-size: 0.9rem;
-    font-style: italic;
-    color: var(--text);
-    min-height: 40px;
-}
+    .card-body {
+        display: none;
+    }
 
-.card-body {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 1rem 0;
-    flex-grow: 1; 
-}
+    .features-list {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        margin: clamp(0rem, 0vw, 0rem);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(0.6rem, 1.5vw, 0.9rem);
+    }
 
-.features-list {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
+    .features-list li {
+        display: flex;
+        align-items: center;
+        gap: clamp(0.6rem, 1.5vw, 0.9rem);
+    }
 
-.features-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
+    .features-list i {
+        color: var(--card-color);
+    }
 
-.features-list i {
-    color: var(--card-color);
-}
+    .card-footer {
+        margin-top: auto; /* Pousse le footer vers le bas */
+    }
 
-.card-footer {
-    margin-top: auto; /* Pousse le footer vers le bas */
-}
+    .price-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(0.4rem, 1vw, 0.6rem);
+        margin:
+            clamp(0.8rem, 2.5vw, 1.2rem) 0;
+    }
 
-.price-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 1rem 0;
-}
+    .price {
+        font-size: clamp(2.5rem, 4vw + 1.5rem, 3rem); /* 40px à 48px */
+        line-height: 2rem;
+        font-weight: 800;
+        color: var(--card-color);
+    }
 
-.price {
-    font-size: 3rem;
-    line-height: 2rem;
-    font-weight: 800;
-    color: var(--card-color);
-}
+    .price-info {
+        font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem); /* 13.6px à 14.4px */
+        text-transform: uppercase;
+        color: var(--card-color);
+        margin-bottom: clamp(0.4rem, 1vw, 0.6rem);
+    }
 
-.price-info {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    color: var(--card-color);
-    margin-bottom: 0.5rem;
-}
+    .price-period {
+        color: var(--card-color);
+        font-weight: 600;
+    }
 
-.price-period {
-    color: var(--card-color);
-    font-weight: 600;
-}
-
-.tarif-card-v2 .btn {
-    width: 100%;
-    background-color: var(--card-color);
-    color: white;
+    .tarif-card-v2 .btn {
+        width: 100%;
+        background-color: var(--card-color);
+        color: white;
+    }
 }

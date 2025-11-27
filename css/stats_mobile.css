@@ -1,25 +1,39 @@
+/*/////////////////////////////*/
+/* ==== Stats Section ==== */
+/*/////////////////////////////*/
+
 /* === Section Statistiques === */
 
 .stats-section {
-    padding: 6rem 0;
-    margin-bottom: -8rem;
+    padding:
+        clamp(5rem, 15vw, 7rem) /* top, bottom */
+        0 /* left, right */;
+    margin-bottom: clamp(-10rem, -20vw, -6rem);
     background-color: var(--ter); /* Un fond légèrement gris pour la section */
 }
 
 .stats-section .section-title-container {
     display: flex; 
     flex-direction: column;
+    gap: clamp(0.6rem, 1.5vw, 0.9rem);
     align-items: center;
     text-align: center;
-    margin: 3rem auto;
+    margin:
+        clamp(2rem, 6vw, 4rem) auto;
     max-width: 1200px;
-    
+}
+
+.stats-section .section-subtitle {
+    color: var(--sec);
+    margin-bottom: clamp(0.6rem, 1.5vw, 0.9rem);
+    text-align: center;
+    text-align-last: center;
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: clamp(1.2rem, 3vw, 1.8rem);
 }
 
 .stat-card {
@@ -27,7 +41,7 @@
     position: relative;
     border-radius: 1rem;
     text-align: center;
-    padding: 1rem;
+    padding: clamp(0.8rem, 2.5vw, 1.2rem);
     border: 1px solid #e2e8f0;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -44,7 +58,7 @@
 
 .stat-icon-wrapper {
     position: absolute;
-    top: -2rem;
+    top: clamp(-2.5rem, -5vw, -1.5rem);
     left: 1rem;
     width: 4rem;
     height: 4rem;
@@ -59,13 +73,13 @@
 }
 
 .stat-icon-wrapper i {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 2vw + 1rem, 1.5rem); /* 20.8px à 24px */
     color: var(--pri); /* Couleur cyan pour toutes les icônes */
 }
 
 .stat-value {
-    font-size: 2.25rem;
-    margin-top: 0.5rem; /* Espace pour l'icône qui est sortie du flux */
+    font-size: clamp(2rem, 3vw + 1rem, 2.25rem); /* 32px à 36px */
+    margin-top: clamp(0.4rem, 1vw, 0.6rem); /* Espace pour l'icône qui est sortie du flux */
     font-weight: 800;
     color: var(--sec);
     line-height: 1;
@@ -73,21 +87,21 @@
 }
 
 .stat-suffix {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 2vw + 1rem, 1.5rem); /* 20.8px à 24px */
     font-weight: 700;
     color: var(--sec);
-    margin-left: 0.25rem;
+    margin-left: clamp(0.2rem, 0.5vw, 0.3rem);
 }
 
 .stat-label {
     font-size: 1rem;
     font-weight: 800;
     color: var(--sec);
-    margin: 0.2rem 0 0.75rem 0;
+    margin: clamp(0.15rem, 0.5vw, 0.25rem) 0 clamp(0.6rem, 1.5vw, 0.9rem) 0;
 }
 
 .stat-description {
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem); /* 13.6px à 14.4px */
     color: var(--text);
     line-height: 1.5;
     max-width: 200px;
@@ -98,18 +112,21 @@
 @media (max-width: 1024px) {
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: clamp(0.5rem, 2.5vw, 1rem);
+        margin: 0 clamp(1.5rem, 4vw, 2.5rem);
     }
-}
 
-@media (max-width: 768px) {
-    .stats-section {
-        padding: 4rem 0;
-    }
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
     .stat-card {
-        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        background-color: transparent;
+        border-color: var(--pri);
+
+    }
+    .stat-icon-wrapper {
+        display: none;
     }
 }

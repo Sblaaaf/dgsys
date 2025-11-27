@@ -1,15 +1,31 @@
-/* === Section FAQ === */
+/*//////////////////////////*/
+/* ==== FAQ Section ==== */
+/*//////////////////////////*/
 
 .faq-section {
-    padding: 4rem 0;
+    padding:
+        clamp(3rem, 10vw, 5rem) /* top, bottom */
+        0 /* left, right */;
     background-color: white;
 }
 
 .faq-layout {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 2rem;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
     align-items: flex-start;
+}
+
+@media (max-width: 576px) {
+    .faq-layout {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        margin: 1rem;
+    }
+
+    .faq-accordion {
+        gap: 0.5rem;
+    }
 }
 
 /* --- Bloc de gauche (Intro) --- */
@@ -17,7 +33,7 @@
     position: relative;
     border-radius: 1.5rem;
     overflow: hidden;
-    padding: 3rem;
+    padding: clamp(2rem, 6vw, 4rem);
     color: white;
     background-size: cover;
     background-position: center;
@@ -43,13 +59,13 @@
 
 .faq-intro .section-title {
     color: white;
-    margin-bottom: 0.5rem;
+    margin-bottom: clamp(0.4rem, 1vw, 0.6rem);
 }
 
 .faq-intro .section-subtitle {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: clamp(1.2rem, 3vw, 1.8rem);
 }
 
 .faq-intro p {
@@ -85,6 +101,12 @@
     gap: 1rem;
 }
 
+@media (max-width: 576px) {
+    .faq-accordion {
+        gap: 0.5rem;
+    }
+}
+
 .accordion-item {
     background-color: var(--light);
     border: 1px solid var(--border-gray);
@@ -103,7 +125,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 1.5rem;
+    padding: clamp(1.2rem, 3vw, 1.8rem);
     background: none;
     border: none;
     cursor: pointer;
@@ -129,7 +151,11 @@
 }
 
 .accordion-content p {
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding:
+        0 /* top */
+        clamp(1.2rem, 3vw, 1.8rem) /* right */
+        clamp(1.2rem, 3vw, 1.8rem) /* bottom */
+        clamp(1.2rem, 3vw, 1.8rem) /* left */;
     margin: 0;
     color: var(--text);
     line-height: 1.6;

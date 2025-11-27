@@ -1,14 +1,14 @@
-export function initMetiersPremium() {
-    const section = document.querySelector('#metiers-premium');
+export function initMetiers() {
+    const section = document.querySelector('#metiers');
     if (!section) return;
 
-    const triggerCards = section.querySelectorAll('.metier-trigger-card');
+    const triggerCards = section.querySelectorAll('.metiers-card');
     const detailContainer = section.querySelector('#metier-detail-container');
     const detailPanels = section.querySelectorAll('.metier-detail-panel');
     const navControls = section.querySelector('.detail-controls');
 
     if (!triggerCards.length || !detailContainer || !detailPanels.length) {
-        console.error('Metiers Premium: Missing required elements.');
+        console.error('Metiers: Missing required elements.');
         return;
     }
 
@@ -136,4 +136,4 @@ export function initMetiersPremium() {
     updateView(metierKeys[0], true);
 }
 
-initMetiersPremium();
+initMetiers();

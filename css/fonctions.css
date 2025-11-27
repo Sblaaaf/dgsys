@@ -1,30 +1,30 @@
+/*/////////////////////////////*/
+/* ==== Fonctions Section ==== */
+/*/////////////////////////////*/
+
 /* === Section Fonctions (Spider + Panneaux latéraux) === */
 .fonctions-section {
     min-height: 100vh;
-    margin: 8rem auto 4rem auto;
+    margin:
+        clamp(6rem, 18vw, 10rem) auto clamp(3rem, 10vw, 5rem) auto;
     background: linear-gradient(white 100%, var(--light) 0%);
 }
 
 .fonctions-section-title {
-    margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
+    gap: clamp(1rem, 3vw, 2rem);
     justify-content: center;
     align-items: center;
     text-align: center;
-
-    .section-title {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: var(--sec);
-        text-align: center;
-    }
 }
+
 .fonctions-section-col {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
 }
+
 .fonctions-col-1 {
     flex: 1;
     display: flex;
@@ -36,9 +36,7 @@
     flex-wrap: wrap;
 
     p {
-        font-size: 1rem;
         color: var(--sec);
-        line-height: 1.6rem;
         text-align: left;
     }
 }
@@ -51,11 +49,21 @@
 
 .fonctions-key-benefits {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    width: 100%;
-    max-width: 1000px;
+    flex-direction: row;
+
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
+    margin-top: clamp(0.8rem, 2.5vw, 1.2rem);
+    padding: 0 clamp(0.8rem, 2.5vw, 1.2rem);
+
+    width: 90%;
     justify-content: center;
+}
+
+@media (max-width: 576px) {
+    .fonctions-key-benefits {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .benefit-item {
@@ -64,42 +72,37 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1rem 2rem;
+    padding:
+        clamp(1rem, 2.5vw, 1.2rem) /* top, bottom */
+        clamp(1.5rem, 4vw, 2.5rem) /* left, right */;
     background-color: var(--light);
     border-radius: 1rem;
 }
 
 .benefit-icon {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 2vw + 1rem, 1.5rem); /* 20.8px à 24px */
     color: var(--sec);
-    margin-bottom: 1rem;
+    margin-bottom: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 .benefit-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--sec);
-    margin-bottom: 0.5rem;
+    margin-bottom: clamp(0.4rem, 1vw, 0.6rem);
 }
 
 .benefit-text {
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem); /* 13.6px à 14.4px */
     color: var(--sec);
     line-height: 1.6;
 }
 
-.fonctions-section .section-subtitle {
-    max-width: 600px;
-    color: var(--sec);
-    line-height: 1.7rem;
-    /* text-align est maintenant géré inline ou par .benefit-item */
-}
-
 .feature-panel {
     position: relative;
-    height: 500px;
+    height: auto;
+    padding: clamp(1.5rem, 4vw, 2.5rem) 0;
     background-color: white;
-    /* transition: opacity 0.4s ease, transform 0.4s ease; */
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
@@ -108,15 +111,10 @@
     border: 2px solid #cdd3e0;
 }
 
-.feature-panel .feature-detail-content h3 {
-    text-align: center;
-}
-
 .feature-panel .feature-detail-content ul {
-    margin-left: 1rem;
+    margin-left: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
-/* Style pour le panneau master (sans patte active), en utilisant :has() pour cibler le parent */
 .feature-panel:has(.is-master-feature) {
     background-image: linear-gradient(rgba(33, 54, 106, 0.85), rgba(33, 54, 106, 0.85)), url('https://www.dgsys.fr/wp-content/uploads/2025/08/logicielCaisse-2048x1365.jpg.webp');
     background-size: cover;
@@ -134,7 +132,10 @@
 }
 
 .légende-fonctionnalités {
-    font-size: 0.9rem; color: var(--pri); font-style: italic; margin-top: 1rem;
+    font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem); /* 13.6px à 14.4px */
+    color: var(--pri);
+    font-style: italic;
+    margin-top: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
 
@@ -162,15 +163,18 @@
 .feature-detail-content {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+    
     color: var(--sec);
     font-size: 1rem;
     line-height: 1.6;
-    padding: 0 1rem;
+    padding:
+        0 /* top, bottom */
+        clamp(0.8rem, 2.5vw, 1.2rem) /* left, right */;
 
     i {
         color: var(--pri);
-        margin-right: 0.5rem;
+        margin-right: clamp(0.4rem, 1vw, 0.6rem);
     }
 }
 
@@ -180,13 +184,14 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: -1rem;
+    margin-top: clamp(-1.2rem, -2.5vw, -0.8rem);
 }
 
 .caisse-image {
     width: 130px;
     height: auto;
-    margin: 0 -2rem 1rem -1rem;
+    margin:
+        0 clamp(-2.5rem, -5vw, -1.5rem) clamp(0.8rem, 2.5vw, 1.2rem) clamp(-1.2rem, -2.5vw, -0.8rem);
     border-radius: 1rem;
     z-index:15;
 }
@@ -197,7 +202,7 @@
     height: 10rem;
     object-fit: cover;
     border-radius: 1rem;
-    margin-top: -2rem;
+    margin-top: clamp(-2.5rem, -5vw, -1.5rem);
 
     background-color: white;
     border: 2px solid var(--sec);
@@ -205,20 +210,22 @@
 }
 
 .feature-cta {
-    margin-top: 1rem;
+    margin-top: clamp(0.8rem, 2.5vw, 1.2rem);
     display: inline-flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: clamp(0.4rem, 1vw, 0.6rem);
     transition: color 0.3s ease, gap 0.3s ease;
 }
 
 .panel-content-wrapper {
-    padding: 0 2rem;
+    padding:
+        0 /* top, bottom */
+        clamp(1.5rem, 4vw, 2.5rem) /* left, right */;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
     z-index: 1;
 }
 
@@ -230,8 +237,8 @@
     bottom: 0;
     right: 0;
     display: none;
-    gap: 0.5rem;
-    padding: 0.5rem;
+    gap: clamp(0.4rem, 1vw, 0.6rem);
+    padding: clamp(0.4rem, 1vw, 0.6rem);
     background-color: white;
     border: 2px solid #cdd3e0;
     border-bottom: none;
@@ -272,7 +279,9 @@
     display: grid;
     grid-template-columns: 1fr 300px 2fr;
     align-items: center;
-    margin: 5rem 2rem;
+    margin:
+        clamp(4rem, 12vw, 6rem) /* top, bottom */
+        clamp(1.5rem, 4vw, 2.5rem) /* left, right */;
 }
 
 /* Garder la patte active visible */
@@ -325,8 +334,8 @@
 .fonctions-section .spider-legs-group {
     position: relative;
     height: auto;
-    margin-left: 2rem;
-    margin-right: -160px;
+    margin-left: clamp(1.5rem, 4vw, 2.5rem);
+    margin-right: clamp(-200px, -40vw, -120px);
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
@@ -372,19 +381,21 @@
 /* Le label au bout de la patte */
 .fonctions-section .leg-label {
     position: absolute;
-    min-width: 210px;
+    min-width: 280px;
     justify-content: flex-start;
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.5rem 1rem;
+    gap: clamp(0.6rem, 1.5vw, 0.9rem);
+    padding:
+        clamp(0.4rem, 1vw, 0.6rem) /* top, bottom */
+        clamp(0.8rem, 2.5vw, 1.2rem) /* left, right */;
     background-color: white;
     border: 1px solid #e9ecef;
     border-radius: 99px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     color: var(--sec);
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem); /* 13.6px à 14.4px */
     white-space: nowrap;
     transition: all 0.2s ease;
 }
@@ -493,7 +504,7 @@
     .feature-image {
         height: 12rem;
         width: 100%;
-        margin-bottom: 1rem;
+        margin-bottom: clamp(0.8rem, 2.5vw, 1.2rem);
     }
 }
 
@@ -504,7 +515,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        margin-left: 30%;
+        margin-left: clamp(20%, 35vw, 40%);
     }
 
     .caisse-image {
@@ -585,7 +596,7 @@
 @media (max-width: 810px) { /* Mobiles */
     .fonctions-section .spider-container {
         grid-template-columns: 1fr;
-        margin-left: 5%;
+        margin-left: clamp(2%, 8vw, 8%);
     }
 
     .fonctions-section .spider-legs-group {

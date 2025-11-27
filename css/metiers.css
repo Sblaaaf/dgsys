@@ -1,0 +1,585 @@
+/* === Séparateur === */
+.doublediagonal::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.doublediagonal::before {
+    height: 6rem;
+    top: -6rem;
+
+    background: var(--ter); 
+    clip-path: polygon(0% 0rem, 100% 5rem, 100% 100%, 0% 100%);  
+    transform-origin: top left;
+}
+
+/*/////////////////////////////*/
+/* ==== Section Métiers ==== */ 
+/*/////////////////////////////*/
+
+.metiers-section {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 3vw, 2rem);
+
+    position: relative;
+    overflow: visible;
+
+    background-color: var(--ter);
+    padding:
+        clamp(4rem, 8vw, 6rem)
+        clamp(1rem, 3vw, 2rem)
+        0
+        clamp(1rem, 3vw, 2rem);
+}
+
+.metiers-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2rem);
+
+    margin-bottom: clamp(-4rem, -8vw, -6rem);
+}
+
+.metiers-section .container .section-title{
+    text-align: center;
+}
+.metiers-grid-title {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+    margin-bottom: clamp(-0.5rem, -1.5vw, -1rem);
+
+    i {
+        font-size: clamp(0.8rem, 1vw + 0.6rem, 1rem);
+        color: var(--pri);
+        animation: bounce 1.5s infinite;
+    }
+}
+
+/* GRILLE METIERS */
+.metiers-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(130px, 1fr));
+    gap: clamp(0.4rem, 1vw, 0.6rem);
+    max-width: 800px;
+}
+
+/* OVERLAY CARD */
+.metiers-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(33, 54, 106, 0.7), rgba(33, 54, 106, 0.7)), var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+/* === CARTE METIER === */
+.metiers-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    gap: clamp(0.4rem, 1vw, 0.6rem);
+    padding:
+        clamp(1.2rem, 3vw, 1.8rem) /* top, bottom */
+        clamp(0.8rem, 2.5vw, 1.2rem) /* left, right */;
+
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(33, 54, 106, 0.03);
+
+    i {
+        font-size: clamp(1.3rem, 2vw + 1rem, 1.5rem); /* 20.8px à 24px */
+        color: var(--pri);
+        transition: all 0.3s ease;
+    }
+
+    h3 {
+        font-size: 1rem; /* 16px à 17.6px */
+        font-weight: 700;
+        color: var(--sec);
+        margin: 0;
+        transition: color 0.3s ease;
+    }
+}
+
+.metiers-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(33, 54, 106, 0.08);
+    color: white;
+
+    h3 {
+        color: white;
+    }
+    i {
+        transform: scale(1.1);
+        color: white;
+    }
+}
+
+.metiers-card:hover::before {
+        opacity: 1;
+    }
+
+.metiers-card.is-active {
+    background-color: var(--sec);
+    color: white;
+    border-color: var(--sec);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(33, 54, 106, 0.15);
+    
+    i {
+        color: white;
+        transform: scale(1.1);
+    }
+        h3 {
+        color: white;
+    }
+}
+
+.metiers-card.is-active::before {
+    opacity:1;
+}
+
+/* --- Panneau de détails --- */
+.metier-detail-container {
+    width: 100%;
+    position: relative;
+}
+
+.metier-detail-panel {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, height 0.35s ease;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-auto-rows: 1fr;
+    align-items: stretch;
+
+    gap: clamp(1rem, 3vw, 2rem);
+
+    background-color: white;
+    border-radius: 2rem;
+    box-shadow: 0 20px 50px rgba(33, 54, 106, 0.1);
+}
+
+/* Style pour le panneau actif */
+.metier-detail-panel.is-active {
+    opacity: 1;
+    height: auto;
+    pointer-events: auto;
+}
+
+.detail-image-wrapper {
+
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3/5;
+    border-radius: 2rem;
+    overflow: hidden;    
+
+    /* Etire pour matcher la colonne de droite */
+    align-self: stretch;
+    position: relative;
+}
+
+.detail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/*--- Styles pour le témoignage intégré --- */
+
+                .detail-testimonial {
+                    display: flex;
+                    flex-direction: column;
+                    gap: clamp(0.4rem, 1vw, 0.6rem);
+
+                    position: absolute;
+                    z-index: 1;
+
+                    bottom: clamp(0.5rem, 1.5vw, 1rem);
+                    left: clamp(0.5rem, 1.5vw, 1rem);
+                    right: clamp(0.5rem, 1.5vw, 1rem);
+
+                    background-color: rgba(255, 255, 255, 0.9);
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                    backdrop-filter: blur(8px);
+                    -webkit-backdrop-filter: blur(8px);
+                    border-radius: 1rem;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+
+                    padding: clamp(0.8rem, 2.5vw, 1.2rem);
+                }
+
+                @media (max-width: 576px) {
+                    .detail-testimonial {
+                        border-radius: 0.5rem;
+                        display: none;
+                    }
+                }
+
+                .testimonial-header {
+                    display: flex;
+                    gap: clamp(0.6rem, 1.5vw, 0.9rem);
+                    align-items: center;
+                }
+
+                .testimonial-avatar {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 2px solid white;
+                }
+
+                .testimonial-info {
+                    flex-grow: 1;
+                }
+
+                .testimonial-name {
+                    font-weight: 700;
+                    color: var(--sec);
+                    font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem); /* 13.6px à 14.4px */
+                }
+
+                .testimonial-rating {
+                    color: var(--orange);
+                    font-size: clamp(0.75rem, 0.5vw + 0.6rem, 0.8rem); /* 12px à 12.8px */
+                }
+
+                .testimonial-text {
+                    font-size: clamp(0.8rem, 0.5vw + 0.65rem, 0.85rem); /* 12.8px à 13.6px */
+                    color: var(--sec);
+                    line-height: 1.5;
+                    margin: 0;
+                    text-align: left;
+
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;       /* limite à 2 lignes */
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .testimonial-cta {
+                    font-size: clamp(0.75rem, 0.5vw + 0.6rem, 0.8rem); /* 12px à 12.8px */
+                    font-weight: 700;
+                    color: var(--sec);
+                    text-decoration: underline;
+                    align-self: flex-start;
+                }
+
+/*---------------------------- */               
+
+.detail-content {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
+    
+    padding:
+        clamp(1rem, 3vw, 2rem) /* top */
+        clamp(2rem, 5vw, 3rem) /* right */
+        clamp(1rem, 2.5vw, 1.5rem) /* bottom */
+        clamp(1rem, 2.5vw, 1.5rem) /* left */;
+}
+
+.detail-header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: clamp(0.4rem, 1vw, 0.6rem);
+}
+
+.detail-family-badge {
+    position: absolute;
+    z-index: 2;
+    top: clamp(1.2rem, 3vw, 1.8rem);
+    left: clamp(1.2rem, 3vw, 1.8rem);
+    
+    border-radius: 2rem;
+    font-size: clamp(0.75rem, 0.5vw + 0.6rem, 0.8rem); /* 12px à 12.8px */
+    font-weight: 700;
+    background-color: var(--light);
+    color: var(--pri);
+    padding:
+        clamp(0.2rem, 0.5vw, 0.3rem) /* top, bottom */
+        clamp(0.6rem, 1.5vw, 0.9rem) /* left, right */;
+}
+
+.detail-pretitle {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--pri);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detail-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(0.6rem, 1.5vw, 0.9rem);
+
+    h3 {
+        font-size: clamp(2rem, 4vw + 1rem, 2.2rem); /* 32px à 35.2px */
+        font-weight: 800;
+        color: var(--sec);
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    i {
+        font-size: clamp(1.5rem, 3vw + 1rem, 1.75rem); /* 24px à 28px */
+        color: var(--pri);
+    }
+}
+
+.detail-subtitle {
+    font-size: 1rem;
+    color: var(--text);
+    margin: 0;
+    max-width: 600px;
+}
+
+.detail-main {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.8rem, 2.5vw, 1.2rem);
+    border-top: 1px solid var(--border-gray);
+    padding-top: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+.detail-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.detail-features-list {
+    list-style: none;
+    padding: 0;
+    margin-top: clamp(1rem, 1vw + 0.7rem, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.6rem, 1.5vw, 0.9rem);
+}
+
+.detail-features-list li {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1.5vw, 0.8rem);
+    color: var(--text);
+}
+
+.detail-features-list li i {
+    color: var(--pri);
+}
+
+.detail-cta-button {
+    width: 100%;
+}
+
+/* --- Contrôles de navigation --- */
+.detail-controls {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 1200px;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    pointer-events: none;
+}
+
+.detail-controls.is-visible {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* === Styles pour les métiers similaires (related-metiers) === */
+
+                .related-metiers-header {
+                    display: flex;
+                    align-items: center;
+                    gap: clamp(0.8rem, 2.5vw, 1.2rem);
+                    margin-bottom: clamp(0.8rem, 2.5vw, 1.2rem);
+                }
+
+                .related-metiers h4 {
+                    font-size: 1rem;
+                    font-weight: 700;
+                    color: var(--sec);
+                    margin-bottom: 0; /* On enlève la marge du h4 */
+                    flex-shrink: 0; /* Empêche le titre de rétrécir */
+                }
+
+                .related-metiers-header hr {
+                    flex-grow: 1; /* La ligne prend tout l'espace restant */
+                    border: none;
+                    border-top: 1px solid var(--border-gray);
+                }
+
+                .related-metiers-scroller {
+                    position: relative;
+                    display: grid;
+                    grid-template-columns: auto 1fr auto;
+                    align-items: center;
+                    gap: clamp(0.4rem, 1vw, 0.6rem);
+                    width: 100%;
+                }
+
+                .related-metiers-grid-wrapper {
+                    overflow-x: auto;
+                    overflow-y: hidden; /* vertical scroll pas nécessaire */
+                    scrollbar-width: none; /* Firefox */
+                    -ms-overflow-style: none;  /* IE and Edge */
+                    min-width: 0; /* IMPORTANT : permet au flex/grid parent de réduire cette colonne */
+                    max-width: 100%;
+                    scroll-behavior: smooth;
+
+                    border-left: 1px solid #e5e7eb;
+                    border-right: 1px solid #e5e7eb;
+                }
+                .related-metiers-grid-wrapper::-webkit-scrollbar {
+                    display: none; /* Chrome, Safari, and Opera */
+                }
+
+                .related-metiers-grid {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    gap: clamp(0.4rem, 1vw, 0.6rem);
+                    padding:
+                        clamp(0.4rem, 1vw, 0.6rem) /* top, bottom */
+                        clamp(0.8rem, 2.5vw, 1.2rem) /* left, right */;
+                    max-width: max-content;
+                    max-width: 650px;
+                }
+
+                .metiers-card--mini {
+                    min-width: 100px;
+                    max-width: 100px;
+
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    gap: clamp(0.2rem, 0.5vw, 0.3rem);
+                    text-align: center;
+
+                    background-color: var(--light);
+                    border: 1px solid var(--pri);
+                    border-radius: 0.5rem;
+                    color: var(--pri);
+                    padding:
+                        clamp(0.5rem, 1vw, 0.8rem) /* top, bottom */
+                        clamp(0.4rem, 1vw, 0.6rem) /* left, right */;
+
+                    i {font-size: clamp(1rem, 1vw, 1.2rem);}
+
+                    h3 {font-size: clamp(0.8rem, 0.5vw, 1rem);}
+                }
+
+                .metiers-card--mini:hover {
+                    border: var(--sec) 1px solid;
+                    background-color: var(--light);
+                    color: var(--sec);
+
+                    transform: translateY(-2px) scale(1.02);
+                    transition: all 0.3s ease;
+                }
+
+                /* flèches : colonnes fixes, ne s'ajoutent pas à la largeur totale */
+                .related-scroll-arrow {
+                    width: 2.5rem;
+                    height: 2.5rem;
+
+                    flex-shrink: 0;
+                    margin: 0;
+                    place-self: center;
+                    z-index: 10;
+                    
+                    background-color: rgba(255, 255, 255, 0.9);
+                    border: 1px solid var(--border-gray);
+                    color: var(--sec);
+                    border-radius: 50%;
+                    cursor: pointer;
+                    font-size: clamp(0.5rem, 0.5vw + 0.5rem, 0.8rem); /* 8px à 12.8px */
+                    pointer-events: auto;
+                    transition: all 0.3s ease;
+                }
+
+                .related-scroll-arrow:hover:not(:disabled) {
+                    background-color: var(--sec);
+                    color: white;
+                }
+
+                .related-scroll-arrow:disabled {
+                    opacity: 0.4;
+                    cursor: not-allowed;
+                }
+
+                .related-scroll-arrow.prev { justify-self: start; }
+                .related-scroll-arrow.next { justify-self: end; }
+
+.metiers-arrow {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border-gray);
+    color: var(--sec);
+    border-radius: 50%;
+
+    width: 3rem;
+    height: 3rem;
+
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.metiers-arrow:hover {
+    background-color: var(--sec);
+    color: white;
+    transform: scale(1.1);
+}
+
+.metiers-arrow.prev {
+    transform: translateX(-50%);
+}
+
+.metiers-arrow.next {
+    transform: translateX(50%);
+}

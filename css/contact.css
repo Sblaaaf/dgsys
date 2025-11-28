@@ -3,13 +3,13 @@
 /*//////////////////////////*/
 
 .contact-section {
-    margin-top: clamp(-12rem, -25vw, -8rem);
+    background-color: var(--ter);
+    margin-top: -5rem;
     padding:
         clamp(10rem, 25vw, 14rem) /* top */
         clamp(1.5rem, 4vw, 2.5rem) /* right */
         clamp(3rem, 10vw, 5rem) /* bottom */
         clamp(1.5rem, 4vw, 2.5rem) /* left */;
-    background-color: var(--ter);
 }
 
 .contact-section .section-title {
@@ -22,7 +22,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: clamp(2rem, 6vw, 4rem);
-    /* align-items: flex-start; */
 }
 
 .contact-info-col {
@@ -52,6 +51,7 @@
     display: flex;
     align-items: flex-start;
     gap: clamp(0.8rem, 2.5vw, 1.2rem);
+
     background-color: var(--ter);
     border-radius: 0.75rem;
 }
@@ -70,11 +70,11 @@
 
 .contact-details {
     display: flex;
-    flex-direction: row; /* Changé pour l'alignement horizontal */
-    justify-content: center; /* Centre les cartes horizontalement */
+    flex-direction: row;
+    justify-content: center;
     gap: clamp(1.2rem, 3vw, 1.8rem);
     margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
-    flex-wrap: wrap; /* Permet le passage à la ligne sur petits écrans */
+    flex-wrap: wrap;
 
     a {
         text-decoration: none;
@@ -86,6 +86,9 @@
     display: flex;
     align-items: center;
     gap: clamp(0.8rem, 2.5vw, 1.2rem);
+    flex: 1;
+    min-width: 280px;
+
     background-color: var(--light);
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     border: 1px solid #e5e7eb;
@@ -93,8 +96,6 @@
     padding:
         clamp(0.8rem, 2.5vw, 1.2rem) /* top, bottom */
         clamp(1.5rem, 4vw, 2.5rem) /* left, right */;
-    flex: 1; /* Permet aux cartes de prendre une taille équivalente */
-    min-width: 280px; /* Largeur minimale pour éviter qu'elles soient trop écrasées */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 

@@ -1,22 +1,47 @@
+/* === Séparateur === */
+.tarifs-section.doublediagonal::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.tarifs-section.doublediagonal::before {
+    padding-top: 4rem;
+    height: 6rem;
+    top: -6rem;
+
+    background: var(--ter); 
+    clip-path: polygon(0% 0rem, 100% 5rem, 100% 100%, 0% 100%);  
+    transform: scaleX(-1);
+    transform-origin: center;
+}
+
 /*/////////////////////////////*/
 /* ==== Tarifs Section ==== */
 /*/////////////////////////////*/
 
-/* === Section Tarifs v2 === */
-.tarifs-section {
-    padding:
-        clamp(5rem, 15vw, 7rem) /* top, bottom */
-        0 /* left, right */;
-    background-color: var(--ter);
-    overflow: hidden; /* Pour les animations */
-}
 
-.tarifs-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: clamp(0.8rem, 2.5vw, 1.2rem);
+.tarifs-section {
+    background-color: var(--ter);
+    position: relative;
+    overflow: visible;
+    padding-top: 4rem;
+    margin-top: 4rem;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    .section-subtitle {
+        text-align: center;
+        text-align-last: center;
+    }
 }
 
 /* --- Sélecteur de facturation --- */
@@ -24,9 +49,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin:
-        clamp(2rem, 6vw, 4rem) /* top, bottom */
-        0 /* left, right */;
     gap: clamp(0.8rem, 2.5vw, 1.2rem);
     font-weight: 600;
 }
@@ -93,7 +115,7 @@ input:checked + .slider:before {
     align-items: stretch;
     max-width: 1200px;
     margin:
-        clamp(4rem, 12vw, 6rem) auto 0;
+        clamp(4rem, 12vw, 6rem) auto -4rem;
     flex-wrap: wrap;
 }
 
@@ -102,7 +124,11 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: clamp(0.8rem, 2.5vw, 1.2rem);
+    gap: 0.8rem;
+
+    flex-basis: 33.333%;
+    flex-grow: 0;
+    
     background-color: white;
     border-radius: 1.5rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
@@ -110,10 +136,8 @@ input:checked + .slider:before {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: clamp(1.5rem, 4vw, 2.5rem);
+    padding: 1.5rem;
     transition: all 0.5s ease;
-    flex-basis: 390px; /* Largeur de base pour chaque carte */
-    flex-grow: 0;
 }
 
 
@@ -141,8 +165,6 @@ input:checked + .slider:before {
 .card-image {
     width: 100%;
     height: var(--image-height, 100%);
-    /* margin négatif de la moitié de la hauteur de l'image */
-    /* margin-top: calc(-(var(--image-height) / 2)); */
     margin-top: clamp(-5rem, -10vw, -3rem);
     border: 0 auto 1rem auto;
     border-radius: 0.75rem;
@@ -157,10 +179,10 @@ input:checked + .slider:before {
     background-color: var(--card-color);
     color: white;
     border-radius: 2rem;
-    font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem); /* 13.6px à 14.4px */
+    font-size: 0.9rem;
     font-weight: 700;
     z-index: 10;
-    margin-top: clamp(-2.8rem, -6vw, -1.8rem);
+    margin-top: -2.6rem;
 }
 
 .card-title {
@@ -171,18 +193,19 @@ input:checked + .slider:before {
 }
 
 .card-catchphrase {
-    font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem); /* 13.6px à 14.4px */
+    font-size: 0.9rem;
     font-style: italic;
     color: var(--text);
     min-height: 40px;
+    text-align: center;
+    text-align-last: center;
 }
 
 .card-body {
     display: flex;
     flex-direction: column;
-    gap: clamp(0.8rem, 2.5vw, 1.2rem);
-    margin:
-        clamp(0.8rem, 2.5vw, 1.2rem) 0;
+    gap: 0.8rem;
+    margin: 0.8rem 0;
     flex-grow: 1; 
 }
 
@@ -190,16 +213,15 @@ input:checked + .slider:before {
     list-style: none;
     padding: 0;
     text-align: left;
-    margin: clamp(0rem, 0vw, 0rem);
     display: flex;
     flex-direction: column;
-    gap: clamp(0.6rem, 1.5vw, 0.9rem);
+    gap: clamp(0.4rem, 1vw, 0.6rem);
 }
 
 .features-list li {
     display: flex;
     align-items: center;
-    gap: clamp(0.6rem, 1.5vw, 0.9rem);
+    gap: clamp(0.4rem, 1vw, 0.6rem);
 }
 
 .features-list i {
@@ -207,7 +229,11 @@ input:checked + .slider:before {
 }
 
 .card-footer {
-    margin-top: auto; /* Pousse le footer vers le bas */
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
 }
 
 .price-container {
@@ -215,8 +241,6 @@ input:checked + .slider:before {
     flex-direction: column;
     align-items: center;
     gap: clamp(0.4rem, 1vw, 0.6rem);
-    margin:
-        clamp(0.8rem, 2.5vw, 1.2rem) 0;
 }
 
 .price {
@@ -227,10 +251,9 @@ input:checked + .slider:before {
 }
 
 .price-info {
-    font-size: clamp(0.85rem, 0.5vw + 0.7rem, 0.9rem); /* 13.6px à 14.4px */
+    font-size: 0.8rem;
     text-transform: uppercase;
     color: var(--card-color);
-    margin-bottom: clamp(0.4rem, 1vw, 0.6rem);
 }
 
 .price-period {

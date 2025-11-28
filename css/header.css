@@ -1,97 +1,30 @@
 /*/////////////////////////////*/
-/* ==== Header Top Bar ==== */
-/*/////////////////////////////*/
-
-
-.header-top-bar {
-    position: relative; 
-    z-index: 1000;
-    background-color: var(--light);
-    color: var(--sec);
-    padding:
-        clamp(0.3rem, 1vw, 0.5rem) /* top, bottom */
-        0 /* left, right */;
-    font-size: clamp(0.75rem, 0.5vw + 0.6rem, 0.8rem); /* 12px à 12.8px */
-    font-weight: 700;
-
-    
-    /* Animation douce à la disparition */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Classe JS pour masquer la top-bar au scroll */
-.header-top-bar.is-hidden {
-    transform: translateY(-100%);
-    opacity: 0;
-}
-
-.top-bar-container {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: clamp(1.2rem, 3vw, 1.8rem);
-}
-
-.top-bar-container span {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.top-bar-container i {
-    color: var(--pri);
-}
-
-/*/////////////////////////////*/
 /* ==== Header Section ==== */
 /*/////////////////////////////*/
 
-/* === 4. Header & Navigation === */
 .site-header {
-    background-color: white;
-    padding:
-        clamp(0.6rem, 2vw, 1rem) /* top, bottom */
-        0 /* left, right */;
     position: sticky;
     top: 1rem;
     z-index: 1000;
     width: auto;
+    
+    background-color: white;
+    opacity: 1 !important;
     transition: padding 0.3s ease, box-shadow 0.3s ease;
+    padding:
+    clamp(0.6rem, 2vw, 1rem) /* top, bottom */
+    0 /* left, right */;
 }
 
-/* Nouvel état au scroll */
 .site-header.is-sticky {
     max-width: 1200px;
     border-radius:1rem;
     margin: 0 auto;
     padding: clamp(0.8rem, 2.5vw, 1.2rem);
-    box-shadow: 0 10px 30px rgba(0, 113, 179, 0.253);
-}
+    box-shadow: 0 5px 30px rgba(0, 113, 179, 0.05);
 
-@media (max-width: 576px) {
-    .site-header{
-    top: 0;
-    }
-
-    .site-header.is-sticky {
-        width: 100%;
-        border-radius: 0;
-        padding: 1rem 0;
-        margin: 1rem 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        top : 0;
-    }
-
-    .site-header .header-logo img {
-    height: 4rem;
-    margin: 0;
-    padding: 0;
-    top: 0;
-    }
-    .site-header.is-sticky .header-logo img {
-    height: 3rem;
-    }
+    border: 1px solid var(--light);
+    background-color: white;
 }
 
 .header-container {
@@ -140,7 +73,7 @@
     gap: clamp(1.2rem, 3vw, 1.8rem);
 
 }
-/* Dernier nav-item différent */
+
 .nav-item.last-child {
     background-color: var(--light);
     color: var(--sec);
@@ -183,7 +116,6 @@
     transition: color 0.2s ease;
 }
 
-/* Petite animation "soulignement" au survol */
 .nav-link::after {
     content: '';
     position: absolute;
@@ -202,24 +134,23 @@
     width: 100%;
 }
 
-/* Flèche sur le lien du megamenu */
 .nav-link .fa-chevron-down {
     font-size: clamp(0.65rem, 0.5vw + 0.5rem, 0.7rem); /* 10.4px à 11.2px */
     margin-left: clamp(0.2rem, 0.8vw, 0.4rem);
     transition: transform 0.3s ease;
 }
-/* inversion (flip) de la flèche quand le menu est ouvert */
+
 .nav-link.active .fa-chevron-down {
     transform: scaleY(-1) translateY(2px);
 }
 
-/* Bouton "Devis" mis en avant */
 .nav-item-cta {
     margin-left: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
-/* === 4. Megamenu === */
+/* === Megamenu === */
 .megamenu {
+    margin: 0 -1px;
     display: none;
     position: absolute;
     z-index: 999;
@@ -227,38 +158,31 @@
     right: 0;
     top: 100%;
     background-color: white;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1); 
+    /* box-shadow:
+    0 5px 30px rgba(0, 113, 179, 0.05),
+    0 -5px 30px white; */
     border-radius: 0 0 1rem 1rem;
 }
 
-/* Classe JS pour afficher le menu */
 .megamenu.is-open {
     display: block;
     opacity: 1;
     transform: translateY(0);
+    border: 1px solid var(--light);
+    border-top: none;
     background-color: white;
-    /* backdrop-filter: blur(10px); */
+
+    padding-left: 1rem;
 }
 
 .site-header.is-sticky:has(.megamenu.is-open) {
     border-radius: 1rem 1rem 0 0;
 }
 
-/* Header sticky + megamenu ouvert */
-.site-header.is-sticky {
-    background-color: white;
-}
-.site-header.is-sticky .megamenu.is-open {
-    background-color: white
-}
-
 .megamenu-container {
     display: flex;
-    padding: clamp(1.5rem, 4vw, 2.5rem);
-    gap: clamp(1.5rem, 4vw, 2.5rem);
-}
-/* .megamenu-container  */.special-card {
-    padding: 0;
+    padding: 2rem 1rem 1.5rem 1rem;
+    gap: 1rem;
 }
 
 .megamenu-body {
@@ -284,7 +208,7 @@
 }
 
 .megamenu-header hr {
-    flex-grow: 1; /* La ligne prend tout l'espace restant */
+    flex-grow: 1;
     border: none;
     border-bottom: 2px solid var(--light);
     margin:
@@ -299,6 +223,7 @@
 .megamenu-column.megamenu-promo {
     flex-basis: 300px;
     flex-grow: 0;
+
     background-color: var(--ter);
     padding: clamp(1.2rem, 3vw, 1.8rem);
     border-radius: 8px;
@@ -313,14 +238,12 @@
     letter-spacing: 0.5px;
     border-bottom: 2px solid var(--light);
     padding-bottom: clamp(0.4rem, 1vw, 0.6rem);
-
-    /* min-height: 3.2rem; */
 }
 
 .megamenu-cards {
     display: flex;
     flex-direction: column;
-    gap: clamp(0.6rem, 1.5vw, 0.9rem); /* Espace entre les cartes */
+    gap: clamp(0.6rem, 1.5vw, 0.9rem);
     margin-top: clamp(1rem, 2.5vw, 1.5rem);
 }
 
@@ -418,7 +341,8 @@
 }
 
 
-/* === 5. Styles Mobile (Hamburger) === */
+/* === Styles Mobile === */
+
 .mobile-nav-toggle {
     display: none;
     background: none;
@@ -433,7 +357,6 @@
     display: none;
 }
 
-/* Quand le menu mobile est ouvert */
 .mobile-nav-toggle.is-open .icon-open {
     display: none;
 }
@@ -443,7 +366,6 @@
 
 
 @media (max-width: 1200px) {
-    /* Cache la top-bar sur mobile */
     .header-top-bar {
         display: none;
     }
@@ -454,34 +376,27 @@
     }
 }
 
-
-/* === 6. Responsive (Point de rupture à 992px) === */
 @media (max-width: 992px) {
-    /* Cache la top-bar sur mobile */
     .header-top-bar {
         display: none;
     }
 
-    /* Affiche le bouton hamburger */
     .mobile-nav-toggle {
         display: block;
     }
 
-    /* Cache la nav principale */
     .primary-navigation {
         display: none;
         position: fixed;
         inset: 0; /* Prend tout l'écran */
         background-color: rgba(255, 255, 255, 0.98);
-        padding-top: clamp(5rem, 15vw, 7rem); /* Espace pour le header */
+        padding-top: clamp(5rem, 15vw, 7rem);
     }
 
-    /* Classe JS pour afficher le menu mobile */
     .primary-navigation.is-open {
         display: block;
     }
 
-    /* Centre la nav mobile */
     .nav-list {
         flex-direction: column;
         align-items: center;
@@ -496,7 +411,7 @@
     }
     
     .nav-link:hover::after {
-        width: 0; /* Pas de soulignement sur mobile */
+        width: 0;
     }
 
     .nav-item-cta {
@@ -504,15 +419,14 @@
         margin-top: clamp(1.2rem, 3vw, 1.8rem);
     }
     
-    /* Cache le megamenu (on gérera les sous-menus différemment sur mobile) */
     .has-megamenu {
-        display: none; /* Simplifié pour l'instant */
+        display: none;
     }
     
     .megamenu-container {
         flex-direction: column;
     }
     .megamenu-column.megamenu-promo {
-        display: none; /* On cache la promo sur mobile pour simplifier */
+        display: none;
     }
 }

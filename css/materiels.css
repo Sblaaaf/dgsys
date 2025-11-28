@@ -61,7 +61,6 @@
     background-color: white;
     border-radius: 1.5rem;
     border: 1px solid var(--border-gray);
-    box-shadow: 0 10px 25px rgba(33, 54, 106, 0.1);
 
     transition: all 0.3s ease;
     padding-top: clamp(5rem, 15vw, 7rem);
@@ -69,7 +68,7 @@
 
 .materiel-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(33, 54, 106, 0.1);
+    box-shadow: 0 5px 20px rgba(33, 54, 106, 0.1);
 }
 
 .materiel-image {

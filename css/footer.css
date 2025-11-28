@@ -2,13 +2,12 @@
 /* ==== Footer Section ==== */
 /*//////////////////////////*/
 
-/* === Super Footer === */
 .super-footer {
     background-color: var(--sec);
     color: white;
     padding-top: clamp(3rem, 10vw, 5rem);
     position: relative;
-    overflow: hidden; /* Pour contenir le pseudo-élément */
+    overflow: hidden;
 }
 
 /* Logo en filigrane */
@@ -18,8 +17,8 @@
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    right: -50px;
-    bottom: -50px;
+    right: 10px;
+    bottom: 15px;
     width: 300px;
     height: 300px;
     opacity: 0.05;
@@ -30,8 +29,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: clamp(1.5rem, 4vw, 2.5rem);
-    padding-bottom: clamp(2rem, 6vw, 4rem);
-    position: relative; /* Pour que le contenu passe au-dessus du filigrane */
+
+    padding-bottom: 1rem;
+
+    position: relative;
     z-index: 1;
 }
 
@@ -72,6 +73,10 @@
     align-items: center;
     gap: clamp(0.4rem, 1vw, 0.6rem);
     margin-bottom: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.footer-about p {
+    text-align: left;
 }
 
 .footer-about .footer-logo img {
@@ -137,7 +142,19 @@
     padding:
         clamp(1.2rem, 3vw, 1.8rem) /* top, bottom */
         0 /* left, right */;
-    text-align: center;
+    
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.8rem, 2.5vw, 1.2rem);
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+
+            p {
+                max-width: 1200px;
+            }
+        }
 }
 
 .footer-bottom p {
@@ -153,17 +170,4 @@
 
 .footer-bottom p a:hover {
     color: var(--pri);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .footer-about .footer-logo,
-    .social-links,
-    .footer-contact p {
-        justify-content: center;
-    }
 }

@@ -31,15 +31,15 @@
 }
 
 .hero-section {
-    /* background: linear-gradient(110deg, var(--sec) 0%, var(--pri) 100%); */
+    position: relative;
+    z-index: 1;
+
     background-color: var(--sec);
     color: white;
     margin: 0;
     padding:
         clamp(6rem, 18vw, 10rem) /* top, bottom */
         0 /* left, right */;
-    position: relative;
-    z-index: 1;
 
     img {
         width: 30%;
@@ -48,17 +48,19 @@
         object-fit: countain;
         user-select: none;
     }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding:
+            0 /* top, bottom */
+            clamp(0.8rem, 2.5vw, 1.2rem) /* left, right */;
+        position: relative;
+        z-index: 3;
+    }
 }
 
-.hero-content-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding:
-        0 /* top, bottom */
-        clamp(0.8rem, 2.5vw, 1.2rem) /* left, right */;
-    position: relative;
-    z-index: 3;
-}
+
 
 .hero-content {
     display: flex;
@@ -101,14 +103,6 @@
     gap: clamp(0.8rem, 2.5vw, 1.2rem);
     flex-wrap: wrap;
 }
-
-/* .hero-cta-buttons .btn-primary:hover {
-    background-color: var(--light);
-    color:var(--pri);
-    border: var(--pri) 1px solid;
-} */
-
-
 
 .hero-visuals-wrapper {
     position: absolute;
@@ -212,14 +206,14 @@
 
 .caption-header {
     display: flex;
-    align-items: center; /* Aligne verticalement le titre, le séparateur et le texte */
+    align-items: center;
     gap: clamp(0.6rem, 1.5vw, 0.9rem);
 }
 
 .caption-title-group {
     display: flex;
     align-items: center;
-    gap: clamp(0.6rem, 1.5vw, 0.9rem); /* Espace réduit entre l'icône et le titre */
+    gap: clamp(0.6rem, 1.5vw, 0.9rem);
     color: var(--sec);
 }
 
@@ -227,7 +221,7 @@
     font-size: 1rem; /* 16px à 17.6px */
     font-weight: 700;
     margin: 0;
-    white-space: nowrap; /* Empêche le titre de passer à la ligne */
+    white-space: nowrap;
 }
 
 .caption-header .separator {
@@ -236,74 +230,20 @@
 }
 
 .caption-header p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--text);
     margin: 0;
     text-align: left;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;       /* limite à 2 lignes */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .caption-buttons {
     display: flex;
     align-items: center;
     gap: clamp(0.6rem, 1.5vw, 0.9rem);
-}
-
-/* media query entre mobile et grand écran */
-@media (min-width: 576px) and (max-width: 1200px) {
-    
-}
-
-/* --- Responsive Hero Section --- */
-@media (max-width: 992px) {
-    .hero-section {
-        padding:
-            clamp(5rem, 15vw, 7rem) /* top, bottom */
-            0 /* left, right */;
-        text-align: center;
-    }
-
-    .hero-content-container {
-        padding:
-            0 /* top, bottom */
-            clamp(2rem, 6vw, 4rem) /* left, right */;
-    }
-
-    .hero-content {
-        width: 100%;
-        align-items: center;
-        gap: clamp(1.5rem, 4vw, 2.5rem);
-    }
-
-    .hero-subheadline {
-        max-width: 100%;
-        font-size: 1rem;
-        text-align: center;
-        text-align-last: center;
-    }
-
-    .hero-cta-buttons {
-        justify-content: center;
-    }
-
-    /* On cache les visuels pour laisser la place au contenu */
-    .hero-visuals-wrapper,
-    .hero-product-image {
-        display: none;
-    }
-
-    /* On cache les captions en dessous sur mobile pour simplifier */
-    .hero-captions-container {
-        display: none;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero-section {
-        padding:
-            clamp(3rem, 10vw, 5rem) /* top, bottom */
-            0 /* left, right */;
-    }
-    .hero-headline {
-        font-size: clamp(2rem, 4vw + 1rem, 2.2rem); /* 32px à 35.2px */
-    }
 }
